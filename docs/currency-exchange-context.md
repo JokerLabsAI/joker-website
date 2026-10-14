@@ -1,0 +1,70 @@
+# Currency Exchange: flagship context for agents
+
+JokerLabs is an AI laboratory. Currency Exchange is its flagship product for
+Colombian exchange houses. The main landing sells the laboratory's services and
+provides a distinct path to a product demo. Do not describe product functionality
+as AI-driven without implementation evidence.
+
+Read [positioning and page structure](laboratory-design.md) first.
+The flagship section now contains a concise capability summary and recent portal/API
+developments: roles/branches, currency reports, customer management and memberships.
+The older trial offer and long product mini-landing have been removed.
+
+Product demo CTAs select Currency Exchange in the contact form. Interest and locale
+are included in the existing email message; structured backend lead metadata,
+contact hardening and durable intake remain pending.
+
+## Source map
+
+- `components/sections/CurrencyExchangeSection.tsx`: flagship capabilities and updates.
+- `components/shared/InquiryLink.tsx`: transient inquiry selection.
+- `components/sections/ContactSection.tsx`: editable interest and delivery confirmation.
+- `content/es.ts`, `content/en.ts`, `lib/locale-types.ts`: bilingual content contract.
+- `app/page.tsx`, `lib/constants.ts`: narrative order and navigation.
+
+## Evidence and contract boundaries
+
+- [Integration review](../../money-exchange-backend/docs/currency-exchange-integration-review-2026-10-13.md): historical source review and risks.
+- [Active proposal](../../currency-exchange/openspec/changes/landing-product-integration/proposal.md): current completed slice and pending integration tasks.
+- [Backend handoff](../../money-exchange-backend/docs/PROJECT-HANDOFF.md): operational product continuation.
+- [Frontend rules](../../currency-exchange/AGENTS.md): portal constraints.
+
+Keep plan/configuration qualifications, verified-payment activation and feature-gated
+recurring billing accurate. Report generation is not regulatory submission. The
+landing never activates a tenant or executes a currency trade.
+
+## Currency Exchange sales section
+
+The flagship now leads with an operational benefit (exchange house under control),
+followed by less fragmented information, branch permissions and informed decisions.
+A labelled interactive illustration lets visitors switch between cash/currencies,
+customer information and reports. All values are sample data, not live tenant
+records or screenshots. The illustration runs locally without API calls.
+
+Recent capabilities support the commercial story rather than exposing API or
+provider implementation details. Core/Growth capacity is described accurately.
+Demo CTA appears beside the promise and in the closing offer; both preserve the
+existing Currency Exchange inquiry interest. ES/EN share the same content contract.
+
+## Product showcase and roadmap presentation
+
+The Currency Exchange section uses a distinct brand lockup, dimensional illustrated
+panel, benefit cards, high-contrast electronic-invoicing exhibit and demo closing.
+The ES/EN roadmap separates current capabilities from planned invoicing, provider-
+gated automatic renewal (under validation), and planned service-payment reconciliation.
+The invoice is a concept illustration, not an issued document or live feature.
+No launch date, provider certification, authority acceptance or availability guarantee
+is made. Source baseline: backend `docs/PROJECT-HANDOFF.md` electronic-invoicing
+milestone and `docs/integrations/wompi.md` payment boundaries.
+
+## Reporting and compliance spotlight
+
+DIAN Formats 1099 (FX purchases) and 1100 (FX sales), plus configured UIAF
+quarterly reporting, now have distinct commercial cards and an illustrative
+record → generate → review/submit flow. Copy describes support for compliance,
+not a blanket legal compliance guarantee or automatic authority acceptance.
+UIAF is conditional on company configuration and reporting access is permission-
+controlled. Electronic invoicing remains separately labelled Planned.
+Source evidence: `money-exchange-backend/app/api/routers/reports.py`,
+`app/services/dian.py`, and `app/services/uiaf.py`. Both locales and mobile styles
+are aligned; the preview remains illustrative and calls no reporting APIs.

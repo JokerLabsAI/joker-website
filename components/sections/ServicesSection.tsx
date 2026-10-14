@@ -1,5 +1,6 @@
 "use client";
 
+import { InquiryLink } from "@/components/shared/InquiryLink";
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Eyebrow } from "@/components/shared/Eyebrow";
@@ -235,6 +236,7 @@ export function ServicesSection() {
             />
           ))}
         </motion.div>
+        <div className="services-next-step"><InquiryLink interest="services">{c.hero.cta}</InquiryLink></div>
       </div>
     </section>
   );

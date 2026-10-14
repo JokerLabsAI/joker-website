@@ -4,48 +4,68 @@ export const es: SiteContent = {
   locale: "es",
 
   nav: {
-    items: ["Inicio", "Servicios", "Trabajo", "Nosotros", "FAQ", "Contacto"],
+    items: ["Inicio", "Producto", "Servicios", "Proceso", "Equipo", "Contacto"],
     cta: "Hablemos",
   },
 
   hero: {
-    eyebrow: "Laboratorio de Tecnología Creativa · Colombia",
-    cyclePrefix: "Nacimos para",
-    cycleWords: ["Crear", "Mejorar", "Evolucionar", "Automatizar", "Innovar"],
-    sub: "IA, software, automatización y sistemas, todo bajo un mismo techo. No solo construimos productos; resolvemos el problema completo en cada capa.",
-    cta: "Iniciar un proyecto ♠",
-    secondary: "Ver nuestro trabajo",
-    scroll: "Explorar",
+  "eyebrow": "JokerLabs · Laboratorio de inteligencia artificial",
+  "cyclePrefix": "IA para transformar",
+  "cycleWords": [
+    "tu operación"
+  ],
+  "sub": "Desarrollamos productos propios y soluciones de IA para empresas que quieren avanzar. Currency Exchange, nuestro producto insignia para casas de cambio, reúne el desarrollo del laboratorio en una operación concreta.",
+  "cta": "Hablemos de tu proyecto",
+  "secondary": "Conoce Currency Exchange",
+  "scroll": "Explorar el producto"
+},
+
+  laboratory: {
+    location: "DESDE COLOMBIA · PARA EL MUNDO",
+    heroNote: "Ideas ambiciosas. Ingeniería aplicada.",
+    eyebrow: "El laboratorio",
+    title: "La curiosidad nos mueve.",
+    titleAccent: "La ingeniería nos lleva.",
+    description: "Exploramos posibilidades, conectamos disciplinas y construimos con propósito. Trabajamos contigo desde la primera pregunta hasta una solución que funciona en el mundo real.",
+    link: "Conoce el laboratorio",
+    explore: "Explorar disciplina",
+    principle: "El progreso empieza cuando una buena pregunta se convierte en algo que puedes usar.",
+    disciplines: [
+      { title: "Inteligencia artificial", description: "De los datos a nuevas formas de pensar, decidir y crear." },
+      { title: "Software", description: "De una idea a productos digitales diseñados para evolucionar." },
+      { title: "Automatización", description: "De tareas repetitivas a tiempo para hacer lo que importa." },
+      { title: "Sistemas", description: "De piezas separadas a una arquitectura que conecta todo." },
+    ],
   },
 
   services: {
-    eyebrow: "Qué hacemos",
-    line1: "Cuatro disciplinas.",
-    line2: "Un laboratorio.",
-    sub: "Tenemos todos los palos, así que, sea cual sea tu problema, tenemos la mano para resolverlo.",
-    items: [
-      {
-        title: "Inteligencia Artificial",
-        tag: "Pensar. Decidir. Aprender.",
-        desc: "Modelos, sistemas de visión y motores de decisión que convierten datos brutos en criterio para el mundo real. Diseñados para razonar, no solo para ejecutar.",
-      },
-      {
-        title: "Ingeniería de Software",
-        tag: "Construir. Escalar. Lanzar.",
-        desc: "Plataformas full-stack, APIs y pipelines de datos que crecen desde el prototipo hasta producción y se mantienen ahí de forma confiable.",
-      },
-      {
-        title: "Automatización",
-        tag: "Trabajo que se ejecuta solo.",
-        desc: "Flujos de trabajo, agentes y pipelines que eliminan cada paso manual entre la intención y el resultado. Todo automatizado y a tu medida.",
-      },
-      {
-        title: "Arquitectura de Sistemas",
-        tag: "Conectar todo.",
-        desc: "Infraestructura y arquitectura que integra todos los componentes de la solución. La capa que hace que la magia suceda. Todo en un solo lugar.",
-      },
-    ],
-  },
+  "eyebrow": "02 / Servicios del laboratorio",
+  "line1": "La capacidad que construye productos.",
+  "line2": "Aplicada a tu negocio.",
+  "sub": "Si necesitas una solución propia, trabajamos contigo para identificar el problema, validar una ruta y llevarla a producción. La IA es el centro; software, automatización e infraestructura hacen posible su uso.",
+  "items": [
+    {
+      "title": "IA aplicada a tu operación",
+      "tag": "Datos que se convierten en decisiones.",
+      "desc": "Agentes, modelos y sistemas de análisis para procesos concretos. Empezamos por la necesidad de negocio y definimos cómo evaluar el resultado."
+    },
+    {
+      "title": "Desarrollo de productos digitales",
+      "tag": "De la idea a una herramienta usable.",
+      "desc": "Plataformas, portales y APIs que conectan usuarios, datos y procesos. Diseñamos una base que puedas mantener y hacer evolucionar."
+    },
+    {
+      "title": "Automatización de procesos",
+      "tag": "Menos trabajo repetitivo.",
+      "desc": "Conectamos herramientas y flujos para reducir tareas manuales, con controles y visibilidad sobre lo que ocurre en cada paso."
+    },
+    {
+      "title": "Integración e infraestructura",
+      "tag": "Tecnología que funciona en conjunto.",
+      "desc": "Integramos sistemas e infraestructura para desplegar y operar tu solución. Acordamos requisitos de acceso, continuidad y mantenimiento."
+    }
+  ]
+},
 
   work: {
     eyebrow: "Trabajo en progreso",
@@ -53,6 +73,8 @@ export const es: SiteContent = {
     line2: "Lanzando pronto.",
     sub: "¿Qué cartas tiene JokerLabs sobre la mesa en este momento? Estamos resolviendo problemas reales de alto impacto. Uno en fintech y otro enfocado en el comercio impulsado por IA.",
     liveBadge: "En desarrollo",
+    visualLabel: "Exploración visual · No es una captura del producto",
+    actionLabels: ["Explorar Currency Exchange", "Hablemos de comercio inteligente"],
     items: [
       {
         industry: "Fintech · Servicio Cloud",
@@ -72,38 +94,230 @@ export const es: SiteContent = {
     cta: "¿Tienes un proyecto en mente? Hablemos ♠",
   },
 
-  why: {
-    eyebrow: "Por qué JokerLabs",
-    line1: "Construidos de forma diferente.",
-    line2: "Con propósito.",
-    sub: "No diseñamos un laboratorio que hace de todo; diseñamos uno que lo resuelve todo. Aquí está por qué eso importa.",
-    items: [
-      {
-        title: "Herramientas, No Plantillas",
-        desc: "No reutilizamos lo que funcionó para otro problema: cada solución se diseña sobre tu problema real, con precisión de ingeniería. Y con un alcance definido desde el día uno, para resolver, no para reabrirse sin fin.",
-      },
-      {
-        title: "Entregamos Antes de que se Enfríe el Café",
-        desc: "Días y semanas, no trimestres. Prototipamos rápido, iteramos fuerte y entregamos tecnología funcional a tiempo, sin excusas.",
-      },
-      {
-        title: "Cartas Sobre la Mesa. Siempre.",
-        desc: "Cero humo y cero espejos. Transparencia total desde el primer día: sin costos ocultos, sin sorpresas en la factura y sin juegos.",
-      },
-      {
-        title: "Cada Bug Tiene su Depredador",
-        desc: "Los retos técnicos complejos son nuestro hábitat natural. Cuanto más difícil el problema, más lo queremos. Así funciona el laboratorio.",
-      },
-      {
-        title: "Siempre en la Sala",
-        desc: "Líneas directas, actualizaciones reales y cero intermediarios filtrando tu voz. Hablas directamente con quienes construyen.",
-      },
-      {
-        title: "Mentes Senior. Cero Intermediarios.",
-        desc: "Acceso directo a los jokers del laboratorio que construyen tu producto. Sin trabas. Sin intermediarios. Sin complicaciones. Esto no es una relación de proveedor. Es una alianza.",
-      },
+  currencyExchange: {
+  "eyebrow": "01 / Nuestro producto insignia",
+  "title": "Toda tu operación.",
+  "description": "Clientes, divisas, caja y reportes DIAN y UIAF conectados en una misma plataforma. Más visibilidad para operar y herramientas para apoyar tus procesos de cumplimiento.",
+  "problem": "Cuando la información está repartida, cada cierre exige reconstruir lo que pasó.",
+  "benefit": "Currency Exchange reúne las piezas de tu operación para que puedas revisar movimientos, controlar accesos y tomar decisiones con contexto.",
+  "summaryLabel": "Más claridad en cada paso de tu operación",
+  "capabilities": [
+    {
+      "title": "Cada sede, bajo control",
+      "description": "Asigna accesos por rol y sucursal. Tu equipo trabaja con los permisos que necesita y tú mantienes visibilidad."
+    },
+    {
+      "title": "Menos información dispersa",
+      "description": "Conecta clientes, operaciones, divisas y recibos para revisar la actividad desde un mismo entorno."
+    },
+    {
+      "title": "Reportes que respaldan tu gestión",
+      "description": "Consulta caja por divisa y prepara archivos DIAN y UIAF según configuración. Mantén información organizada para revisión y seguimiento."
+    }
+  ],
+  "updatesLabel": "Control para operar. Herramientas para crecer.",
+  "updatesDescription": "Estas capacidades conectan el trabajo de tu equipo con la información que necesitas como dueño o administrador.",
+  "updates": [
+    {
+      "title": "Caja y divisas con trazabilidad",
+      "description": "Tasas aprobadas, inventario y conciliación por sede, con historial de movimientos para revisar lo ocurrido."
+    },
+    {
+      "title": "Clientes más fáciles de gestionar",
+      "description": "Búsqueda, actualización de contacto y recuperación de registros ocultos, conservando su historial."
+    },
+    {
+      "title": "Reportes a tu medida",
+      "description": "Filtra una o varias divisas y exporta reportes de caja en PDF para revisar el periodo que te interesa."
+    },
+    {
+      "title": "Un plan para tu operación",
+      "description": "Core para una sede o Growth para hasta cinco, con cuatro usuarios por sede y gestión de membresía."
+    }
+  ],
+  "boundary": "Capacidades sujetas al plan y la configuración. Los archivos regulatorios requieren revisión antes de su presentación.",
+  "cta": "Solicitar una demo",
+  "moreLabel": "¿Tu reto está en otra industria?",
+  "moreCta": "Explora nuestros servicios",
+  "headlineAccent": "Un solo Currency Exchange.",
+  "productLabel": "PRODUCTO INSIGNIA DE JOKERLABS",
+  "ctaNote": "Cuéntanos cómo opera tu casa de cambio. Revisamos contigo el encaje y los siguientes pasos.",
+  "tourCta": "Ver capacidades",
+  "preview": {
+    "label": "Vista ilustrativa · Datos de ejemplo",
+    "title": "Tu operación, en una sola vista",
+    "branch": "Sucursal Centro",
+    "tabs": [
+      "Caja y divisas",
+      "Clientes",
+      "Reportes"
     ],
+    "views": [
+      {
+        "title": "Visibilidad de tu caja",
+        "description": "Consulta el inventario por divisa y revisa los movimientos de la sede.",
+        "rows": [
+          {
+            "label": "USD · Disponible",
+            "value": "1.250,00"
+          },
+          {
+            "label": "EUR · Disponible",
+            "value": "840,00"
+          },
+          {
+            "label": "COP · Saldo de caja",
+            "value": "4.800.000,00"
+          }
+        ]
+      },
+      {
+        "title": "Información del cliente conectada",
+        "description": "Consulta sus datos y el estado de revisión antes de continuar la atención.",
+        "rows": [
+          {
+            "label": "Registro",
+            "value": "Datos de contacto"
+          },
+          {
+            "label": "Verificación",
+            "value": "Resultado de listas"
+          },
+          {
+            "label": "Trazabilidad",
+            "value": "Historial de cambios"
+          }
+        ]
+      },
+      {
+        "title": "De la operación al reporte",
+        "description": "Consulta los reportes operativos y conoce la generación de archivos regulatorios.",
+        "rows": [
+          {
+            "label": "Caja por divisa",
+            "value": "PDF"
+          },
+          {
+            "label": "DIAN · Compras / Ventas",
+            "value": "1099 / 1100"
+          },
+          {
+            "label": "UIAF · Según configuración",
+            "value": "Trimestral"
+          }
+        ]
+      }
+    ],
+    "footnote": "Representación del flujo. No es una captura del portal ni información en vivo."
   },
+  "closingTitle": "Tu próxima etapa empieza con una demo.",
+  "closingDescription": "Descubre las capacidades actuales, revisa el plan que encaja con tus sedes y conoce la evolución prevista del producto.",
+  "roadmapTitle": "Lo que viene también cambia el juego.",
+  "roadmapDescription": "Estamos construyendo una plataforma que evoluciona contigo. Esta es la siguiente etapa del producto, con su estado visible.",
+  "availableLabel": "Capacidades actuales",
+  "roadmap": [
+    {
+      "title": "Facturación electrónica",
+      "description": "Una próxima etapa para conectar las operaciones con la emisión y el seguimiento de facturas electrónicas. Integración y alcance por definir.",
+      "status": "Planificada",
+      "state": "planned",
+      "tag": "LA PRÓXIMA ETAPA"
+    },
+    {
+      "title": "Renovación automática",
+      "description": "La base de pagos recurrentes está implementada. La habilitación de cobros automáticos depende de la elegibilidad y aprobación del proveedor.",
+      "status": "En validación",
+      "state": "validation",
+      "tag": "CONTINUIDAD"
+    },
+    {
+      "title": "Conciliación de pagos",
+      "description": "Seguimiento y conciliación de pagos del servicio para ampliar la trazabilidad de la membresía.",
+      "status": "Planificada",
+      "state": "planned",
+      "tag": "TRAZABILIDAD"
+    }
+  ],
+  "invoicePreview": {
+    "title": "Factura electrónica",
+    "subtitle": "Concepto de próxima funcionalidad",
+    "issuer": "Tu casa de cambio",
+    "row": "Operación vinculada",
+    "total": "Total",
+    "note": "Flujo previsto · No emite facturas"
+  },
+  "heroBadges": [
+    "Control por sede",
+    "Reportes DIAN y UIAF",
+    "Trazabilidad operativa"
+  ],
+  "compliance": {
+    "eyebrow": "REPORTES Y CUMPLIMIENTO",
+    "title": "Tu información operativa.",
+    "accent": "Lista para preparar tus reportes.",
+    "description": "El cumplimiento necesita información organizada. Currency Exchange conecta los registros de tu operación con la generación de reportes para DIAN y UIAF, según configuración y permisos.",
+    "cards": [
+      {
+        "name": "DIAN",
+        "title": "Compras y ventas, documentadas.",
+        "description": "Generación de los formatos 1099 para compras y 1100 para ventas de divisas, a partir de los registros de tu operación.",
+        "tags": [
+          "Formato 1099",
+          "Formato 1100"
+        ]
+      },
+      {
+        "name": "UIAF",
+        "title": "Seguimiento por periodo.",
+        "description": "Generación del reporte trimestral de operaciones que superan los umbrales configurados, cuando el módulo está habilitado.",
+        "tags": [
+          "Reporte trimestral",
+          "Umbrales configurados"
+        ]
+      }
+    ],
+    "flow": [
+      "Registra la operación",
+      "Genera el archivo",
+      "Revisa y presenta"
+    ],
+    "note": "Herramientas de apoyo al cumplimiento. La generación del archivo no equivale a presentación, validación o aceptación por DIAN o UIAF.",
+    "cta": "Conocer los reportes en una demo"
+  }
+},
+
+  why: {
+  "eyebrow": "03 / Por qué trabajar con nosotros",
+  "line1": "Construimos nuestro producto.",
+  "line2": "Nos involucramos en el tuyo.",
+  "sub": "Currency Exchange hace visible nuestra forma de trabajar: convertir necesidades operativas en capacidades que se pueden usar y revisar.",
+  "items": [
+    {
+      "title": "Experiencia de producto",
+      "desc": "Trabajamos en nuestro propio producto y enfrentamos decisiones de operación, integración y evolución del software."
+    },
+    {
+      "title": "Un problema de negocio primero",
+      "desc": "Definimos qué necesitas mejorar antes de decidir qué modelo o herramienta usar."
+    },
+    {
+      "title": "Alcance y criterios claros",
+      "desc": "Acordamos entregables, prioridades y cómo revisar si la solución cumple su propósito."
+    },
+    {
+      "title": "Validación por etapas",
+      "desc": "Prototipamos, revisamos contigo y ajustamos antes de ampliar la implementación."
+    },
+    {
+      "title": "Acceso al equipo que construye",
+      "desc": "Conversas con quienes diseñan e implementan la solución, para resolver preguntas con contexto."
+    },
+    {
+      "title": "Evolución acordada",
+      "desc": "Definimos contigo el soporte y las siguientes mejoras según las necesidades del proyecto."
+    }
+  ]
+},
 
   compare: {
     eyebrow: "Ponlos a competir",
@@ -126,7 +340,7 @@ export const es: SiteContent = {
     eyebrow: "Sobre nosotros",
     line1: "Somos el laboratorio",
     line2: "que tiene todos los palos de la baraja.",
-    lead: "JokerLabs es un laboratorio de tecnología creativa fundado por cinco ingenieros provenientes de tres ramas de la ingeniería: Mecatrónica, Biomédica y Mecánica, con especialización en inteligencia artificial, ingeniería de software, automatización y arquitectura de sistemas.",
+    lead: "JokerLabs es un laboratorio de inteligencia artificial fundado por cinco ingenieros provenientes de tres ramas de la ingeniería: Mecatrónica, Biomédica y Mecánica, con especialización en inteligencia artificial, ingeniería de software, automatización y arquitectura de sistemas.",
     body1: "No somos una agencia generalista ni una consultora tradicional. Somos un laboratorio multidisciplinario diseñado para resolver problemas que viven en la intersección entre tecnología, procesos e infraestructura. Problemas que requieren todos los palos de la baraja para resolverse correctamente.",
     body2: "Con base en Colombia y trabajando a nivel global. Llevamos el talento y la innovación latinoamericana a proyectos en cualquier parte del mundo, con la calidad y disciplina de un laboratorio de primer nivel.",
     statsTitle: "El laboratorio, en números.",
@@ -139,64 +353,64 @@ export const es: SiteContent = {
   },
 
   process: {
-    eyebrow: "Cómo trabajamos",
-    line1: "La mano de cinco pasos",
-    line2: "del laboratorio.",
-    steps: [
-      {
-        title: "Alcance",
-        desc: "Mapeamos el problema real en todas las disciplinas antes de escribir una sola línea de código.",
-      },
-      {
-        title: "Diseño",
-        desc: "Una arquitectura que integra IA, software e infraestructura de forma fluida.",
-      },
-      {
-        title: "Construcción",
-        desc: "Ejecución orientada al producto. Prototipamos rápido, iteramos fuerte y entregamos tecnología funcional.",
-      },
-      {
-        title: "Despliegue",
-        desc: "Implementación en tu operación: del modelo a la máquina, del dashboard a la línea de producción.",
-      },
-      {
-        title: "Soporte",
-        desc: "Nos quedamos. Monitoreo, iteración y un socio que conoce cada capa de lo que construimos.",
-      },
-    ],
-  },
+  "eyebrow": "04 / Cómo empezamos",
+  "line1": "Del reto de negocio",
+  "line2": "a una solución validada.",
+  "steps": [
+    {
+      "title": "Entender",
+      "desc": "Revisamos el proceso, las herramientas y la necesidad de negocio que quieres resolver."
+    },
+    {
+      "title": "Definir",
+      "desc": "Acordamos alcance, prioridades, presupuesto y criterios para evaluar el resultado."
+    },
+    {
+      "title": "Validar",
+      "desc": "Construimos una primera versión y la revisamos contigo antes de ampliar el desarrollo."
+    },
+    {
+      "title": "Integrar",
+      "desc": "Conectamos la solución con tus sistemas y preparamos su uso en la operación."
+    },
+    {
+      "title": "Evolucionar",
+      "desc": "Definimos soporte y siguientes mejoras según lo que necesite tu negocio."
+    }
+  ]
+},
 
   faq: {
-    eyebrow: "Preguntas frecuentes",
-    line1: "¿Tienes preguntas?",
-    line2: "Tenemos respuestas.",
-    selectLabel: "Selecciona una pregunta",
-    chatHeader: "JokerLabs · Soporte",
-    chatStatus: "En línea",
-    chatEmpty: "Selecciona una pregunta para iniciar la conversación ♠",
-    items: [
-      {
-        question: "¿Quiénes están detrás de JokerLabs?",
-        answer: "JokerLabs está impulsado por cinco fundadores provenientes de tres ramas de la ingeniería: Mecatrónica, Biomédica y Mecánica, con experiencia en inteligencia artificial, ingeniería de software, automatización y arquitectura de sistemas. Somos un laboratorio de tecnología creativa multidisciplinario con base en Colombia y alcance global. Cada proyecto cuenta con la participación directa del equipo que lo construye. Sin subcontratistas. Sin intermediarios. Sin capas entre tú y las personas que crean tu solución.",
-      },
-      {
-        question: "¿Aceptan requisitos personalizados?",
-        answer: "Sí. Nuestra ingeniería no está limitada a casos de uso predefinidos: podemos resolver problemas de cualquier industria, restricción o escala. Cada proyecto comienza con una llamada de descubrimiento para mapear el problema real y definir un alcance claro desde el día uno, y trabajamos dentro de ese alcance con disciplina, sin ciclos interminables de rehacer lo ya acordado.",
-      },
-      {
-        question: "¿Cuál es su tiempo de entrega?",
-        answer: "Depende del alcance, pero nos movemos rápido. Un MVP enfocado o un flujo de automatización puede estar en vivo en 1–3 semanas. Las plataformas más grandes generalmente toman entre 4 y 10 semanas. Definimos el alcance cuidadosamente desde el inicio y ejecutamos sin sorpresas. Velocidad sin recortar calidad: ese es el estándar JokerLabs.",
-      },
-      {
-        question: "¿Ofrecen soporte continuo?",
-        answer: "Sí. Consideramos el soporte parte del trabajo, no un complemento. No nos retiramos en la entrega. Cada proyecto incluye una fase de soporte: monitoreo, iteración y una línea directa con el mismo equipo que lo construyó. Nos quedamos el tiempo que necesites.",
-      },
-      {
-        question: "¿Cuál es su modelo de precios?",
-        answer: "Trabajamos con proyectos de alcance fijo o bajo modalidad retainer, según lo que mejor se adapte a tus necesidades. Los precios son siempre transparentes y definidos desde el inicio: sin facturas sorpresa, sin cobros misteriosos por hora. Recibes un desglose claro antes de que comience cualquier trabajo. Los precios justos son uno de nuestros compromisos principales.",
-      },
-    ],
-  },
+  "eyebrow": "Antes de empezar",
+  "line1": "Elige el camino",
+  "line2": "que necesita tu negocio.",
+  "selectLabel": "Selecciona una pregunta",
+  "chatHeader": "JokerLabs · Preguntas frecuentes",
+  "chatStatus": "Respuestas orientativas",
+  "chatEmpty": "Selecciona una pregunta para conocer cómo trabajamos.",
+  "items": [
+    {
+      "question": "¿JokerLabs es un laboratorio o un software de cambio?",
+      "answer": "JokerLabs es un laboratorio de inteligencia artificial. Currency Exchange es nuestro producto insignia para casas de cambio. También desarrollamos soluciones de IA, software y automatización para otros negocios."
+    },
+    {
+      "question": "¿Cómo puedo conocer Currency Exchange?",
+      "answer": "Solicita una demo en el formulario e indica que te interesa Currency Exchange. Revisaremos tu operación, las capacidades disponibles y los siguientes pasos de implementación."
+    },
+    {
+      "question": "¿Pueden trabajar en una industria diferente?",
+      "answer": "Sí. Cuéntanos el proceso que necesitas mejorar y las herramientas que usas. Evaluaremos el encaje y propondremos un alcance antes de iniciar el desarrollo."
+    },
+    {
+      "question": "¿Cómo se definen el precio y los tiempos?",
+      "answer": "Dependen del alcance, las integraciones y los requisitos del proyecto. Primero revisamos tu necesidad; después acordamos entregables, presupuesto y calendario."
+    },
+    {
+      "question": "¿Qué pasa después de enviar mi consulta?",
+      "answer": "El equipo revisa tu mensaje y te contacta para entender el contexto. Si hay encaje, definimos una demo del producto o una conversación de alcance para tu proyecto."
+    }
+  ]
+},
 
   team: {
     eyebrow: "El laboratorio",
@@ -213,26 +427,31 @@ export const es: SiteContent = {
   },
 
   contact: {
-    eyebrow: "Contáctanos",
-    line1: "Construyamos",
-    line2: "algo extraordinario.",
-    sub: "¿Tienes un proyecto, un problema o simplemente una idea ambiciosa? Escríbenos. Leemos todo y respondemos rápido.",
-    nameLabel: "Tu nombre",
-    emailLabel: "Correo electrónico",
-    messageLabel: "Cuéntanos sobre tu proyecto",
-    messagePlaceholder: "¿Qué estás construyendo? ¿Cuál es el problema que necesitas resolver?",
-    submitLabel: "Enviar mensaje",
-    sendingLabel: "Enviando…",
-    responseTime: "Tiempo de respuesta habitual: menos de 24 horas. Tratamos cada consulta con seriedad, sin importar el tamaño del proyecto.",
-    successTitle: "Mensaje enviado ♠",
-    successMsg: "¡Gracias! Nos pondremos en contacto pronto.",
-  },
+  "eyebrow": "El siguiente paso",
+  "line1": "Hablemos de",
+  "line2": "tu operación.",
+  "sub": "¿Buscas Currency Exchange o una solución para tu empresa? Elige tu interés y cuéntanos qué necesitas mejorar. Te contactaremos para definir el siguiente paso.",
+  "nameLabel": "Tu nombre",
+  "emailLabel": "Correo electrónico",
+  "messageLabel": "¿Qué necesitas mejorar?",
+  "messagePlaceholder": "Cuéntanos tu industria, el proceso que quieres mejorar y las herramientas que usas hoy.",
+  "submitLabel": "Solicitar conversación",
+  "sendingLabel": "Enviando…",
+  "responseTime": "Revisamos cada consulta para preparar una conversación con contexto.",
+  "successTitle": "Consulta recibida",
+  "successMsg": "Gracias. El equipo revisará tu mensaje y te contactará para el siguiente paso.",
+  "interestLabel": "Me interesa",
+  "interestOptions": [
+    "Un proyecto de IA o desarrollo",
+    "Una demo de Currency Exchange"
+  ]
+},
 
   footer: {
-    tagline: "Laboratorio de tecnología creativa. IA, software, automatización y sistemas bajo un mismo techo. Todos los palos de la baraja. Una mano ganadora.",
-    navigateLabel: "Navegar",
-    contactLabel: "Contacto",
-    cta: "Iniciar un proyecto ♠",
-    taglineBottom: "Todos los palos de la baraja. Una mano ganadora.",
-  },
+  "tagline": "JokerLabs es un laboratorio de inteligencia artificial. Creamos productos propios y soluciones para empresas. Currency Exchange es nuestro producto insignia.",
+  "navigateLabel": "Explorar",
+  "contactLabel": "Contacto",
+  "cta": "Hablemos de tu proyecto",
+  "taglineBottom": "Inteligencia artificial. Productos. Progreso."
+},
 };

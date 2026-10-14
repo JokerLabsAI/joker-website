@@ -3,10 +3,10 @@ import { Home, Grid2x2, Briefcase, Info, MessageCircle, Mail } from "lucide-reac
 // ─── Navigation ───────────────────────────────────────────────────────────────
 export const NAV_ITEMS = [
   { name: "Home",     href: "#home",     icon: Home },
-  { name: "Services", href: "#services", icon: Grid2x2 },
-  { name: "Work",     href: "#work",     icon: Briefcase },
-  { name: "About",    href: "#why",      icon: Info },
-  { name: "FAQ",      href: "#faq",      icon: MessageCircle },
+  { name: "Product", href: "#currency-exchange", icon: Grid2x2 },
+  { name: "Services", href: "#services",     icon: Briefcase },
+  { name: "Process",  href: "#process",      icon: Info },
+  { name: "Team",     href: "#team",      icon: MessageCircle },
   { name: "Contact",  href: "#contact",  icon: Mail },
 ] as const;
 
@@ -182,7 +182,14 @@ export const FAQ_ITEMS = [
   },
 ] as const;
 
-// ─── Marquee items ────────────────────────────────────────────────────────────
+// ─── Currency exchange product section ───────────────────────────────────────
+// Fill in before publishing. Empty values fall back to the #contact form.
+export const CURRENCY_EXCHANGE = {
+  whatsapp: "", // country code + number, no "+" or spaces (e.g. 573001234567)
+  demoUrl: "",  // Calendly / Cal.com / Google Calendar booking link
+} as const;
+
+// ─── Marquee items────────────────────────────────────────────────────────────
 export const MARQUEE_ITEMS = [
   { text: "AI", suit: "♠" },
   { text: "Software", suit: "♦" },
