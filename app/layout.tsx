@@ -8,7 +8,7 @@ import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import "./globals.css";
 import "./laboratory.css";
-
+// Test1
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
