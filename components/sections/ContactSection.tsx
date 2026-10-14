@@ -22,7 +22,7 @@ export function ContactSection() {
       const value = (event as CustomEvent<{ interest?: string }>).detail?.interest;
       if (value === "services" || value === "currency_exchange") {
         setInterest(value);
-        setStatus("idle");
+        setStatus((current) => current === "sending" ? current : "idle");
       }
     };
     window.addEventListener("inquiry:select", onSelect);
@@ -52,9 +52,9 @@ export function ContactSection() {
   };
 
   return (
-    <section id="contact" className="section-pad">
+    <section id="contact" className="section-pad jl-contact">
       <div className="wrap">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start jl-contact-layout">
           <div className="flex flex-col gap-6">
             <RevealBlock><Eyebrow>{c.contact.eyebrow}</Eyebrow></RevealBlock>
             <RevealBlock delay={0.05}>
@@ -125,7 +125,7 @@ export function ContactSection() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 p-8 rounded-2xl border"
+                className="flex flex-col gap-5 p-8 rounded-2xl border jl-contact-form"
                 style={{ background: "var(--surf)", borderColor: "var(--border)" }}
               >
                 <div className="flex flex-col gap-2">

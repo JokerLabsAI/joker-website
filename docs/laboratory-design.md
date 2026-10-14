@@ -110,3 +110,19 @@ controlled. Electronic invoicing remains separately labelled Planned.
 Source evidence: `money-exchange-backend/app/api/routers/reports.py`,
 `app/services/dian.py`, and `app/services/uiaf.py`. Both locales and mobile styles
 are aligned; the preview remains illustrative and calls no reporting APIs.
+
+## Shared styling across the landing
+
+Services, differentiation, process, team, FAQ, contact and footer now use the same
+blue/teal surfaces, restrained borders, icon containers and editorial typography.
+`SectionHeading` is their shared heading boundary. Cards use responsive grids;
+FAQ keeps native disclosure controls. Process shows all five stages as an ordered
+list rather than automatically rotating between hidden steps. Team identities and
+roles remain the supplied content; initials are graphics, not invented portraits.
+Footer retains all navigation, email and five social destinations. Contact retains
+its interest selection, submission and confirmation behavior. The mobile menu
+now exposes expanded state and its controlled overlay identifier.
+
+New styles use `jl-*` classes in `app/globals.css`, existing theme tokens and
+reduced-motion hover support. Hero and navigation have matching surface/CTA
+refinements. No dependency, backend, plan or roadmap change is included.

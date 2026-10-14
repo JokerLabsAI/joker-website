@@ -7,6 +7,7 @@ import { LocaleProvider } from "@/components/layout/LocaleProvider";
 import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
 import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import "./globals.css";
+import "./laboratory.css";
 
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
