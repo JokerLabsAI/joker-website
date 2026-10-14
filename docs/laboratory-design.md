@@ -15,7 +15,7 @@ Exchange as AI-powered unless an implemented AI capability is verified.
    Primary action: discuss a project. Secondary action: explore the flagship.
 2. **Currency Exchange — product evidence:** operational problem, connected
    capabilities, recent developments (roles, currency reports, customer management,
-   memberships/payments), and a demo inquiry CTA.
+   memberships/payments), a demo inquiry CTA and the trial closing offer.
 3. **Services — commercial bridge:** apply the laboratory's capabilities to a
    visitor's own business. Benefits precede technical methods.
 4. **Why — confidence:** product experience, clear scope, staged validation and
@@ -38,7 +38,8 @@ from composition; their source remains available for future use.
 - Clear next-step labels; requesting a demo is not scheduling an appointment.
 - Progressive disclosure: concise flagship summary plus recent capabilities,
   replacing the nested product mini-landing and duplicate FAQ/offer blocks.
-- No unsupported trial periods, guaranteed posting/filing, artificial urgency,
+- The authorized offer is a 7-day trial extended to one month total with annual
+  membership purchase; inquiries do not activate access. No guaranteed posting/filing, artificial urgency,
   inflated branch capacity or invented social proof.
 - Blue/teal identity, geometric hero art, mobile layouts and reduced-motion CSS.
 
@@ -126,3 +127,11 @@ now exposes expanded state and its controlled overlay identifier.
 New styles use `jl-*` classes in `app/globals.css`, existing theme tokens and
 reduced-motion hover support. Hero and navigation have matching surface/CTA
 refinements. No dependency, backend, plan or roadmap change is included.
+
+## Trial offer and commercial strategy
+
+The closing product panel now uses `CurrencyExchangeTrial`, with a 7-day request
+and annual membership inquiry. Offer selection is visible in the contact form,
+included in the existing inquiry email and segmented in existing analytics events.
+One month means the total extended trial. Pricing, exact dates and membership
+terms are confirmed before payment. See [marketing strategy](marketing-strategy.md).

@@ -95,6 +95,61 @@ export const en: SiteContent = {
   },
 
   currencyExchange: {
+    assistant: {
+    "eyebrow": "PRODUCT VISION · PLANNED",
+    "title": "Your operation under control.",
+    "accent": "Your team informed in time.",
+    "description": "Our vision for Currency Exchange: an AI compliance assistant that helps identify relevant events, explain why they need attention and guide staff on the next step.",
+    "events": [
+        {
+            "title": "Information to complete",
+            "description": "Flag missing information needed to review a record."
+        },
+        {
+            "title": "Transactions to review",
+            "description": "Provide context for events that need attention from the responsible person."
+        },
+        {
+            "title": "Dates to prepare for",
+            "description": "Remind staff of report preparation dates according to business configuration."
+        }
+    ],
+    "flow": "Detect → Alert → Guide → Team review",
+    "note": "Planned capability. These examples illustrate the vision; they are not alerts available in the current trial. Scope, events and channels are yet to be defined. Staff retain decision-making responsibility.",
+    "cta": "Discuss the assistant"
+},
+    trial: {
+    "eyebrow": "YOUR FIRST STEP / CURRENCY EXCHANGE",
+    "title": "See the difference",
+    "accent": "in your own operation.",
+    "description": "Bring your daily workflow into focus: currencies, customers, branch permissions and reports. Start with a 7-day trial and evaluate the fit for your exchange house.",
+    "daysLabel": "days to explore",
+    "monthLabel": "month total",
+    "annualLabel": "WITH ANNUAL MEMBERSHIP",
+    "startTitle": "Start with 7 days.",
+    "startDescription": "Request your trial. We’ll review your operation and coordinate access so you can evaluate the current capabilities.",
+    "startCta": "Request my 7-day trial",
+    "annualTitle": "Give your team more time.",
+    "annualDescription": "Purchase a one-year membership to extend your trial to one month total, including the initial 7 days.",
+    "annualCta": "Explore annual membership",
+    "steps": [
+        {
+            "title": "Define your workflow",
+            "description": "Choose a daily process and the people who will evaluate it."
+        },
+        {
+            "title": "Test what matters",
+            "description": "Review currencies, customer records, permissions and reporting in your trial."
+        },
+        {
+            "title": "Decide with clarity",
+            "description": "Review the fit and annual membership with our team before purchasing."
+        }
+    ],
+    "note": "Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. We confirm pricing, plan scope, activation dates and membership terms before payment.",
+    "requestLabel": "7-day trial requested",
+    "annualRequestLabel": "Annual membership / one-month trial requested"
+},
   "eyebrow": "01 / Our flagship product",
   "title": "Your entire operation.",
   "description": "Customers, currencies, cash and DIAN/UIAF reports connected in one platform. More visibility for operations and tools to support your compliance processes.",
@@ -389,6 +444,10 @@ export const en: SiteContent = {
   "chatStatus": "General guidance",
   "chatEmpty": "Select a question to learn how we work.",
   "items": [
+{
+    "question": "How does the trial extension work?",
+    "answer": "Purchase a one-year membership to extend your trial to one month total, including the initial 7 days. Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. We confirm pricing, plan scope, activation dates and membership terms before payment."
+},
     {
       "question": "Is JokerLabs a laboratory or exchange software?",
       "answer": "JokerLabs is an artificial intelligence laboratory. Currency Exchange is our flagship product for exchange houses. We also build AI, software and automation solutions for other businesses."

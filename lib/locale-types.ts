@@ -50,6 +50,15 @@ export interface SiteContent {
   };
 
   currencyExchange: {
+    assistant: { eyebrow: string; title: string; accent: string; description: string; events: Array<{ title: string; description: string }>; flow: string; note: string; cta: string };
+    trial: {
+      eyebrow: string; title: string; accent: string; description: string;
+      daysLabel: string; monthLabel: string; annualLabel: string;
+      startTitle: string; startDescription: string; startCta: string;
+      annualTitle: string; annualDescription: string; annualCta: string;
+      steps: Array<{ title: string; description: string }>;
+      note: string; requestLabel: string; annualRequestLabel: string;
+    };
     heroBadges: string[];
     compliance: {
       eyebrow: string;

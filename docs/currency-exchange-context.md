@@ -8,7 +8,11 @@ as AI-driven without implementation evidence.
 Read [positioning and page structure](laboratory-design.md) first.
 The flagship section now contains a concise capability summary and recent portal/API
 developments: roles/branches, currency reports, customer management and memberships.
-The older trial offer and long product mini-landing have been removed.
+The older long product mini-landing has been removed. The current closing offer
+promotes the user-authorized 7-day trial, extendable to one month total by
+purchasing annual membership. Access remains coordinated through an inquiry;
+trial provisioning and billing are not implemented by this landing. See
+[the marketing strategy](marketing-strategy.md) for commercial boundaries.
 
 Product demo CTAs select Currency Exchange in the contact form. Interest and locale
 are included in the existing email message; structured backend lead metadata,
@@ -17,7 +21,8 @@ contact hardening and durable intake remain pending.
 ## Source map
 
 - `components/sections/CurrencyExchangeSection.tsx`: flagship capabilities and updates.
-- `components/shared/InquiryLink.tsx`: transient inquiry selection.
+- `components/sections/CurrencyExchangeTrial.tsx`: bilingual trial and annual offer.
+- `components/shared/InquiryLink.tsx`: transient inquiry and offer selection.
 - `components/sections/ContactSection.tsx`: editable interest and delivery confirmation.
 - `content/es.ts`, `content/en.ts`, `lib/locale-types.ts`: bilingual content contract.
 - `app/page.tsx`, `lib/constants.ts`: narrative order and navigation.
@@ -68,3 +73,11 @@ controlled. Electronic invoicing remains separately labelled Planned.
 Source evidence: `money-exchange-backend/app/api/routers/reports.py`,
 `app/services/dian.py`, and `app/services/uiaf.py`. Both locales and mobile styles
 are aligned; the preview remains illustrative and calls no reporting APIs.
+
+## AI assistant vision
+
+The user-approved direction is an AI compliance assistant that helps staff detect,
+understand and act on relevant events. The landing presents this as Planned, with
+illustrative incomplete-record, transaction-review and report-date events. Do not
+claim constant monitoring, available AI alerts or inclusion in the current trial
+without implementation evidence. See the marketing strategy for proposed scope.
