@@ -135,3 +135,114 @@ and annual membership inquiry. Offer selection is visible in the contact form,
 included in the existing inquiry email and segmented in existing analytics events.
 One month means the total extended trial. Pricing, exact dates and membership
 terms are confirmed before payment. See [marketing strategy](marketing-strategy.md).
+
+## Globe and neural core hero
+
+`HeroPlanet` renders one rotating, translucent longitude/latitude globe around a
+central brain with two sculpted hemispheres and teal cortical folds. The globe
+rotates independently so the neural core remains recognizable. Blue/teal materials
+adapt to the active theme. The old separate SVG globe has been removed.
+
+The inline globe/brain SVG fallback shares the exact positioned bounds with the
+canvas; only one layer is visible after WebGL initializes. Context loss restores
+the fallback. Rotation pauses offscreen, in hidden tabs and for reduced-motion
+preferences. GPU resources and observers are released on unmount. No external
+textures or models are required.
+
+### Animation visibility verification
+
+The globe now includes asymmetric rotating beacons; the brain subtly changes
+perspective and follows pointer movement within the illustration. Reduced motion
+continues to stop the animation. Initialization failures log diagnostic messages
+rather than silently hiding the reason for fallback.
+
+Local Chrome verification confirmed the Three.js canvas is visible (opacity 1),
+the SVG fallback is hidden, successive hero frames differ and no browser runtime
+exceptions were observed. TypeScript validation passed.
+
+### Interactive neural illustration
+
+The brain is now a computational graph with 200 nodes, nearest-neighbor synapses,
+travelling signals and a central circuit chip. Drag or arrow keys rotate the view;
+click, Enter/Space or Activate network sends a visual activation pulse. Pause/Resume
+controls stop the automatic animation. Pointer capture supports dragging, while
+vertical touch scrolling remains available. Instructions and buttons are localized
+in ES/EN and keyboard focus is visible. Reduced motion disables automatic movement;
+explicit interaction can still update the static view. This is a brand illustration,
+not a live model or product inference.
+
+### Recognizable brain and detailed processor
+
+The neural graph now sits inside a continuous lobed brain silhouette with paired
+translucent cortex volumes, branching gyri and a central fissure. Globe lines and
+synapses are subdued to prioritize the brain. The AI processor has a beveled dark
+package, teal substrate, metallic lid, 28 gold leads, circuit traces and a locally
+rendered AI/JokerLabs label. Procedural texture resources are disposed on teardown.
+Chrome verified the visible scene, animation, drag, keyboard, pulse, pause and
+mobile width without runtime exceptions; TypeScript passed.
+
+### Sculpted anatomical direction
+
+The cortex now uses solid, shaded half-ellipsoid hemispheres with a narrow sagittal
+cleft and recessed winding sulci modeled into the mesh. Broad proportions,
+cerebellar lobes and a tapered brainstem replace the flat neon contour. The chip
+is smaller and sits lower on the front; neural connections remain secondary.
+This is a procedural anatomical illustration, not a medical reconstruction.
+TypeScript and Chrome interaction/mobile checks passed without runtime exceptions.
+
+### Personified JokerLabs agent
+
+The brain is now the head of an original procedural character with expressive
+eyes and smile, a forehead AI chip, teal JokerLabs T-shirt, navy trousers and
+trainers. Its head and arms move subtly; click/Enter or Say hello triggers a
+hand wave alongside neural activation. Static fallback also shows the clothed
+character. This is a website brand character, not a ChatGPT Work pet. No mascot
+reference was supplied, so no exact likeness to an existing mascot is claimed.
+Chrome checked animation, keyboard, dragging, greeting, pause and mobile width;
+TypeScript passed and no browser runtime exceptions were observed.
+
+### Mascot material and lighting polish
+
+The character uses a procedural studio environment for reflections, filmic tone
+mapping, warm key/cool fill lighting and soft self-shadowing. Eyes have sclera,
+teal irises, pupils, highlights and brows. Clothes use a locally generated weave
+bump map; seams, thumbs, rubber soles and laces add physical detail. The printed
+JokerLabs mark conforms to the shirt surface. The forehead processor retains its
+metal package and gold leads. Environment, texture and shadow resources are
+released with the scene. The character keeps its greeting, drag, keyboard, pause
+and reduced-motion behavior. Chrome and TypeScript checks passed.
+
+### Mascot performance and official branding
+
+The forehead processor is enlarged with its AI marking and gold pins clearly
+visible. The shirt texture now draws the actual `public/assets/logo-white.svg`
+mark above the JokerLabs name, conforming to the fabric surface. The local SVG
+loads asynchronously; its texture updates in place and is released on teardown.
+
+Animation now coordinates torso breathing, small head motion, irregular smooth
+blinks, damped pupil tracking and a staged greeting. Arm lift/settle uses smooth
+interpolation; a separate forearm pivot provides the wrist-wave gesture. Pausing
+or reduced motion stops the automatic performance; explicit greeting still shows
+a static wave. Chrome verified the official shirt mark, visible processor,
+animation, keyboard, dragging, greeting, pause and mobile width without runtime
+exceptions. TypeScript validation passed.
+
+### Rear processor and exposed circuit
+
+The processor has moved from the forehead to a rear circuit board mounted on the
+shirt. Its gold pins connect to teal right-angle traces and gold terminals.
+The official JokerLabs logo remains on the front. View circuit / View front turns
+the character with eased rotation, or immediately when paused/reduced motion is
+active. Manual drag and arrow keys remain available. Chrome confirmed rear board
+visibility, toggle state, existing interactions and mobile width without runtime
+exceptions. TypeScript passed.
+
+### Circuit backpack
+
+The flat rear board is now a rounded technological backpack with real depth,
+padded shoulder straps, a top handle, front pocket and zipper. Its outward face
+carries teal circuit traces, gold terminals and a small embedded AI module;
+illuminated piping follows the bag perimeter. A subtle delayed sway follows the
+character's idle performance. The view control is now View backpack / View front.
+Chrome verified the rear appearance, interactions and mobile layout without
+runtime exceptions; TypeScript passed.

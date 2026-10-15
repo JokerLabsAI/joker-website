@@ -350,8 +350,6 @@
 .lab-hero-footer a { display: flex; align-items: center; gap: 16px; color: var(--foreground); }
 .lab-core { position: relative; aspect-ratio: 1; width: 100%; max-width: 540px; justify-self: center; }
 .lab-core-grid { position: absolute; inset: 0; opacity: .45; background-image: linear-gradient(var(--border-s) 1px, transparent 1px), linear-gradient(90deg, var(--border-s) 1px, transparent 1px); background-size: 42px 42px; mask-image: radial-gradient(circle, black 10%, transparent 70%); }
-.lab-core-sphere { position: absolute; inset: 15%; border-radius: 50%; background: radial-gradient(circle at 35% 25%, color-mix(in srgb, var(--jl-horizon) 20%, transparent), color-mix(in srgb, var(--jl-primary) 5%, transparent) 60%); box-shadow: 0 0 90px color-mix(in srgb, var(--jl-primary) 14%, transparent), inset -15px -15px 45px color-mix(in srgb, var(--background) 70%, transparent); transform: rotate(-24deg); }
-.lab-core-sphere svg { width: 100%; height: 100%; opacity: .72; }
 .lab-core-orbit { position: absolute; inset: 3%; border: 1px solid color-mix(in srgb, var(--jl-horizon) 32%, transparent); border-radius: 50%; }
 .lab-core-orbit--one { transform: rotate(-35deg) scaleY(.48); animation: lab-orbit-one 25s ease-in-out infinite alternate; }
 .lab-core-orbit--two { transform: rotate(45deg) scaleY(.57); border-color: color-mix(in srgb, var(--jl-accent) 25%, transparent); animation: lab-orbit-two 30s ease-in-out infinite alternate; }
@@ -697,3 +695,10 @@ section[id] { scroll-margin-top: 100px; }
 .cx-assistant-flow { color: var(--jl-accent); font-size: 14px; line-height: 1.8; }
 .cx-assistant-note { max-width: 800px; margin: 16px 0 24px; }
 @media (max-width: 700px) { .cx-assistant-events { grid-template-columns: 1fr; } }
+
+/* One aligned illustration: neural core inside a rotating globe. */
+.lab-core-webgl { position: absolute; inset: 6%; pointer-events: none; isolation: isolate; }
+.lab-core-webgl > canvas, .lab-core-webgl > .lab-core-fallback { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.lab-core-webgl > canvas { opacity: 0; }
+.lab-core-webgl[data-ready="true"] > canvas { opacity: 1; }
+.lab-core-webgl[data-ready="true"] > .lab-core-fallback { visibility: hidden; }

@@ -1,34 +1,18 @@
 "use client";
 
+import { HeroPlanet } from "@/components/shared/HeroPlanet";
 import { ArrowDown, ArrowUpRight } from "lucide-react";
 import { InquiryLink } from "@/components/shared/InquiryLink";
 import { useContent } from "@/components/layout/LocaleProvider";
 
 function TechnologyCore() {
   return (
-    <div className="lab-core" aria-hidden="true">
-      <div className="lab-core-grid" />
+    <div className="lab-core">
+      <div className="lab-core-grid" aria-hidden="true" />
       <div className="lab-core-orbit lab-core-orbit--one" />
       <div className="lab-core-orbit lab-core-orbit--two" />
       <div className="lab-core-orbit lab-core-orbit--three" />
-      <div className="lab-core-sphere">
-        <svg viewBox="0 0 360 360" fill="none">
-          <defs>
-            <linearGradient id="core-lines" x1="50" y1="0" x2="300" y2="360" gradientUnits="userSpaceOnUse">
-              <stop stopColor="var(--jl-horizon)" />
-              <stop offset="1" stopColor="var(--jl-accent)" />
-            </linearGradient>
-            <clipPath id="core-circle"><circle cx="180" cy="180" r="146" /></clipPath>
-          </defs>
-          <g stroke="url(#core-lines)" clipPath="url(#core-circle)">
-            <circle cx="180" cy="180" r="146" />
-            {[35, 70, 105, 138].map((r) => <ellipse key={r} cx="180" cy="180" rx={r} ry="146" />)}
-            {[65, 105, 145, 185, 225, 265, 305].map((y) => <ellipse key={y} cx="180" cy={y} rx="146" ry="24" />)}
-            <path d="M34 180h292M180 34v292" />
-          </g>
-          <circle cx="180" cy="180" r="5" fill="var(--jl-accent)" />
-        </svg>
-      </div>
+      <HeroPlanet />
       <span className="lab-core-point lab-core-point--ai">AI</span>
       <span className="lab-core-point lab-core-point--systems">SYSTEMS</span>
       <span className="lab-core-point lab-core-point--code">SOFTWARE</span>
