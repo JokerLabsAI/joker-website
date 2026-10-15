@@ -2,10 +2,12 @@
 .interactive[data-dragging="true"] { cursor: grabbing; }
 .interactive:focus-visible { outline: 2px solid var(--jl-accent); outline-offset: 8px; }
 .interactive > canvas, .interactive > svg { pointer-events: none; }
-.controls { position: absolute; z-index: 2; bottom: -25px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; gap: 8px; width: max-content; max-width: 120%; cursor: default; }
+.controls { position: absolute; z-index: 2; bottom: -25px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; width: max-content; max-width: 120%; cursor: default; }
 .controls > span { font: 8px var(--font-mono-jb); letter-spacing: .08em; color: var(--dim); margin-right: 4px; }
 .controls button { border: 1px solid var(--border-s); border-radius: 6px; padding: 8px 10px; color: var(--jl-accent); background: var(--surf); font-size: 10px; cursor: pointer; }
 .controls button:hover { border-color: var(--jl-accent); }
 .controls button:focus-visible { outline: 2px solid var(--jl-accent); outline-offset: 3px; }
 .controls button:disabled { opacity: .4; cursor: default; }
 @media (max-width: 600px) { .controls > span { display: none; } }
+
+@media (max-width: 1100px) { .controls > span { display: none; } }
