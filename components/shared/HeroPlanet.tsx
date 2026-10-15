@@ -299,16 +299,16 @@ export function HeroPlanet() {
       const jetpack=new THREE.Group();jetpack.position.z=0.075;backPanel.add(jetpack);
       const tankMaterial=new THREE.MeshStandardMaterial({color:0x8fa6b4,metalness:0.75,roughness:0.3});
       const nozzleMaterial=new THREE.MeshStandardMaterial({color:0x1b2633,metalness:0.6,roughness:0.45});
-      const flameMaterial=new THREE.MeshBasicMaterial({color:0x35d8c3,transparent:true,opacity:0.55,depthWrite:false});
-      const flameCoreMaterial=new THREE.MeshBasicMaterial({color:0xeafffb,transparent:true,opacity:0.9,depthWrite:false});
+      const flameMaterial=new THREE.MeshBasicMaterial({color:0x35d8c3,transparent:true,opacity:0.42,depthWrite:false});
+      const flameCoreMaterial=new THREE.MeshBasicMaterial({color:0xeafffb,transparent:true,opacity:0.6,depthWrite:false});
       brainMaterials.push(tankMaterial,nozzleMaterial,flameMaterial,flameCoreMaterial);
       const tankGeometry=new THREE.CapsuleGeometry(0.05,0.26,6,20);
       const bandGeometry=new THREE.TorusGeometry(0.052,0.006,6,24);
       const bracketGeometry=new THREE.BoxGeometry(0.07,0.03,0.05);
       const nozzleGeometry=new THREE.CylinderGeometry(0.036,0.05,0.06,20);
       // Cones point downward with their base at the nozzle, so scaling grows the exhaust.
-      const flameGeometry=new THREE.ConeGeometry(0.034,0.2,16,1,true).rotateX(Math.PI).translate(0,-0.1,0);
-      const flameCoreGeometry=new THREE.ConeGeometry(0.018,0.12,12,1,true).rotateX(Math.PI).translate(0,-0.06,0);
+      const flameGeometry=new THREE.ConeGeometry(0.044,0.18,16,1,true).rotateX(Math.PI).translate(0,-0.09,0);
+      const flameCoreGeometry=new THREE.ConeGeometry(0.024,0.08,12,1,true).rotateX(Math.PI).translate(0,-0.04,0);
       brainGeometries.push(tankGeometry,bandGeometry,bracketGeometry,nozzleGeometry,flameGeometry,flameCoreGeometry);
       const flames: InstanceType<typeof THREE.Group>[] = [];
       for(const side of [-1,1]) {
@@ -325,6 +325,115 @@ export function HeroPlanet() {
         flame.scale.setScalar(0.6);
       }
       const exhaustGlow=new THREE.PointLight(0x35d8c3,0.12,0.9);exhaustGlow.position.set(0,-0.32,0);jetpack.add(exhaustGlow);
+      // Wild-card deck: one card per discipline orbits Jais and fans into a winning hand on greeting.
+      const es = locale === "es";
+      const deckCards = [
+        { suit:"♠", label:es?"IA":"AI", color:"#6bf5d0" },
+        { suit:"♦", label:"SOFTWARE", color:"#ff8a76" },
+        { suit:"★", label:es?"COMODÍN":"JOKER", note:es?"TODOS LOS PALOS":"EVERY SUIT", color:"#e2bf7a" },
+        { suit:"♣", label:es?"AUTOMATIZACIÓN":"AUTOMATION", color:"#6bf5d0" },
+        { suit:"♥", label:es?"SISTEMAS":"SYSTEMS", color:"#ff8a76" },
+      ];
+      const cardWidth=0.24, cardHeight=0.34;
+      const cardShape=bagShape(cardWidth,cardHeight,0.022);
+      const cardEdgeGeometry=new THREE.ExtrudeGeometry(cardShape,{depth:0.006,bevelEnabled:false}).translate(0,0,-0.003);
+      const cardFaceGeometry=new THREE.ShapeGeometry(cardShape,8);
+      const faceUV=cardFaceGeometry.getAttribute("uv"), facePosition=cardFaceGeometry.getAttribute("position");
+      for(let i=0;i<faceUV.count;i++) faceUV.setXY(i,facePosition.getX(i)/cardWidth+0.5,facePosition.getY(i)/cardHeight+0.5);
+      const cardEdgeMaterial=new THREE.MeshStandardMaterial({color:0x35d8c3,emissive:0x0b6a59,emissiveIntensity:0.5,roughness:0.4});
+      brainGeometries.push(cardEdgeGeometry,cardFaceGeometry);brainMaterials.push(cardEdgeMaterial);
+      const anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy());
+      // Cards repaint once the JokerLabs jester mark loads; until then they show text and suits only.
+      const cardPainters: (() => void)[] = [];
+      let jokerMark: HTMLCanvasElement | undefined;
+      const drawJokerMark=(context: CanvasRenderingContext2D,x: number,y: number,width: number) => {
+        if(jokerMark) context.drawImage(jokerMark,x-width/2,y-width*0.443,width,width*0.887);
+      };
+      const cardMaterial=(draw: (context: CanvasRenderingContext2D) => void) => {
+        const canvas=document.createElement("canvas");canvas.width=320;canvas.height=453;
+        const context=canvas.getContext("2d");
+        const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;texture.anisotropy=anisotropy;brainTextures.push(texture);
+        const paint=() => {
+          if(!context) return;
+          context.fillStyle="#0d1b2a";context.fillRect(0,0,320,453);
+          context.strokeStyle="#35d8c3";context.lineWidth=4;context.beginPath();context.roundRect(14,14,292,425,20);context.stroke();
+          context.textAlign="center";draw(context);texture.needsUpdate=true;
+        };
+        paint();cardPainters.push(paint);
+        const material=new THREE.MeshStandardMaterial({map:texture,emissiveMap:texture,emissive:0xffffff,emissiveIntensity:0.3,roughness:0.38,metalness:0.08});
+        brainMaterials.push(material);return material;
+      };
+      const markImage=new Image();
+      markImage.onload=() => {
+        if(cancelled) return;
+        // Gold-tinted crop of the white logo (same crop as the shirt patch).
+        const tint=document.createElement("canvas");tint.width=485;tint.height=430;
+        const tintContext=tint.getContext("2d");
+        if(!tintContext) return;
+        tintContext.drawImage(markImage,140,200,970,860,0,0,485,430);
+        tintContext.globalCompositeOperation="source-in";tintContext.fillStyle="#e2bf7a";tintContext.fillRect(0,0,485,430);
+        jokerMark=tint;cardPainters.forEach((paint) => paint());render();
+      };
+      markImage.onerror=() => console.warn("[HeroPlanet] Could not load the JokerLabs card mark.");
+      markImage.src="/assets/logo-white.svg";
+      const cardBackMaterial=cardMaterial((context) => {
+        context.save();context.beginPath();context.roundRect(26,26,268,401,12);context.clip();
+        context.strokeStyle="rgba(53,216,195,.28)";context.lineWidth=2;context.beginPath();
+        for(let d=-453;d<640;d+=28) {context.moveTo(d,0);context.lineTo(d+453,453);context.moveTo(d+453,0);context.lineTo(d,453);}
+        context.stroke();context.restore();
+        context.beginPath();context.arc(160,215,78,0,Math.PI*2);context.fillStyle="#0d1b2a";context.fill();
+        context.strokeStyle="#e2bf7a";context.lineWidth=3;context.stroke();
+        if(jokerMark) drawJokerMark(context,160,212,118);
+        else {context.fillStyle="#e2bf7a";context.font="bold 76px sans-serif";context.fillText("★",160,242);}
+        context.fillStyle="#b6cbd5";context.font="20px monospace";context.fillText("JOKERLABS",160,334);
+      });
+      const deck=new THREE.Group();scene.add(deck);
+      const cards=deckCards.map(({suit,label,note,color}) => {
+        const joker=suit==="★";
+        const front=cardMaterial((context) => {
+          context.fillStyle=color;
+          if(joker) {
+            // Classic joker indices: JOKER spelled vertically in both corners.
+            context.font="bold 27px sans-serif";
+            [..."JOKER"].forEach((letter,index) => context.fillText(letter,40,58+index*28));
+            context.save();context.translate(320,453);context.rotate(Math.PI);
+            [..."JOKER"].forEach((letter,index) => context.fillText(letter,40,58+index*28));context.restore();
+            context.shadowColor=color;context.shadowBlur=22;
+            if(jokerMark) drawJokerMark(context,160,200,190);
+            else {context.font="bold 150px sans-serif";context.fillText(suit,160,250);}
+            context.shadowBlur=0;
+          } else {
+            context.font="bold 46px sans-serif";context.fillText(suit,50,72);
+            context.save();context.translate(320,453);context.rotate(Math.PI);context.fillText(suit,50,72);context.restore();
+            context.shadowColor=color;context.shadowBlur=26;context.font="bold 168px sans-serif";context.fillText(suit,160,250);context.shadowBlur=0;
+          }
+          let size=42;context.font=`bold ${size}px sans-serif`;
+          while(context.measureText(label).width>(joker?200:250)&&size>18) {size-=2;context.font=`bold ${size}px sans-serif`;}
+          context.fillStyle="#f1ffff";context.fillText(label,160,340);
+          context.fillStyle="#8adfcd";context.font="17px monospace";context.fillText(note??"JOKERLABS",160,378);
+        });
+        const card=new THREE.Group();
+        card.add(new THREE.Mesh(cardEdgeGeometry,cardEdgeMaterial));
+        const face=new THREE.Mesh(cardFaceGeometry,front);face.position.z=0.0045;card.add(face);
+        const back=new THREE.Mesh(cardFaceGeometry,cardBackMaterial);back.position.z=-0.0045;back.rotation.y=Math.PI;card.add(back);
+        deck.add(card);return card;
+      });
+      let deckAngle=0;
+      const orbitQuaternion=new THREE.Quaternion(), handQuaternion=new THREE.Quaternion(), cardEuler=new THREE.Euler();
+      // fan 0 = tilted orbit ring (low in front, high behind); fan 1 = hand beside the raised arm, right cards on top and the Joker pulled forward.
+      const placeDeck=(fan: number,time: number) => {
+        cards.forEach((card,index) => {
+          const angle=deckAngle+index*Math.PI*2/cards.length, offset=index-2;
+          const orbitX=Math.sin(angle)*1.18, orbitY=0.02-0.48*Math.cos(angle)+Math.sin(time*1.4+index)*0.02, orbitZ=Math.cos(angle)*1.18;
+          const handX=0.6+offset*0.12, handY=0.44-offset*offset*0.03+(offset===0?0.07:0), handZ=0.42+offset*0.035+(offset===0?0.12:0);
+          card.position.set(orbitX+(handX-orbitX)*fan,orbitY+(handY-orbitY)*fan,orbitZ+(handZ-orbitZ)*fan);
+          orbitQuaternion.setFromEuler(cardEuler.set(Math.sin(time*0.9+index)*0.12,angle,0));
+          handQuaternion.setFromEuler(cardEuler.set(0,-0.1,-offset*0.2));
+          card.quaternion.slerpQuaternions(orbitQuaternion,handQuaternion,fan);
+          card.scale.setScalar(1+fan*(offset===0?0.24:0.12));
+        });
+      };
+      placeDeck(0,0);
       brainGeometries.push(nodeGeometry,connectionGeometry,signalGeometry,circuitGeometry);
       brainMaterials.push(nodeMaterial,connectionMaterial,signalMaterial,circuitMaterial);
       // Personified laboratory agent: a friendly face and branded work clothes.
@@ -652,6 +761,8 @@ export function HeroPlanet() {
           flame.scale.set(thrust*(0.92+flicker*0.3),thrust*(1+flicker),thrust*(0.92+flicker*0.3));
         });
         exhaustGlow.intensity = 0.08 + thrust * 0.08;
+        deckAngle += delta * (0.3 + burst * 1.6);
+        placeDeck(greeting, elapsed);
         torso.scale.y = 0.255 * (1 + breath * 0.012);
         torso.scale.z = 0.14 * (1 + breath * 0.018);
         head.position.y = 0.4 + breath * 0.003;
@@ -696,7 +807,7 @@ export function HeroPlanet() {
         burst = 1;
         greetingTime = 0;
         // Explicit static greeting when automatic animation is paused/reduced.
-        if (motion.matches || userPaused) { arms[1].rotation.z=1.95;forearms[1].rotation.z=0.35; }
+        if (motion.matches || userPaused) { arms[1].rotation.z=1.95;forearms[1].rotation.z=0.35;placeDeck(1,elapsed); }
         updateSignals(elapsed + 1);
         nodeMaterial.size = 0.033;
         connectionMaterial.opacity = 0.37;
@@ -802,11 +913,11 @@ export function HeroPlanet() {
     });
 
     return () => { cancelled = true; cleanup(); };
-  }, [resolvedTheme]);
+  }, [resolvedTheme, locale]);
 
   return (
     <div ref={hostRef} className={`lab-core-webgl ${styles.interactive}`} role="group" tabIndex={0}
-      aria-label={locale === "es" ? "Jais, programador de JokerLabs interactivo. Arrastra o usa las flechas para girar. Pulsa Enter para saludar." : "Jais, interactive JokerLabs developer. Drag or use arrow keys to rotate. Press Enter to say hello."}>
+      aria-label={locale === "es" ? "Jais, programador comodín de JokerLabs con jetpack, rodeado por cartas de IA, software, automatización y sistemas. Arrastra o usa las flechas para girar. Pulsa Enter para saludar y mostrar su mano." : "Jais, JokerLabs' wild-card developer with a jetpack, orbited by AI, software, automation and systems cards. Drag or use arrow keys to rotate. Press Enter to say hello and show his hand."}>
       <div className={`lab-neural-controls ${styles.controls}`}>
         <span>{locale === "es" ? "ARRASTRA PARA EXPLORAR" : "DRAG TO EXPLORE"}</span>
         <button type="button" disabled={!available} onClick={() => pulseRef.current()}>{locale === "es" ? "Saludar" : "Say hello"}</button>
@@ -838,6 +949,14 @@ export function HeroPlanet() {
         </g>
         <g fill="var(--foreground)"><ellipse cx="168" cy="115" rx="5" ry="8" /><ellipse cx="192" cy="115" rx="5" ry="8" /></g>
         <path d="M169 136q11 10 22 0" stroke="var(--foreground)" strokeWidth="3" fill="none" />
+        <g fontFamily="sans-serif" fontSize="16" textAnchor="middle" strokeWidth="1.5">
+          {([["♠", 58, 132, -14], ["♦", 302, 132, 14], ["★", 46, 238, -8], ["♣", 314, 238, 8], ["♥", 180, 330, 0]] as const).map(([suit, x, y, angle]) => (
+            <g key={suit} transform={`translate(${x} ${y}) rotate(${angle})`}>
+              <rect x="-14" y="-20" width="28" height="40" rx="4" fill="var(--surf)" stroke="var(--jl-accent)" />
+              <text y="6" fill="var(--jl-accent)" stroke="none">{suit}</text>
+            </g>
+          ))}
+        </g>
         <text x="180" y="213" textAnchor="middle" fill="var(--background)" fontFamily="sans-serif" fontSize="10" fontWeight="bold">JokerLabs</text>
       </svg>
     </div>

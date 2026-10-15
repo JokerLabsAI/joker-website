@@ -332,3 +332,16 @@ greeting/pulse, lit by a small teal exhaust glow; plumes do not cast or receive
 shadows. Jais hovers with a soft bob and lifts slightly on greeting. Reduced
 motion/paused states keep a static idle plume. The SVG fallback shows the tanks
 and exhaust.
+
+### Jais, the wild card
+
+To convey "jack of all trades, master of everything", Jais is framed as the Joker:
+the wild card that can play any suit. Five cards orbit him on a tilted ring (low
+in front, high behind), one per discipline using the brand suits: ♠ AI, ♦ Software,
+★ Joker/wild ("Every suit"), ♣ Automation, ♥ Systems. Fronts show the suit and a
+localized ES/EN label; backs carry a JokerLabs lattice and gold star. On greeting
+or pulse the orbit accelerates and the cards fan into a winning hand beside his
+raised arm, Joker raised in the middle, then return to orbit. Reduced-motion and
+paused activation show the fanned hand directly. Card textures are local canvases;
+the scene rebuilds on locale change. The SVG fallback shows five suit cards around
+the character, and the accessible label describes the cards in both languages.
