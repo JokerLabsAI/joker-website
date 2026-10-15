@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Clock } from "lucide-react";
+import { Clock, ArrowUpRight } from "lucide-react";
 import { Eyebrow } from "@/components/shared/Eyebrow";
 import { RevealBlock } from "@/components/shared/RevealBlock";
 import { useContent } from "@/components/layout/LocaleProvider";
@@ -52,6 +52,19 @@ export function WorkSection() {
                 style={{ background: "radial-gradient(ellipse 80% 50% at 50% 0%, color-mix(in srgb, var(--jl-primary) 8%, transparent), transparent)" }}
               />
 
+              <div className={`lab-project-visual lab-project-visual--${idx === 0 ? "fx" : "commerce"}`}>
+                <div className="lab-project-art" aria-hidden="true">
+                  <div className="lab-project-window"><i /><i /><i /><span>JOKERLABS</span></div>
+                  <div className="lab-project-preview">
+                    <div className="lab-project-sidebar"><span /><span /><span /><span /></div>
+                    <div className="lab-project-canvas">
+                      <div className="lab-project-mini"><span /><span /><span /></div>
+                      <div className="lab-project-chart">{[35, 50, 42, 64, 55, 80, 73, 95].map((height, i) => <span key={i} style={{ height: `${height}%` }} />)}</div>
+                    </div>
+                  </div>
+                </div>
+                <span className="lab-project-caption">{c.work.visualLabel}</span>
+              </div>
               <div className="flex items-start justify-between gap-3 flex-wrap">
                 <div className="flex flex-wrap gap-2">
                   {tags.map((tag) => (
@@ -79,6 +92,7 @@ export function WorkSection() {
                 <p className="text-sm leading-relaxed" style={{ color: "var(--dim)" }}>{desc}</p>
               </div>
 
+              <a className="lab-project-link" href={idx === 0 ? "#currency-exchange" : "#contact"}>{c.work.actionLabels[idx]}<ArrowUpRight size={17} /></a>
               <div className="flex items-center gap-3 pt-4 border-t" style={{ borderColor: "var(--border)" }}>
                 <Clock size={14} style={{ color: "var(--faint)", flexShrink: 0 }} />
                 <span className="text-sm font-medium" style={{ color: "var(--jl-primary)" }}>{stat}</span>
