@@ -246,3 +246,79 @@ illuminated piping follows the bag perimeter. A subtle delayed sway follows the
 character's idle performance. The view control is now View backpack / View front.
 Chrome verified the rear appearance, interactions and mobile layout without
 runtime exceptions; TypeScript passed.
+
+### Black brand patch and character acting
+
+The official shirt logo now sits on a black rounded patch with a stitched border,
+white JokerLabs mark/name and teal AI Laboratory caption. Character acting adds
+asymmetric brows, curious head tilt, small gaze shifts, a relaxed bent-arm pose,
+coordinated smile widening and a brief wink during the greeting. These motions
+share the existing paused/reduced-motion animation lifecycle. Chrome verified the
+appearance and existing interactions/mobile width without runtime exceptions;
+TypeScript passed.
+
+### Detailed character sculpt
+
+The mascot has sculpted cheeks and nose, a mouth cavity with teeth and lower lip,
+upper eyelids and stronger asymmetric brows. The shirt has tailored shoulders/waist,
+collar and side seams. Hands have three stylized fingers plus a thumb, sleeve cuffs
+are outlined, and trousers/trainers include pocket seams, tongues and toe stitching.
+The character is slightly larger for facial and garment readability while preserving
+the black logo patch and circuit backpack. Chrome interaction/mobile checks passed
+without runtime exceptions; TypeScript passed.
+
+### Mascot name: Jais
+
+The user named the company agent Jais. The shirt now separates the official
+JokerLabs mark and the name Jais into two black stitched chest patches, one on
+each side. The accessible illustration label also identifies Jais. Chrome checked
+the appearance and interactions/mobile layout without runtime exceptions;
+TypeScript passed.
+
+### Stable shirt patches
+
+Logo/name geometry is projected onto the actual tailored torso mesh with a small
+normal offset and parented to the torso. It therefore follows breathing deformation
+instead of intersecting the shirt. Polygon offset handles residual depth conflicts;
+the patch does not cast or receive self-shadows, while depth testing still allows
+normal occlusion by the character. Chrome interactions/mobile and TypeScript checks
+passed without runtime exceptions.
+
+### Jais the developer
+
+Jais now carries an open laptop with a modeled keyboard, trackpad and a locally
+rendered syntax-colored code editor. The name patch says Developer and the
+accessible description identifies Jais as a JokerLabs programmer. The laptop is
+parented to the non-greeting forearm and follows the carrying pose; the other arm
+remains free to greet. Code is illustrative, not an executing application.
+Chrome verified the appearance, animation, controls and mobile layout without
+runtime exceptions; TypeScript passed.
+
+### Laptop extraction performance
+
+Jais begins with the computer stored. A timed sequence reaches behind, raises the
+closed laptop from the backpack, brings it around the side and opens its hinged
+screen. The computer transfers from the character root to the forearm while
+preserving its world transform, then eases into the carrying grip. Take out laptop
+replays the action. Paused/reduced-motion activation shows the final pose directly.
+Chrome verified the full replay and captured extraction/open poses with no runtime
+exceptions; existing controls/mobile layout and TypeScript passed.
+
+### Laptop rendering and Python sticker
+
+Laptop chassis parts now have beveled edges, keyboard/display separation is
+increased, and the screen uses an anisotropic texture without tone-mapping its
+code colors. Display/decals do not self-shadow. Pixel ratio is capped at 2.
+The reaching arm now turns towards the backpack rather than forward. A white
+Python sticker sits on the exterior of the lid, using the official two-snakes SVG
+from https://www.python.org/community/logos/ (Python Software Foundation).
+Local copy: public/assets/python-logo.svg. Chrome verified the extraction replay,
+open pose, rear sticker and controls/mobile without runtime exceptions.
+
+### Engineering identity without a laptop
+
+The laptop, extraction sequence and extraction control have been removed at the
+user's request. Jais now communicates engineering through a code-symbol sleeve
+badge, the Engineer name-patch subtitle and the existing circuit backpack. Greeting,
+gaze, breathing, dragging, keyboard controls and rear view remain available.
+TypeScript passed; Chrome checks cover the existing interactions and mobile layout.

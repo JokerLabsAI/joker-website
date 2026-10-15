@@ -34,7 +34,7 @@ export function HeroPlanet() {
         console.warn("[HeroPlanet] WebGL unavailable; using the static illustration.", error);
         return; // Static illustration also covers devices without WebGL.
       }
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.75));
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       renderer.setClearColor(0x000000, 0);
       renderer.toneMapping = THREE.ACESFilmicToneMapping;
       renderer.toneMappingExposure = 0.98;
@@ -66,7 +66,7 @@ export function HeroPlanet() {
       planet.add(new THREE.Mesh(surfaceGeometry, surfaceMaterial));
       const brain = new THREE.Group();
       scene.add(brain);
-      brain.scale.setScalar(1.08);
+      brain.scale.setScalar(1.15);
       brain.rotation.set(0.12, -0.2, 0.03);
       const head = new THREE.Group();
       head.position.y = 0.4;
@@ -320,6 +320,15 @@ export function HeroPlanet() {
         mesh.receiveShadow = true;
         parent.add(mesh); return mesh;
       };
+      const cheekMaterial=new THREE.MeshPhysicalMaterial({color:0x65b4b9,roughness:0.48,clearcoat:0.12});
+      const mouthMaterial=new THREE.MeshStandardMaterial({color:0x10232e,roughness:0.8});
+      brainMaterials.push(cheekMaterial,mouthMaterial);
+      // Sculpted facial planes create a designed expression, not floating eyes.
+      for(const side of [-1,1]) {
+        roundedPart(head,cheekMaterial,[side*0.252,-0.145,0.338],[0.102,0.071,0.048]);
+      }
+      roundedPart(head,skinMaterial,[0,-0.095,0.45],[0.046,0.035,0.037]);
+      const brows: InstanceType<typeof THREE.Group>[] = [];
       const eyeGroups: InstanceType<typeof THREE.Group>[] = [];
       const gazeGroups: InstanceType<typeof THREE.Group>[] = [];
       // Layered eyes: sclera, teal iris, dark pupil and corneal highlights.
@@ -332,20 +341,57 @@ export function HeroPlanet() {
         roundedPart(gaze,irisMaterial,[0.008,0.003,0.07],[0.047,0.067,0.018]);
         roundedPart(gaze,eyeMaterial,[0.008,0.003,0.085],[0.026,0.045,0.009]);
         roundedPart(gaze,pupilMaterial,[-0.008,0.03,0.095],[0.012,0.017,0.005]);
+        const lidPath=new THREE.CatmullRomCurve3([
+          new THREE.Vector3(-0.093,0.015,0.027),new THREE.Vector3(-0.064,0.105,0.022),
+          new THREE.Vector3(0.015,0.123,0.018),new THREE.Vector3(0.089,0.05,0.024),
+        ]);
+        const lidGeometry=new THREE.TubeGeometry(lidPath,28,0.01,6,false);
+        brainGeometries.push(lidGeometry);eye.add(new THREE.Mesh(lidGeometry,skinMaterial));
         const browCurve = new THREE.CatmullRomCurve3([
           new THREE.Vector3(side*0.09,0.128,0.427),new THREE.Vector3(side*0.17,0.153,0.413),new THREE.Vector3(side*0.235,0.12,0.389),
         ]);
-        const browGeometry = new THREE.TubeGeometry(browCurve,16,0.012,6,false);
-        brainGeometries.push(browGeometry);head.add(new THREE.Mesh(browGeometry,lowerMaterial));
+        const browGeometry = new THREE.TubeGeometry(browCurve,20,0.017,8,false);
+        brainGeometries.push(browGeometry);
+        const brow=new THREE.Group();
+        brow.position.set(side*0.17,0.13,0.41);
+        const browMesh=new THREE.Mesh(browGeometry,lowerMaterial);
+        browMesh.position.set(-side*0.17,-0.13,-0.41);
+        brow.add(browMesh);head.add(brow);brows.push(brow);
       }
-      const smilePath = new THREE.CatmullRomCurve3([
-        new THREE.Vector3(-0.105,-0.17,0.418),new THREE.Vector3(-0.05,-0.207,0.444),
-        new THREE.Vector3(0.035,-0.213,0.447),new THREE.Vector3(0.105,-0.17,0.418),
+      // Upturned corners and a curved tooth band read as a smile at hero size.
+      const smile=new THREE.Group();smile.position.set(0,-0.162,0.46);head.add(smile);
+      const mouthShape=new THREE.Shape();
+      mouthShape.moveTo(-0.14,0.018);
+      mouthShape.quadraticCurveTo(0,-0.01,0.14,0.018);
+      mouthShape.bezierCurveTo(0.115,-0.055,0.065,-0.09,0,-0.09);
+      mouthShape.bezierCurveTo(-0.065,-0.09,-0.115,-0.055,-0.14,0.018);
+      const teethShape=new THREE.Shape();
+      teethShape.moveTo(-0.125,0.008);
+      teethShape.quadraticCurveTo(0,-0.015,0.125,0.008);
+      teethShape.quadraticCurveTo(0.08,-0.046,0,-0.046);
+      teethShape.quadraticCurveTo(-0.08,-0.046,-0.125,0.008);
+      for(const [shape,material,depth] of [[mouthShape,mouthMaterial,0],[teethShape,scleraMaterial,0.003]] as const) {
+        const geometry=new THREE.ShapeGeometry(shape,32);
+        const vertices=geometry.getAttribute("position");
+        for(let i=0;i<vertices.count;i++) {const x=vertices.getX(i);vertices.setZ(i,depth-x*x*0.6);}
+        geometry.computeVertexNormals();brainGeometries.push(geometry);smile.add(new THREE.Mesh(geometry,material));
+      }
+      const lipPath=new THREE.CatmullRomCurve3([
+        new THREE.Vector3(-0.14,0.018,-0.012),new THREE.Vector3(-0.08,-0.071,-0.004),
+        new THREE.Vector3(0,-0.092,0),new THREE.Vector3(0.08,-0.071,-0.004),new THREE.Vector3(0.14,0.018,-0.012),
       ]);
-      const smileGeometry = new THREE.TubeGeometry(smilePath,24,0.014,8,false);
-      brainGeometries.push(smileGeometry);head.add(new THREE.Mesh(smileGeometry,eyeMaterial));
+      const lipGeometry=new THREE.TubeGeometry(lipPath,32,0.006,8,false);
+      brainGeometries.push(lipGeometry);smile.add(new THREE.Mesh(lipGeometry,cheekMaterial));
       roundedPart(brain,skinMaterial,[0,0.075,0],[0.075,0.09,0.07]);
       const torso = roundedPart(brain,shirtMaterial,[0,-0.105,0],[0.225,0.255,0.14]);
+      // Tailor the torso: shoulders and waist have distinct, non-spherical shapes.
+      const torsoVertices=torso.geometry.getAttribute("position");
+      for(let i=0;i<torsoVertices.count;i++) {
+        const x=torsoVertices.getX(i),y=torsoVertices.getY(i),z=torsoVertices.getZ(i);
+        const taper= y<0 ? 1+y*0.12 : 1+Math.sin(y*Math.PI)*0.04;
+        torsoVertices.setXYZ(i,x*taper,y,z*(1+0.015*Math.sin(y*13+x*7)));
+      }
+      torso.geometry.computeVertexNormals();
       const collarGeometry = new THREE.TorusGeometry(0.072,0.016,8,24);
       brainGeometries.push(collarGeometry);
       const collar = new THREE.Mesh(collarGeometry,pantsMaterial);
@@ -370,6 +416,11 @@ export function HeroPlanet() {
       };
       // Sleeve hems, trouser seams, distinct soles and shoelaces.
       detailCurve([[-0.18,-0.26,0.04],[-0.1,-0.3,0.104],[0,-0.31,0.112],[0.1,-0.3,0.104],[0.18,-0.26,0.04]],0.004,seamMaterial);
+      detailCurve([[-0.17,0.025,0.073],[-0.115,0.07,0.078],[0,0.087,0.074],[0.115,0.07,0.078],[0.17,0.025,0.073]],0.0035,seamMaterial);
+      for(const side of [-1,1]) {
+        detailCurve([[side*0.18,-0.06,0.082],[side*0.2,-0.135,0.058],[side*0.178,-0.22,0.068]],0.0025,seamMaterial);
+        detailCurve([[side*0.155,-0.245,0.087],[side*0.17,-0.23,0.079],[side*0.185,-0.235,0.055]],0.002,seamMaterial);
+      }
       const forearms: InstanceType<typeof THREE.Group>[] = [];
       const arms: InstanceType<typeof THREE.Group>[] = [];
       for(const side of [-1,1]) {
@@ -377,38 +428,71 @@ export function HeroPlanet() {
         roundedPart(arm,shirtMaterial,[side*0.045,-0.055,0],[0.092,0.12,0.1]);
         const forearm = new THREE.Group();forearm.position.set(side*0.07,-0.14,0.012);arm.add(forearm);forearms.push(forearm);
         roundedPart(forearm,skinMaterial,[0,-0.05,0],[0.06,0.12,0.063]);
-        roundedPart(forearm,skinMaterial,[side*0.008,-0.14,0.008],[0.068,0.075,0.067]);
+        roundedPart(forearm,skinMaterial,[side*0.008,-0.14,0.008],[0.061,0.063,0.052]);
+        for(let finger=0;finger<3;finger++) {
+          roundedPart(forearm,skinMaterial,[(finger-1)*0.031+side*0.008,-0.184+(finger===1?-0.008:0),0.018],[0.021,0.038,0.031]);
+        }
+        const cuffGeometry=new THREE.TorusGeometry(0.076,0.004,6,24);
+        brainGeometries.push(cuffGeometry);
+        const cuff=new THREE.Mesh(cuffGeometry,seamMaterial);cuff.scale.set(1,1,1.1);cuff.rotation.x=Math.PI/2;
+        cuff.position.set(side*0.05,-0.115,0);arm.add(cuff);
         roundedPart(brain,pantsMaterial,[side*0.108,-0.425,0],[0.098,0.225,0.105]);
         roundedPart(brain,shoeMaterial,[side*0.112,-0.635,0.055],[0.109,0.067,0.16]);
         roundedPart(brain,rubberMaterial,[side*0.112,-0.67,0.055],[0.11,0.016,0.157]);
         roundedPart(forearm,skinMaterial,[-side*0.045,-0.12,0.055],[0.027,0.044,0.028]);
         detailCurve([[side*0.13,-0.28,0.08],[side*0.13,-0.43,0.103],[side*0.13,-0.59,0.06]],0.003,seamMaterial);
+        roundedPart(brain,pantsMaterial,[side*0.112,-0.593,0.07],[0.052,0.015,0.084]);
+        detailCurve([[side*0.112-0.08,-0.65,0.142],[side*0.112,-0.658,0.205],[side*0.112+0.08,-0.65,0.142]],0.003,rubberMaterial);
+        detailCurve([[side*0.15,-0.32,0.072],[side*0.13,-0.35,0.097],[side*0.08,-0.36,0.091]],0.0025,seamMaterial);
         for(let lace=0;lace<3;lace++) detailCurve([[side*0.112-0.035,-0.602,0.075+lace*0.027],[side*0.112,-0.59,0.078+lace*0.027],[side*0.112+0.035,-0.602,0.075+lace*0.027]],0.003,rubberMaterial);
       }
       const shirtCanvas=document.createElement("canvas");shirtCanvas.width=512;shirtCanvas.height=256;
       const shirtContext=shirtCanvas.getContext("2d");
       if(shirtContext) {
+        // Separate embroidered chest patches: company mark and agent name.
+        shirtContext.fillStyle="#020304";
+        shirtContext.beginPath();shirtContext.roundRect(8,12,224,232,20);shirtContext.fill();
+        shirtContext.beginPath();shirtContext.roundRect(270,56,234,148,16);shirtContext.fill();
+        shirtContext.strokeStyle="#42605f";shirtContext.lineWidth=2;shirtContext.setLineDash([6,5]);
+        shirtContext.beginPath();shirtContext.roundRect(16,20,208,216,14);shirtContext.stroke();
+        shirtContext.beginPath();shirtContext.roundRect(278,64,218,132,10);shirtContext.stroke();shirtContext.setLineDash([]);
         shirtContext.fillStyle="#f1ffff";shirtContext.textAlign="center";
-        shirtContext.font="bold 49px sans-serif";shirtContext.fillText("JokerLabs",256,219);
+        shirtContext.font="bold 32px sans-serif";shirtContext.fillText("JokerLabs",120,216);
+        shirtContext.font="bold 79px sans-serif";shirtContext.fillText("Jais",387,145);
+        shirtContext.fillStyle="#8adfcd";shirtContext.font="17px monospace";shirtContext.fillText("ENGINEER",387,176);
         const shirtTexture=new THREE.CanvasTexture(shirtCanvas);shirtTexture.colorSpace=THREE.SRGBColorSpace;brainTextures.push(shirtTexture);
         const brandMark = new Image();
         brandMark.onload = () => {
           if (cancelled) return;
-          shirtContext.drawImage(brandMark,140,200,970,860,160,0,192,170);
+          shirtContext.drawImage(brandMark,140,200,970,860,42,38,156,146);
           shirtTexture.needsUpdate=true;
           render();
         };
         brandMark.onerror = () => console.warn("[HeroPlanet] Could not load the JokerLabs shirt mark.");
         brandMark.src="/assets/logo-white.svg";
-        const logoMaterial=new THREE.MeshStandardMaterial({map:shirtTexture,transparent:true,depthWrite:false,roughness:0.85});
-        const logoGeometry=new THREE.PlaneGeometry(0.31,0.21,20,10);
+        const logoMaterial=new THREE.MeshStandardMaterial({map:shirtTexture,transparent:true,depthWrite:false,roughness:0.85,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
+        const logoGeometry=new THREE.PlaneGeometry(0.34,0.17,40,24);
         const logoPositions=logoGeometry.getAttribute("position");
+        // Project onto the actual tailored shirt, rather than an ideal sphere.
+        // Parenting to the torso keeps the print in sync with every breath.
+        const shirtProbe=new THREE.Mesh(torso.geometry,shirtMaterial);
+        shirtProbe.updateMatrixWorld(true);
+        const projection=new THREE.Raycaster();
+        const direction=new THREE.Vector3(0,0,-1);
         for(let i=0;i<logoPositions.count;i++) {
-          const x=logoPositions.getX(i),y=logoPositions.getY(i);
-          logoPositions.setZ(i,0.14*Math.sqrt(Math.max(0,1-(x/0.225)**2-((y+0.005)/0.255)**2))+0.002);
+          const x=logoPositions.getX(i)/0.225;
+          const y=(logoPositions.getY(i)+0.015)/0.255;
+          projection.set(new THREE.Vector3(x,y,3),direction);
+          const hit=projection.intersectObject(shirtProbe,false)[0];
+          if(hit) {
+            const point=hit.point.clone().addScaledVector(hit.face!.normal,0.035);
+            logoPositions.setXYZ(i,point.x,point.y,point.z);
+          }
         }
         logoGeometry.computeVertexNormals();brainMaterials.push(logoMaterial);brainGeometries.push(logoGeometry);
-        const logo=new THREE.Mesh(logoGeometry,logoMaterial);logo.position.set(0,-0.09,0);brain.add(logo);
+        const logo=new THREE.Mesh(logoGeometry,logoMaterial);
+        logo.userData.isShirtPatch=true;
+        torso.add(logo);
       }
       const updateSignals = (time: number) => {
         for (let i = 0; i < 36; i++) {
@@ -422,7 +506,7 @@ export function HeroPlanet() {
       updateSignals(0);
       // Studio portrait lighting gives readable cloth, skin and metal response.
       scene.add(new THREE.HemisphereLight(0xd9f5ff,0x152332,0.95));
-      brain.traverse((object) => { if(object instanceof THREE.Mesh) { object.castShadow=true; object.receiveShadow=true; } });
+      brain.traverse((object) => { if(object instanceof THREE.Mesh) { object.castShadow=!object.userData.isShirtPatch; object.receiveShadow=!object.userData.isShirtPatch; } });
       const light = new THREE.DirectionalLight(0xffefd9, 2.8);
       light.position.set(-3, 4, 5);
       light.castShadow=true;light.shadow.mapSize.set(1024,1024);
@@ -535,9 +619,18 @@ export function HeroPlanet() {
         torso.scale.z = 0.14 * (1 + breath * 0.018);
         head.position.y = 0.4 + breath * 0.003;
         backPanel.rotation.z = Math.sin(elapsed*1.7-0.3)*0.008;
-        head.rotation.z = Math.sin(elapsed * 0.65) * 0.02 - greeting * 0.075;
+        const curious = Math.sin(elapsed * 0.55) * 0.03;
+        head.rotation.z += (curious - pointerX * 0.07 - greeting * 0.11 - head.rotation.z) * easing;
+        head.rotation.y += (pointerX * 0.08 - head.rotation.y) * easing;
+        brain.rotation.z = 0.03 + Math.sin(elapsed * 0.7) * 0.008 - greeting * 0.018;
+        smile.scale.x = 1 + greeting * 0.16;
+        smile.scale.y = 1 + greeting * 0.06;
+        brows[0].rotation.z = -0.06 - greeting * 0.12;
+        brows[1].rotation.z = 0.12 + pointerX * 0.12;
+        brows[1].position.y = 0.137 + greeting * 0.012;
         head.rotation.x = Math.sin(elapsed * 0.8) * 0.018 + greeting * 0.04;
-        arms[0].rotation.z += (0.12 + Math.sin(elapsed * 1.2) * 0.035 - arms[0].rotation.z) * easing;
+        arms[0].rotation.z += (0.2 + Math.sin(elapsed * 1.2) * 0.04 - greeting * 0.08 - arms[0].rotation.z) * easing;
+        forearms[0].rotation.z = -0.16 + Math.sin(elapsed * 0.9) * 0.018;
         arms[1].rotation.z += (-0.12 + greeting * 2.05 - arms[1].rotation.z) * (1-Math.exp(-delta*10));
         arms[1].rotation.x += (greeting * 0.18 - arms[1].rotation.x) * easing;
         forearms[1].rotation.z = greeting * (0.3 + Math.sin(greetingTime * 13) * 0.23);
@@ -545,9 +638,11 @@ export function HeroPlanet() {
         const blinkPhase = elapsed % 5.7;
         const blink = blinkPhase < 0.19 ? Math.sin(blinkPhase / 0.19 * Math.PI) :
           blinkPhase > 3.7 && blinkPhase < 3.86 ? Math.sin((blinkPhase-3.7)/0.16*Math.PI) : 0;
-        for (const eye of eyeGroups) eye.scale.y = Math.max(0.08,1-blink*0.92);
+        const wink = greetingTime > 0.95 && greetingTime < 1.23 ? Math.sin((greetingTime-0.95)/0.28*Math.PI) : 0;
+        eyeGroups.forEach((eye,index) => { eye.scale.y=Math.max(0.08,1-Math.max(blink,index===0?wink:0)*0.92); });
         for (const gaze of gazeGroups) {
-          gaze.position.x += (pointerX*0.015-gaze.position.x)*easing;
+          const idleGaze = Math.sin(elapsed*0.7)*0.004;
+          gaze.position.x += (pointerX*0.015+idleGaze-gaze.position.x)*easing;
           gaze.position.y += (-pointerY*0.012-gaze.position.y)*easing;
         }
         packageMaterial.emissive.setHex(0x063f44);
@@ -674,7 +769,7 @@ export function HeroPlanet() {
 
   return (
     <div ref={hostRef} className={`lab-core-webgl ${styles.interactive}`} role="group" tabIndex={0}
-      aria-label={locale === "es" ? "Agente de JokerLabs interactivo. Arrastra o usa las flechas para girar. Pulsa Enter para saludar." : "Interactive JokerLabs agent. Drag or use arrow keys to rotate. Press Enter to say hello."}>
+      aria-label={locale === "es" ? "Jais, programador de JokerLabs interactivo. Arrastra o usa las flechas para girar. Pulsa Enter para saludar." : "Jais, interactive JokerLabs developer. Drag or use arrow keys to rotate. Press Enter to say hello."}>
       <div className={`lab-neural-controls ${styles.controls}`}>
         <span>{locale === "es" ? "ARRASTRA PARA EXPLORAR" : "DRAG TO EXPLORE"}</span>
         <button type="button" disabled={!available} onClick={() => pulseRef.current()}>{locale === "es" ? "Saludar" : "Say hello"}</button>
