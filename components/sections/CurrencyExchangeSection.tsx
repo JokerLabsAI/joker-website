@@ -1,9 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, ShieldCheck, Layers3, ChartNoAxesCombined, Check, Building2, FileText, ArrowRight, RefreshCw, ScanLine } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Layers3, ChartNoAxesCombined, Check, Building2, FileText, ArrowRight, RefreshCw, ScanLine, BellRing } from "lucide-react";
 import { useContent } from "@/components/layout/LocaleProvider";
 import { InquiryLink } from "@/components/shared/InquiryLink";
+
+import { CurrencyExchangeTrial } from "@/components/sections/CurrencyExchangeTrial";
 
 const icons = [ShieldCheck, Layers3, ChartNoAxesCombined];
 
@@ -60,6 +62,15 @@ export function CurrencyExchangeSection() {
           <ol className="cx-compliance-flow">{cx.compliance.flow.map((step, index) => <li key={step}><span>0{index + 1}</span>{step}{index < cx.compliance.flow.length - 1 && <ArrowRight size={15} aria-hidden="true" />}</li>)}</ol>
           <div className="cx-compliance-bottom"><p>{cx.compliance.note}</p><InquiryLink interest="currency_exchange" className="lab-action lab-action--text">{cx.compliance.cta}</InquiryLink></div>
         </div>
+        <section className="cx-assistant" aria-labelledby="cx-assistant-title">
+          <span className="lab-kicker"><BellRing size={16} aria-hidden="true" />{cx.assistant.eyebrow}</span>
+          <h3 id="cx-assistant-title">{cx.assistant.title}<br /><em>{cx.assistant.accent}</em></h3>
+          <p className="cx-assistant-description">{cx.assistant.description}</p>
+          <div className="cx-assistant-events">{cx.assistant.events.map((event) => <article key={event.title}><BellRing size={20} aria-hidden="true" /><h4>{event.title}</h4><p>{event.description}</p></article>)}</div>
+          <p className="cx-assistant-flow">{cx.assistant.flow}</p>
+          <p className="cx-assistant-note">{cx.assistant.note}</p>
+          <InquiryLink interest="currency_exchange" className="lab-action lab-action--text">{cx.assistant.cta}</InquiryLink>
+        </section>
         <div className="cx-roadmap-heading"><span className="lab-kicker"><span className="lab-status-dot" />CURRENCY EXCHANGE / NEXT</span><h3>{cx.roadmapTitle}</h3><p>{cx.roadmapDescription}</p></div>
         <div className="cx-roadmap">
           {cx.roadmap.map((item, index) => {
@@ -70,7 +81,7 @@ export function CurrencyExchangeSection() {
             </article>;
           })}
         </div>
-        <div className="flagship-demo-offer"><div><h3>{cx.closingTitle}</h3><p>{cx.closingDescription}</p></div><InquiryLink interest="currency_exchange">{cx.cta}</InquiryLink></div>
+        <CurrencyExchangeTrial />
         <p className="flagship-boundary">{cx.boundary}</p>
         <div className="flagship-services-bridge"><span>{cx.moreLabel}</span><a href="#services">{cx.moreCta}<ArrowUpRight size={16} /></a></div>
       </div>

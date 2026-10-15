@@ -95,6 +95,61 @@ export const es: SiteContent = {
   },
 
   currencyExchange: {
+    assistant: {
+    "eyebrow": "VISIÓN DEL PRODUCTO · PLANIFICADA",
+    "title": "Tu operación bajo control.",
+    "accent": "Tu equipo informado a tiempo.",
+    "description": "Nuestra visión para Currency Exchange: un asistente de cumplimiento con IA que ayude a identificar eventos relevantes, explicar por qué requieren atención y orientar al personal sobre el siguiente paso.",
+    "events": [
+        {
+            "title": "Información por completar",
+            "description": "Avisar cuando falten datos necesarios para revisar un registro."
+        },
+        {
+            "title": "Operaciones por revisar",
+            "description": "Dar contexto sobre eventos que requieran la atención del responsable."
+        },
+        {
+            "title": "Fechas por atender",
+            "description": "Recordar fechas de preparación de reportes según la configuración del negocio."
+        }
+    ],
+    "flow": "Detectar → Alertar → Orientar → Revisión del equipo",
+    "note": "Capacidad planificada. Los ejemplos ilustran la visión; no son alertas disponibles en la prueba actual. El alcance, los eventos y los canales están por definir. Las decisiones quedan en manos del personal.",
+    "cta": "Conversar sobre el asistente"
+},
+    trial: {
+    "eyebrow": "TU PRIMER PASO / CURRENCY EXCHANGE",
+    "title": "Comprueba la diferencia",
+    "accent": "en tu propia operación.",
+    "description": "Conecta tu trabajo diario: divisas, clientes, permisos por sucursal y reportes. Empieza con una prueba de 7 días y evalúa el encaje para tu casa de cambio.",
+    "daysLabel": "días para explorar",
+    "monthLabel": "mes en total",
+    "annualLabel": "CON MEMBRESÍA ANUAL",
+    "startTitle": "Empieza con 7 días.",
+    "startDescription": "Solicita tu prueba. Revisamos tu operación y coordinamos el acceso para que evalúes las capacidades actuales.",
+    "startCta": "Solicitar mi prueba de 7 días",
+    "annualTitle": "Dale más tiempo a tu equipo.",
+    "annualDescription": "Adquiere una membresía de un año para extender tu prueba a un mes en total, incluidos los primeros 7 días.",
+    "annualCta": "Explorar la membresía anual",
+    "steps": [
+        {
+            "title": "Define tu flujo de trabajo",
+            "description": "Elige un proceso diario y las personas que lo evaluarán."
+        },
+        {
+            "title": "Prueba lo que importa",
+            "description": "Revisa divisas, registros de clientes, permisos y reportes durante tu prueba."
+        },
+        {
+            "title": "Decide con claridad",
+            "description": "Revisa el encaje y la membresía anual con nuestro equipo antes de comprar."
+        }
+    ],
+    "note": "El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Confirmamos precio, alcance del plan, fechas de activación y condiciones de la membresía antes del pago.",
+    "requestLabel": "Solicitud de prueba de 7 días",
+    "annualRequestLabel": "Solicitud de membresía anual / prueba de un mes"
+},
   "eyebrow": "01 / Nuestro producto insignia",
   "title": "Toda tu operación.",
   "description": "Clientes, divisas, caja y reportes DIAN y UIAF conectados en una misma plataforma. Más visibilidad para operar y herramientas para apoyar tus procesos de cumplimiento.",
@@ -389,6 +444,10 @@ export const es: SiteContent = {
   "chatStatus": "Respuestas orientativas",
   "chatEmpty": "Selecciona una pregunta para conocer cómo trabajamos.",
   "items": [
+{
+    "question": "¿Cómo funciona la extensión de la prueba?",
+    "answer": "Adquiere una membresía de un año para extender tu prueba a un mes en total, incluidos los primeros 7 días. El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Confirmamos precio, alcance del plan, fechas de activación y condiciones de la membresía antes del pago."
+},
     {
       "question": "¿JokerLabs es un laboratorio o un software de cambio?",
       "answer": "JokerLabs es un laboratorio de inteligencia artificial. Currency Exchange es nuestro producto insignia para casas de cambio. También desarrollamos soluciones de IA, software y automatización para otros negocios."
