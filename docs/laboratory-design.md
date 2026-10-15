@@ -322,3 +322,13 @@ user's request. Jais now communicates engineering through a code-symbol sleeve
 badge, the Engineer name-patch subtitle and the existing circuit backpack. Greeting,
 gaze, breathing, dragging, keyboard controls and rear view remain available.
 TypeScript passed; Chrome checks cover the existing interactions and mobile layout.
+
+### Jais's jetpack
+
+Twin capsule thruster tanks are bolted to the sides of the circuit backpack with
+dark brackets, teal glowing bands and nozzles. Each nozzle emits a translucent
+teal plasma plume with a bright core that flickers continuously and grows on
+greeting/pulse, lit by a small teal exhaust glow; plumes do not cast or receive
+shadows. Jais hovers with a soft bob and lifts slightly on greeting. Reduced
+motion/paused states keep a static idle plume. The SVG fallback shows the tanks
+and exhaust.

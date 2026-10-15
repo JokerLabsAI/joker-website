@@ -295,6 +295,36 @@ export function HeroPlanet() {
       for(const [x,y,z] of circuitEndpoints) {
         const terminal=new THREE.Mesh(terminalGeometry,goldMaterial);terminal.position.set(x,y,z);circuitPanel.add(terminal);
       }
+      // Twin-thruster jetpack bolted to the backpack: tanks, glowing bands and plasma exhaust.
+      const jetpack=new THREE.Group();jetpack.position.z=0.075;backPanel.add(jetpack);
+      const tankMaterial=new THREE.MeshStandardMaterial({color:0x8fa6b4,metalness:0.75,roughness:0.3});
+      const nozzleMaterial=new THREE.MeshStandardMaterial({color:0x1b2633,metalness:0.6,roughness:0.45});
+      const flameMaterial=new THREE.MeshBasicMaterial({color:0x35d8c3,transparent:true,opacity:0.55,depthWrite:false});
+      const flameCoreMaterial=new THREE.MeshBasicMaterial({color:0xeafffb,transparent:true,opacity:0.9,depthWrite:false});
+      brainMaterials.push(tankMaterial,nozzleMaterial,flameMaterial,flameCoreMaterial);
+      const tankGeometry=new THREE.CapsuleGeometry(0.05,0.26,6,20);
+      const bandGeometry=new THREE.TorusGeometry(0.052,0.006,6,24);
+      const bracketGeometry=new THREE.BoxGeometry(0.07,0.03,0.05);
+      const nozzleGeometry=new THREE.CylinderGeometry(0.036,0.05,0.06,20);
+      // Cones point downward with their base at the nozzle, so scaling grows the exhaust.
+      const flameGeometry=new THREE.ConeGeometry(0.034,0.2,16,1,true).rotateX(Math.PI).translate(0,-0.1,0);
+      const flameCoreGeometry=new THREE.ConeGeometry(0.018,0.12,12,1,true).rotateX(Math.PI).translate(0,-0.06,0);
+      brainGeometries.push(tankGeometry,bandGeometry,bracketGeometry,nozzleGeometry,flameGeometry,flameCoreGeometry);
+      const flames: InstanceType<typeof THREE.Group>[] = [];
+      for(const side of [-1,1]) {
+        const tank=new THREE.Mesh(tankGeometry,tankMaterial);tank.position.x=side*0.245;jetpack.add(tank);
+        for(const y of [-0.1,0.1]) {
+          const band=new THREE.Mesh(bandGeometry,pipingMaterial);band.position.set(side*0.245,y,0);band.rotation.x=Math.PI/2;jetpack.add(band);
+          const bracket=new THREE.Mesh(bracketGeometry,nozzleMaterial);bracket.position.set(side*0.2,y,0);jetpack.add(bracket);
+        }
+        const nozzle=new THREE.Mesh(nozzleGeometry,nozzleMaterial);nozzle.position.set(side*0.245,-0.21,0);jetpack.add(nozzle);
+        const flame=new THREE.Group();flame.position.set(side*0.245,-0.24,0);jetpack.add(flame);flames.push(flame);
+        for(const [geometry,material] of [[flameGeometry,flameMaterial],[flameCoreGeometry,flameCoreMaterial]] as const) {
+          const plume=new THREE.Mesh(geometry,material);plume.userData.isExhaust=true;flame.add(plume);
+        }
+        flame.scale.setScalar(0.6);
+      }
+      const exhaustGlow=new THREE.PointLight(0x35d8c3,0.12,0.9);exhaustGlow.position.set(0,-0.32,0);jetpack.add(exhaustGlow);
       brainGeometries.push(nodeGeometry,connectionGeometry,signalGeometry,circuitGeometry);
       brainMaterials.push(nodeMaterial,connectionMaterial,signalMaterial,circuitMaterial);
       // Personified laboratory agent: a friendly face and branded work clothes.
@@ -506,7 +536,7 @@ export function HeroPlanet() {
       updateSignals(0);
       // Studio portrait lighting gives readable cloth, skin and metal response.
       scene.add(new THREE.HemisphereLight(0xd9f5ff,0x152332,0.95));
-      brain.traverse((object) => { if(object instanceof THREE.Mesh) { object.castShadow=!object.userData.isShirtPatch; object.receiveShadow=!object.userData.isShirtPatch; } });
+      brain.traverse((object) => { if(object instanceof THREE.Mesh) { const shaded=!object.userData.isShirtPatch&&!object.userData.isExhaust; object.castShadow=shaded; object.receiveShadow=shaded; } });
       const light = new THREE.DirectionalLight(0xffefd9, 2.8);
       light.position.set(-3, 4, 5);
       light.castShadow=true;light.shadow.mapSize.set(1024,1024);
@@ -614,7 +644,14 @@ export function HeroPlanet() {
         const smooth = (value: number) => { const t = Math.max(0,Math.min(1,value)); return t*t*(3-2*t); };
         const greeting = smooth(greetingTime / 0.4) * (1-smooth((greetingTime-1.8)/0.75));
         const breath = Math.sin(elapsed * 1.7);
-        brain.position.y = 0;
+        // Jetpack hover: a soft bob, a lift on greeting/pulse and flickering exhaust.
+        const thrust = 0.6 + burst * 0.7 + greeting * 0.3;
+        brain.position.y = Math.sin(elapsed * 1.3) * 0.012 + (burst + greeting) * 0.025;
+        flames.forEach((flame,index) => {
+          const flicker = Math.sin(elapsed*31+index*1.7)*0.16 + Math.sin(elapsed*57+index)*0.07;
+          flame.scale.set(thrust*(0.92+flicker*0.3),thrust*(1+flicker),thrust*(0.92+flicker*0.3));
+        });
+        exhaustGlow.intensity = 0.08 + thrust * 0.08;
         torso.scale.y = 0.255 * (1 + breath * 0.012);
         torso.scale.z = 0.14 * (1 + breath * 0.018);
         head.position.y = 0.4 + breath * 0.003;
@@ -787,6 +824,10 @@ export function HeroPlanet() {
           <path d="M176 111c-17-20-42-10-46 8-24 0-34 24-25 42-20 17-15 43 3 53-5 25 20 44 40 36 12 16 28 4 28-8V111Zm8 0c17-20 42-10 46 8 24 0 34 24 25 42 20 17 15 43-3 53 5 25-20 44-40 36-12 16-28 4-28-8V111Z" fill="var(--surf)" />
           <path d="M131 121c-5 16 5 25 18 24m-42 17c18-10 33-2 31 16m-29 35c16 5 27-5 25-19m14 55c-8-14-2-27 10-28m18-63c-18 0-22 16-15 27m68-64c5 16-5 25-18 24m42 17c-18-10-33-2-31 16m29 35c-16 5-27-5-25-19m-14 55c8-14 2-27-10-28m-18-63c18 0 22 16 15 27M174 256v17h12v-17" />
         </g>
+        <g fill="var(--jl-horizon)" opacity=".7">
+          <rect x="116" y="166" width="18" height="64" rx="9" /><rect x="226" y="166" width="18" height="64" rx="9" />
+        </g>
+        <g fill="var(--jl-accent)" opacity=".55"><path d="M118 232h14l-7 26zM228 232h14l-7 26z" /></g>
         <g fill="var(--jl-primary)">
           <rect x="153" y="253" width="24" height="55" rx="9" /><rect x="183" y="253" width="24" height="55" rx="9" />
           <rect x="148" y="301" width="32" height="12" rx="6" /><rect x="181" y="301" width="32" height="12" rx="6" />
