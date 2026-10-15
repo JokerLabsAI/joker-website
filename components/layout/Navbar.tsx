@@ -39,7 +39,7 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50"
+        className="fixed top-0 left-0 right-0 z-50 jl-navbar"
         style={{ pointerEvents: "none" }}
       >
         {/* ── Mobile layout: logo + hamburger only ── */}
@@ -64,7 +64,9 @@ export function Navbar() {
             style={{ color: "var(--dim)" }}
             whileHover={{ color: "var(--foreground)" }}
             whileTap={{ scale: 0.9 }}
-            aria-label="Toggle mobile menu"
+            aria-label={locale === "es" ? "Abrir o cerrar navegación" : "Toggle navigation"}
+            aria-expanded={mobileOpen}
+            aria-controls="jl-mobile-navigation"
           >
             {mobileOpen ? <X size={22} /> : <Menu size={22} />}
           </motion.button>
@@ -215,6 +217,7 @@ export function Navbar() {
         {mobileOpen && (
           <motion.div
             key="mobile-nav"
+            id="jl-mobile-navigation"
             className="fixed inset-0 z-40 flex flex-col justify-center items-center gap-6 px-8"
             style={{ background: "var(--glass)", backdropFilter: "blur(24px)" }}
             initial={{ opacity: 0 }}
