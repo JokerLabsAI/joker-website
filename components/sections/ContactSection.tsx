@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Send, Loader2, CheckCircle2, AlertCircle } from "lucide-react";
 import { Eyebrow } from "@/components/shared/Eyebrow";
@@ -8,12 +8,29 @@ import { RevealBlock } from "@/components/shared/RevealBlock";
 import { useContent } from "@/components/layout/LocaleProvider";
 import { SITE } from "@/lib/constants";
 import { fadeUp, viewportOnce } from "@/lib/motion";
+import { trackEvent } from "@/lib/analytics";
+import type { InquiryInterest } from "@/components/shared/InquiryLink";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
 export function ContactSection() {
   const c = useContent();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [interest, setInterest] = useState<InquiryInterest>("services");
+  const [offer, setOffer] = useState<"trial_7_days" | "annual_membership" | undefined>();
+  useEffect(() => {
+    const onSelect = (event: Event) => {
+      const detail = (event as CustomEvent<{ interest?: string; offer?: string }>).detail;
+      const value = detail?.interest;
+      if (value === "services" || value === "currency_exchange") {
+        setInterest(value);
+        setOffer(detail?.offer === "trial_7_days" || detail?.offer === "annual_membership" ? detail.offer : undefined);
+        setStatus((current) => current === "sending" ? current : "idle");
+      }
+    };
+    window.addEventListener("inquiry:select", onSelect);
+    return () => window.removeEventListener("inquiry:select", onSelect);
+  }, []);
   const [status, setStatus] = useState<Status>("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,19 +44,20 @@ export function ContactSection() {
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({ ...form, message: `[${interest === "currency_exchange" ? "Currency Exchange demo" : "AI / development project"}] [${c.locale}]${offer ? ` [${offer}]` : ""}\n\n${form.message}` }),
       });
       if (!res.ok) throw new Error("send failed");
       setStatus("sent");
+      trackEvent("generate_lead", { form_id: "contact", interest, locale: c.locale, ...(offer ? { offer } : {}) });
     } catch {
       setStatus("error");
     }
   };
 
   return (
-    <section id="contact" className="section-pad">
+    <section id="contact" className="section-pad jl-contact">
       <div className="wrap">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start jl-contact-layout">
           <div className="flex flex-col gap-6">
             <RevealBlock><Eyebrow>{c.contact.eyebrow}</Eyebrow></RevealBlock>
             <RevealBlock delay={0.05}>
@@ -63,18 +81,7 @@ export function ContactSection() {
               </div>
             </RevealBlock>
             <RevealBlock delay={0.2}>
-              <div className="mt-4 p-5 rounded-2xl border" style={{ background: "var(--surf)", borderColor: "var(--border)" }}>
-                <p className="text-sm" style={{ color: "var(--dim)" }}>
-                  <span style={{ color: "var(--jl-accent)" }}>★</span>{" "}
-                  {c.contact.responseTime.split("under 24 hours")[0].split("menos de 24 horas")[0]}
-                  <strong style={{ color: "var(--foreground)" }}>
-                    {c.locale === "es" ? "menos de 24 horas." : "under 24 hours."}
-                  </strong>
-                  {" "}{c.locale === "es"
-                    ? "Tomamos cada consulta en serio, sin importar el tamaño del proyecto."
-                    : "We take every inquiry seriously, regardless of project size."}
-                </p>
-              </div>
+              <p className="lead">{c.contact.responseTime}</p>
             </RevealBlock>
           </div>
 
@@ -121,9 +128,17 @@ export function ContactSection() {
             ) : (
               <form
                 onSubmit={handleSubmit}
-                className="flex flex-col gap-5 p-8 rounded-2xl border"
+                className="flex flex-col gap-5 p-8 rounded-2xl border jl-contact-form"
                 style={{ background: "var(--surf)", borderColor: "var(--border)" }}
               >
+                <div className="flex flex-col gap-2">
+                  <label htmlFor="interest" className="text-sm font-medium">{c.contact.interestLabel}</label>
+                  <select id="interest" name="interest" value={interest} onChange={(event) => { setInterest(event.target.value as InquiryInterest); setOffer(undefined); }} className="w-full px-4 py-3 rounded-xl border text-sm" style={{ background: "var(--surf2)", borderColor: "var(--border-s)", color: "var(--foreground)" }}>
+                    <option value="services">{c.contact.interestOptions[0]}</option>
+                    <option value="currency_exchange">{c.contact.interestOptions[1]}</option>
+                  </select>
+                </div>
+                {offer && <p className="cx-trial-selection" role="status">{offer === "trial_7_days" ? c.currencyExchange.trial.requestLabel : c.currencyExchange.trial.annualRequestLabel}</p>}
                 <FormField id="name" label={c.contact.nameLabel} type="text" value={form.name} onChange={handleChange} required autoComplete="name" />
                 <FormField id="email" label={c.contact.emailLabel} type="email" value={form.email} onChange={handleChange} required autoComplete="email" />
                 <div className="flex flex-col gap-2">

@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
 import { Space_Grotesk, JetBrains_Mono } from "next/font/google";
+import Script from "next/script";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { LocaleProvider } from "@/components/layout/LocaleProvider";
+import { CookieConsentBanner } from "@/components/layout/CookieConsentBanner";
+import { GA_MEASUREMENT_ID } from "@/lib/analytics";
 import "./globals.css";
-
+import "./laboratory.css";
+// Test1
 const spaceGrotesk = Space_Grotesk({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -19,21 +24,22 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Joker Labs — Every suit. One hand.",
+  metadataBase: new URL("https://jokerlabs.ai"),
+  title: "JokerLabs — AI Laboratory & Currency Exchange",
   description:
-    "Joker Labs is the creative technology lab that turns any idea or problem into high-impact solutions — AI, software, automation, and systems under one roof.",
+    "JokerLabs is an AI laboratory building Currency Exchange, our flagship product for exchange houses, and AI, software and automation solutions for businesses.",
   keywords: ["AI", "software", "automation", "systems", "technology lab", "Colombia"],
   authors: [{ name: "Joker Labs" }],
   openGraph: {
-    title: "Joker Labs — Every suit. One hand.",
-    description: "Creative technology lab. AI, software, automation, and systems under one roof. Cali, Colombia — working globally.",
+    title: "JokerLabs — AI Laboratory & Currency Exchange",
+    description: "AI laboratory. Discover Currency Exchange, our flagship product, and explore AI, software and automation services. Colombia — working globally.",
     type: "website",
     url: "https://jokerlabs.ai",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Joker Labs — Every suit. One hand.",
-    description: "Creative technology lab. AI · Software · Automation · Systems.",
+    title: "JokerLabs — AI Laboratory & Currency Exchange",
+    description: "AI laboratory · Currency Exchange · AI and software services.",
   },
   robots: { index: true, follow: true },
   alternates: { canonical: "https://jokerlabs.ai" },
@@ -42,12 +48,27 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {GA_MEASUREMENT_ID && (
+        <Script id="consent-default" strategy="beforeInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){ window.dataLayer.push(arguments); }
+            window.gtag = gtag;
+            gtag('consent', 'default', {
+              analytics_storage: 'denied',
+              wait_for_update: 500
+            });
+          `}
+        </Script>
+      )}
       <body className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} font-[family-name:var(--font-space)]`}>
         <ThemeProvider defaultTheme="dark" storageKey="jl-theme">
           <LocaleProvider>
             {children}
+            <CookieConsentBanner />
           </LocaleProvider>
         </ThemeProvider>
+        {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
       </body>
     </html>
   );

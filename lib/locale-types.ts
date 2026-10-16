@@ -16,6 +16,19 @@ export interface SiteContent {
     scroll: string;
   };
 
+  laboratory: {
+    location: string;
+    heroNote: string;
+    eyebrow: string;
+    title: string;
+    titleAccent: string;
+    description: string;
+    link: string;
+    explore: string;
+    principle: string;
+    disciplines: Array<{ title: string; description: string }>;
+  };
+
   services: {
     eyebrow: string;
     line1: string;
@@ -30,8 +43,66 @@ export interface SiteContent {
     line2: string;
     sub: string;
     liveBadge: string;
+    visualLabel: string;
+    actionLabels: string[];
     items: Array<{ industry: string; title: string; desc: string; stat: string; statLabel: string }>;
     cta: string;
+  };
+
+  currencyExchange: {
+    assistant: { eyebrow: string; title: string; accent: string; description: string; events: Array<{ title: string; description: string }>; flow: string; note: string; cta: string };
+    trial: {
+      eyebrow: string; title: string; accent: string; description: string;
+      daysLabel: string; monthLabel: string; annualLabel: string;
+      startTitle: string; startDescription: string; startCta: string;
+      annualTitle: string; annualDescription: string; annualCta: string;
+      steps: Array<{ title: string; description: string }>;
+      note: string; requestLabel: string; annualRequestLabel: string;
+    };
+    heroBadges: string[];
+    compliance: {
+      eyebrow: string;
+      title: string;
+      accent: string;
+      description: string;
+      cards: Array<{ name: string; title: string; description: string; tags: string[] }>;
+      flow: string[];
+      note: string;
+      cta: string;
+    };
+    availableLabel: string;
+    roadmapTitle: string;
+    roadmapDescription: string;
+    roadmap: Array<{ title: string; description: string; status: string; state: "planned" | "validation"; tag: string }>;
+    invoicePreview: { title: string; subtitle: string; issuer: string; row: string; total: string; note: string };
+    eyebrow: string;
+    title: string;
+    headlineAccent: string;
+    productLabel: string;
+    ctaNote: string;
+    tourCta: string;
+    closingTitle: string;
+    closingDescription: string;
+    preview: {
+      label: string;
+      title: string;
+      branch: string;
+      tabs: [string, string, string];
+      views: Array<{ title: string; description: string; rows: Array<{ label: string; value: string }> }>;
+      footnote: string;
+    };
+    description: string;
+    problem: string;
+    benefit: string;
+    summaryLabel: string;
+    capabilities: Array<{ title: string; description: string }>;
+    updatesLabel: string;
+    updatesDescription: string;
+    updates: Array<{ title: string; description: string }>;
+    boundary: string;
+    cta: string;
+    moreLabel: string;
+    moreCta: string;
   };
 
   why: {
@@ -93,6 +164,8 @@ export interface SiteContent {
     line1: string;
     line2: string;
     sub: string;
+    interestLabel: string;
+    interestOptions: [string, string];
     nameLabel: string;
     emailLabel: string;
     messageLabel: string;
