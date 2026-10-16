@@ -1,14 +1,28 @@
-import { Home, Grid2x2, Briefcase, Info, MessageCircle, Mail } from "lucide-react";
+import { ArrowLeftRight, Cpu, Code2, Workflow, Network, ShieldCheck, Route, Users, CircleHelp } from "lucide-react";
 
 // ─── Navigation ───────────────────────────────────────────────────────────────
-export const NAV_ITEMS = [
-  { name: "Home",     href: "#home",     icon: Home },
-  { name: "Product", href: "#currency-exchange", icon: Grid2x2 },
-  { name: "Services", href: "#services",     icon: Briefcase },
-  { name: "Process",  href: "#process",      icon: Info },
-  { name: "Team",     href: "#team",      icon: MessageCircle },
-  { name: "Contact",  href: "#contact",  icon: Mail },
-] as const;
+// Portfolio (products and services, each on its own page) is kept apart from the
+// company pages. Order matches content nav.products / services.items / nav.companyItems.
+export const NAV_MENU = {
+  products: [
+    { href: "/currency-exchange", icon: ArrowLeftRight },
+  ],
+  services: [
+    { href: "/services#service-ai",          icon: Cpu },
+    { href: "/services#service-software",    icon: Code2 },
+    { href: "/services#service-automation",  icon: Workflow },
+    { href: "/services#service-integration", icon: Network },
+  ],
+  company: [
+    { href: "/#why",     icon: ShieldCheck },
+    { href: "/#process", icon: Route },
+    { href: "/#team",    icon: Users },
+    { href: "/#faq",     icon: CircleHelp },
+  ],
+  allServices: "/services",
+  demo: "/currency-exchange#contact",
+  contact: "#contact",
+} as const;
 
 // ─── Services ─────────────────────────────────────────────────────────────────
 export const SERVICES = [

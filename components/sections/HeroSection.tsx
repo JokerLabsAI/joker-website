@@ -1,8 +1,9 @@
 "use client";
 
 import { HeroPlanet } from "@/components/shared/HeroPlanet";
-import { ArrowDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { InquiryLink } from "@/components/shared/InquiryLink";
+import { SiteLink } from "@/components/shared/SiteLink";
 import { useContent } from "@/components/layout/LocaleProvider";
 
 function TechnologyCore() {
@@ -34,7 +35,7 @@ export function HeroSection() {
           <p className="lab-hero-description">{c.hero.sub}</p>
           <div className="lab-hero-actions">
             <InquiryLink interest="services">{c.hero.cta}</InquiryLink>
-            <a href="#currency-exchange" className="lab-action lab-action--text">{c.hero.secondary}<ArrowUpRight size={17} /></a>
+            <SiteLink href="/currency-exchange" className="lab-action lab-action--text">{c.hero.secondary}<ArrowUpRight size={17} /></SiteLink>
           </div>
           <div className="lab-hero-disciplines"><span>AI</span><span>SOFTWARE</span><span>AUTOMATION</span><span>SYSTEMS</span></div>
         </div>
@@ -43,7 +44,7 @@ export function HeroSection() {
       <div className="wrap lab-hero-footer">
         <span>{c.laboratory.location}</span>
         <span className="lab-hero-footer-note">{c.laboratory.heroNote}</span>
-        <a href="#currency-exchange">{c.hero.scroll}<ArrowDown size={15} /></a>
+        <SiteLink href="/currency-exchange">{c.hero.scroll}<ArrowUpRight size={15} /></SiteLink>
       </div>
     </section>
   );
