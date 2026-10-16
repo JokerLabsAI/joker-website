@@ -419,18 +419,26 @@ export function HeroPlanet() {
         deck.add(card);return card;
       });
       let deckAngle=0;
+      const orbitRadius=1.18, fanSpread=0.36, fanRadius=0.4;
       const orbitQuaternion=new THREE.Quaternion(), handQuaternion=new THREE.Quaternion(), cardEuler=new THREE.Euler();
-      // fan 0 = tilted orbit ring (low in front, high behind); fan 1 = hand beside the raised arm, right cards on top and the Joker pulled forward.
+      // Whole turns each card keeps while fanning, latched at rest so the sweep never reverses mid-flight.
+      const sweepWraps=cards.map(() => 0);
+      // fan 0 = tilted orbit ring, JokerLabs backs facing out and suits facing in.
+      // fan 1 = hand pivoted above the raised arm, clear of the face, right cards on top and the Joker in the middle.
+      // Cards travel around Jais (angle and radius), never straight through his body.
       const placeDeck=(fan: number,time: number) => {
         cards.forEach((card,index) => {
-          const angle=deckAngle+index*Math.PI*2/cards.length, offset=index-2;
-          const orbitX=Math.sin(angle)*1.18, orbitY=0.02-0.48*Math.cos(angle)+Math.sin(time*1.4+index)*0.02, orbitZ=Math.cos(angle)*1.18;
-          const handX=0.6+offset*0.12, handY=0.44-offset*offset*0.03+(offset===0?0.07:0), handZ=0.42+offset*0.035+(offset===0?0.12:0);
-          card.position.set(orbitX+(handX-orbitX)*fan,orbitY+(handY-orbitY)*fan,orbitZ+(handZ-orbitZ)*fan);
-          orbitQuaternion.setFromEuler(cardEuler.set(Math.sin(time*0.9+index)*0.12,angle,0));
-          handQuaternion.setFromEuler(cardEuler.set(0,-0.1,-offset*0.2));
+          const angle=deckAngle+index*Math.PI*2/cards.length, offset=index-2, theta=offset*fanSpread;
+          const orbitY=0.02-0.48*Math.cos(angle)+Math.sin(time*1.4+index)*0.02;
+          const handX=0.76+Math.sin(theta)*fanRadius, handY=0.08+Math.cos(theta)*fanRadius, handZ=0.46+offset*0.03;
+          const handAngle=Math.atan2(handX,handZ), handRadius=Math.hypot(handX,handZ);
+          if(fan<0.001) sweepWraps[index]=Math.round((angle-handAngle)/(Math.PI*2));
+          const sweep=angle+(handAngle-angle+sweepWraps[index]*Math.PI*2)*fan, radius=orbitRadius+(handRadius-orbitRadius)*fan;
+          card.position.set(Math.sin(sweep)*radius,orbitY+(handY-orbitY)*fan,Math.cos(sweep)*radius);
+          orbitQuaternion.setFromEuler(cardEuler.set(Math.sin(time*0.9+index)*0.12,angle+Math.PI,0));
+          handQuaternion.setFromEuler(cardEuler.set(0,-0.15,-theta));
           card.quaternion.slerpQuaternions(orbitQuaternion,handQuaternion,fan);
-          card.scale.setScalar(1+fan*(offset===0?0.24:0.12));
+          card.scale.setScalar(1-fan*(offset===0?0.06:0.14));
         });
       };
       placeDeck(0,0);
@@ -588,27 +596,15 @@ export function HeroPlanet() {
       const shirtCanvas=document.createElement("canvas");shirtCanvas.width=512;shirtCanvas.height=256;
       const shirtContext=shirtCanvas.getContext("2d");
       if(shirtContext) {
-        // Separate embroidered chest patches: company mark and agent name.
+        // Embroidered chest patch with the agent name.
         shirtContext.fillStyle="#020304";
-        shirtContext.beginPath();shirtContext.roundRect(8,12,224,232,20);shirtContext.fill();
-        shirtContext.beginPath();shirtContext.roundRect(270,56,234,148,16);shirtContext.fill();
+        shirtContext.beginPath();shirtContext.roundRect(139,56,234,148,16);shirtContext.fill();
         shirtContext.strokeStyle="#42605f";shirtContext.lineWidth=2;shirtContext.setLineDash([6,5]);
-        shirtContext.beginPath();shirtContext.roundRect(16,20,208,216,14);shirtContext.stroke();
-        shirtContext.beginPath();shirtContext.roundRect(278,64,218,132,10);shirtContext.stroke();shirtContext.setLineDash([]);
+        shirtContext.beginPath();shirtContext.roundRect(147,64,218,132,10);shirtContext.stroke();shirtContext.setLineDash([]);
         shirtContext.fillStyle="#f1ffff";shirtContext.textAlign="center";
-        shirtContext.font="bold 32px sans-serif";shirtContext.fillText("JokerLabs",120,216);
-        shirtContext.font="bold 79px sans-serif";shirtContext.fillText("Jais",387,145);
-        shirtContext.fillStyle="#8adfcd";shirtContext.font="17px monospace";shirtContext.fillText("ENGINEER",387,176);
+        shirtContext.font="bold 79px sans-serif";shirtContext.fillText("Jais",256,145);
+        shirtContext.fillStyle="#8adfcd";shirtContext.font="17px monospace";shirtContext.fillText("ENGINEER",256,176);
         const shirtTexture=new THREE.CanvasTexture(shirtCanvas);shirtTexture.colorSpace=THREE.SRGBColorSpace;brainTextures.push(shirtTexture);
-        const brandMark = new Image();
-        brandMark.onload = () => {
-          if (cancelled) return;
-          shirtContext.drawImage(brandMark,140,200,970,860,42,38,156,146);
-          shirtTexture.needsUpdate=true;
-          render();
-        };
-        brandMark.onerror = () => console.warn("[HeroPlanet] Could not load the JokerLabs shirt mark.");
-        brandMark.src="/assets/logo-white.svg";
         const logoMaterial=new THREE.MeshStandardMaterial({map:shirtTexture,transparent:true,depthWrite:false,roughness:0.85,polygonOffset:true,polygonOffsetFactor:-2,polygonOffsetUnits:-2});
         const logoGeometry=new THREE.PlaneGeometry(0.34,0.17,40,24);
         const logoPositions=logoGeometry.getAttribute("position");

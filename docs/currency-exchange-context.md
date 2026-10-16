@@ -25,7 +25,9 @@ contact hardening and durable intake remain pending.
 - `components/shared/InquiryLink.tsx`: transient inquiry and offer selection.
 - `components/sections/ContactSection.tsx`: editable interest and delivery confirmation.
 - `content/es.ts`, `content/en.ts`, `lib/locale-types.ts`: bilingual content contract.
-- `app/page.tsx`, `lib/constants.ts`: narrative order and navigation.
+- `app/currency-exchange/page.tsx`: standalone product page (section + demo contact form).
+- `app/services/page.tsx`: standalone services page.
+- `app/page.tsx`, `lib/constants.ts`: company page order and Portfolio/Company navigation (`NAV_MENU`).
 
 ## Evidence and contract boundaries
 
@@ -81,3 +83,27 @@ understand and act on relevant events. The landing presents this as Planned, wit
 illustrative incomplete-record, transaction-review and report-date events. Do not
 claim constant monitoring, available AI alerts or inclusion in the current trial
 without implementation evidence. See the marketing strategy for proposed scope.
+
+## CMO message expansion — 2026-10-15
+
+The product page now leads with exchange-house control, demonstrated through
+closing differences by currency, rate/cash changes with a recorded actor and
+reason, and read-only access. The illustrative tabs show a closing shortage,
+a rate change and a transaction/receipt example; sample-data labels remain.
+ES/EN also explain customer continuity, name-match review, approved rates,
+inventory checks and current plan capacity. No savings metric or support,
+migration or deployment guarantee is implied. Roadmap and trial boundaries remain.
+See [the CMO review](currency-exchange-cmo-review.md) for evidence and unresolved
+commercial information to gather before advertising additional commitments.
+
+## Everyday scenarios — 2026-10-15
+
+The generic updates grid is replaced by six localized, illustrative cases:
+cash shortage at closing, an intraday rate change, a returning customer's receipt,
+name-match review, advisor read-only access and report preparation. Each presents
+a situation, a supported action and reviewable evidence. Cases describe current
+workflows, separately from the planned AI events, and do not imply automatic
+cause detection or regulatory submission. The responsive grid uses three, two or
+one columns; every case remains visible without animation or timed rotation.
+Core/Growth limits remain in the closing qualification. The demo inquiry CTA
+preserves Currency Exchange interest and requires explicit form submission.

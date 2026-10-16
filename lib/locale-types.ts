@@ -1,8 +1,24 @@
+export interface NavEntry { title: string; description: string }
+
 export interface SiteContent {
   locale: "en" | "es";
 
+  // Mega-menu navigation; link order matches NAV_MENU in constants.ts.
   nav: {
-    items: string[];   // order matches NAV_ITEMS in constants.ts
+    label: string;
+    toggle: string;
+    home: string;
+    portfolio: string;
+    company: string;
+    contact: string;
+    productsLabel: string;
+    servicesLabel: string;
+    companyLabel: string;
+    products: NavEntry[];
+    companyItems: NavEntry[];
+    allServices: string;
+    productCta: string;
+    demo: string;
     cta: string;
   };
 
@@ -50,6 +66,11 @@ export interface SiteContent {
   };
 
   currencyExchange: {
+    dailyCases: {
+      eyebrow: string; title: string; description: string; actionLabel: string;
+      resultLabel: string; note: string; cta: string;
+      items: Array<{ moment: string; title: string; situation: string; action: string; result: string }>;
+    };
     assistant: { eyebrow: string; title: string; accent: string; description: string; events: Array<{ title: string; description: string }>; flow: string; note: string; cta: string };
     trial: {
       eyebrow: string; title: string; accent: string; description: string;
@@ -179,7 +200,6 @@ export interface SiteContent {
 
   footer: {
     tagline: string;
-    navigateLabel: string;
     contactLabel: string;
     cta: string;
     taglineBottom: string;
