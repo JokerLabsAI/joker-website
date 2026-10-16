@@ -1,0 +1,7 @@
+﻿Phrase/pattern,Observed intent to check,Suggested treatment,Scope,Reason/exception,Reviewer,Decision date
+empleo / vacantes / salario,Job seeker,Exclude from acquisition targets,Candidate only - not automatic ad negative,A careers page can still legitimately address this intent,,
+curso / tutorial / qué es,Learning,Evaluate separately,Editorial review,Educational content can support a buyer; do not reject all informational queries,,
+dólar hoy / cambio cerca de mí,Consumer exchanging money,Reject for software purchase targeting,Product acquisition,"Check actual results; JokerLabs sells software, not consumer FX trades",,
+software gratis,Free tool seeker,Qualify / lower priority,Editorial review,Comparison intent may still inform a purchase; inspect SERPs,,
+facturación electrónica disponible / asistente IA disponible,Feature unavailable in FX product,Hold availability claims,Currency Exchange,Do not market planned functionality as current,,
+software casas de cambio Perú / México,Foreign FX product fit,Hold pending product validation,Currency Exchange,Services coverage does not establish foreign regulatory/product readiness,,

@@ -10,6 +10,7 @@ import { SiteLink } from "@/components/shared/SiteLink";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useContent, useLocale } from "@/components/layout/LocaleProvider";
 import { NAV_MENU } from "@/lib/constants";
+import { localizedPath } from "@/lib/seo";
 import type { NavEntry } from "@/lib/locale-types";
 
 type MenuId = "portfolio" | "company";
@@ -19,10 +20,11 @@ const PORTFOLIO_PATHS = ["/currency-exchange", "/services"];
 
 function MenuItem({ item, onSelect }: { item: MenuLink; onSelect: () => void }) {
   const pathname = usePathname();
+  const { locale } = useLocale();
   const Icon = item.icon;
   return (
     <li>
-      <SiteLink href={item.href} className="jl-mega-item" afterClick={onSelect} aria-current={item.href === pathname ? "page" : undefined}>
+      <SiteLink href={item.href} className="jl-mega-item" afterClick={onSelect} aria-current={localizedPath(item.href, locale) === pathname ? "page" : undefined}>
         <span className="jl-mega-icon" aria-hidden="true"><Icon size={18} strokeWidth={1.7} /></span>
         <span className="jl-mega-text"><strong>{item.title}</strong><small>{item.description}</small></span>
       </SiteLink>
@@ -61,7 +63,7 @@ function MenuTrigger({ id, label, open, current, onToggle, onHover }: {
 
 export function Navbar() {
   const { theme, toggle: toggleTheme } = useTheme();
-  const { locale, setLocale } = useLocale();
+  const { locale } = useLocale();
   const content = useContent();
   const { nav } = content;
   const pathname = usePathname();
@@ -118,9 +120,9 @@ export function Navbar() {
     : { initial: { opacity: 0, y: -6 }, animate: { opacity: 1, y: 0 }, exit: { opacity: 0, y: -6 }, transition: { duration: 0.18 } };
 
   const languageButton = (className: string) => (
-    <button type="button" onClick={() => setLocale(locale === "en" ? "es" : "en")} className={className} aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}>
+    <a href={localizedPath(pathname, locale === "en" ? "es" : "en")} hrefLang={locale === "en" ? "es" : "en"} className={className} aria-label={locale === "es" ? "Cambiar a inglés" : "Switch to Spanish"}>
       {locale === "en" ? "EN" : "ES"}
-    </button>
+    </a>
   );
   const themeButton = (className: string) => (
     <button type="button" onClick={toggleTheme} className={className} aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}>
@@ -159,7 +161,7 @@ export function Navbar() {
           <div ref={menuAreaRef} className="jl-nav-area" style={{ pointerEvents: "auto" }} onPointerEnter={cancelClose} onPointerLeave={(event) => { if (event.pointerType === "mouse") scheduleClose(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpenMenu(null); }}>
             <nav className="jl-nav-pill" aria-label={nav.label}>
               {/* Each panel follows its trigger in the DOM so Tab moves from the button into its links. */}
-              <MenuTrigger id="portfolio" label={nav.portfolio} open={openMenu === "portfolio"} current={PORTFOLIO_PATHS.includes(pathname)} onToggle={toggleMenu} onHover={hoverMenu} />
+              <MenuTrigger id="portfolio" label={nav.portfolio} open={openMenu === "portfolio"} current={PORTFOLIO_PATHS.includes(localizedPath(pathname, "en"))} onToggle={toggleMenu} onHover={hoverMenu} />
               <AnimatePresence>
                 {openMenu === "portfolio" && (
                   <motion.div key="portfolio" id="jl-mega-portfolio" className="jl-mega" {...panelMotion}>

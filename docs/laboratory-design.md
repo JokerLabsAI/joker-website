@@ -50,10 +50,10 @@ promise to action. This implementation has no measured conversion-lift claim.
 ## Source and conversion handling
 
 The site separates the business from the portfolio, following a Chatwoot-style
-mega menu. `app/page.tsx` (company) renders Hero, WhySection, ProcessSection,
+mega menu. `app/(english)/page.tsx` (company) renders Hero, WhySection, ProcessSection,
 TeamSection, FaqSection and ContactSection. The portfolio has its own routes:
-`app/currency-exchange/page.tsx` (CurrencyExchangeSection as the h1, contact
-preselected for a demo) and `app/services/page.tsx` (ServicesSection as the h1,
+`app/(english)/currency-exchange/page.tsx` (CurrencyExchangeSection as the h1, contact
+preselected for a demo) and `app/(english)/services/page.tsx` (ServicesSection as the h1,
 per-service anchors). The Navbar exposes Portfolio (products + services) and
 Company disclosure panels plus Contact, Request a demo and Let's Talk; the mobile
 overlay shows the same groups. Links come from `NAV_MENU` in `lib/constants.ts`
@@ -62,7 +62,7 @@ trigger in the DOM, open on click or mouse hover, and close on Escape (focus
 returns to the trigger), outside click or focus leaving. `SiteLink` scrolls
 same-page anchors and navigates between routes; Navbar and Footer use it.
 `content/es.ts`, `content/en.ts`, `lib/locale-types.ts` own bilingual copy.
-`lib/constants.ts` owns anchor navigation; `app/layout.tsx` owns metadata.
+`lib/constants.ts` owns anchor navigation; `components/layout/SiteDocument.tsx` owns metadata.
 
 `InquiryLink` dispatches an allowlisted transient services/product interest.
 The form lets visitors change it and prepends interest/locale to the existing

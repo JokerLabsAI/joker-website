@@ -1,0 +1,71 @@
+﻿Keyword ID,Seed phrase,Cluster ID,Topic,Market ID,Country,Language,Origin,Status,Notes
+K0001,jokerlabs,BRAND,Brand/company,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0002,jokerlabs.ai,BRAND,Brand/company,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0003,jokerlabs,BRAND,Brand/company,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0004,jokerlabs.ai,BRAND,Brand/company,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0005,jokerlabs,BRAND,Brand/company,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0006,jokerlabs.ai,BRAND,Brand/company,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0007,desarrollo de software a medida,SOFTWARE,Custom software,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0008,empresa de desarrollo de software,SOFTWARE,Custom software,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0009,desarrollo de software para empresas,SOFTWARE,Custom software,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0010,software a medida para empresas,SOFTWARE,Custom software,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0011,desarrollo de software a medida,SOFTWARE,Custom software,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0012,empresa de desarrollo de software,SOFTWARE,Custom software,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0013,desarrollo de software para empresas,SOFTWARE,Custom software,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0014,software a medida para empresas,SOFTWARE,Custom software,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0015,desarrollo de software a medida,SOFTWARE,Custom software,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0016,empresa de desarrollo de software,SOFTWARE,Custom software,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0017,desarrollo de software para empresas,SOFTWARE,Custom software,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0018,software a medida para empresas,SOFTWARE,Custom software,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0019,inteligencia artificial para empresas,AI,Applied AI,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0020,empresa de inteligencia artificial,AI,Applied AI,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0021,soluciones de inteligencia artificial,AI,Applied AI,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0022,desarrollo de agentes de inteligencia artificial,AI,Applied AI,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0023,inteligencia artificial para empresas,AI,Applied AI,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0024,empresa de inteligencia artificial,AI,Applied AI,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0025,soluciones de inteligencia artificial,AI,Applied AI,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0026,desarrollo de agentes de inteligencia artificial,AI,Applied AI,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0027,inteligencia artificial para empresas,AI,Applied AI,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0028,empresa de inteligencia artificial,AI,Applied AI,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0029,soluciones de inteligencia artificial,AI,Applied AI,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0030,desarrollo de agentes de inteligencia artificial,AI,Applied AI,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0031,automatización de procesos empresariales,AUTOMATION,Process automation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0032,automatización para empresas,AUTOMATION,Process automation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0033,automatización de procesos administrativos,AUTOMATION,Process automation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0034,empresa de automatización de procesos,AUTOMATION,Process automation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0035,automatización de procesos empresariales,AUTOMATION,Process automation,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0036,automatización para empresas,AUTOMATION,Process automation,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0037,automatización de procesos administrativos,AUTOMATION,Process automation,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0038,empresa de automatización de procesos,AUTOMATION,Process automation,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0039,automatización de procesos empresariales,AUTOMATION,Process automation,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0040,automatización para empresas,AUTOMATION,Process automation,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0041,automatización de procesos administrativos,AUTOMATION,Process automation,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0042,empresa de automatización de procesos,AUTOMATION,Process automation,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0043,integración de sistemas empresariales,INTEGRATION,System integrations,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0044,integración de APIs,INTEGRATION,System integrations,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0045,integración de software empresarial,INTEGRATION,System integrations,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0046,integración de sistemas empresariales,INTEGRATION,System integrations,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0047,integración de APIs,INTEGRATION,System integrations,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0048,integración de software empresarial,INTEGRATION,System integrations,PE_ES,Peru,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0049,integración de sistemas empresariales,INTEGRATION,System integrations,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0050,integración de APIs,INTEGRATION,System integrations,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0051,integración de software empresarial,INTEGRATION,System integrations,MX_ES,Mexico,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0052,desarrollo de software en Cali,LOCAL,Local software service,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0053,empresa de software en Cali,LOCAL,Local software service,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0054,inteligencia artificial para empresas Cali,LOCAL,Local software service,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0055,desarrollo de software en Cali,LOCAL,Local software service,CALI_ES,Colombia (Cali targeting),es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0056,empresa de software en Cali,LOCAL,Local software service,CALI_ES,Colombia (Cali targeting),es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0057,inteligencia artificial para empresas Cali,LOCAL,Local software service,CALI_ES,Colombia (Cali targeting),es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0058,software para casas de cambio,FX-BUY,FX software purchase,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0059,sistema para casas de cambio Colombia,FX-BUY,FX software purchase,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0060,programa para casas de cambio,FX-BUY,FX software purchase,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0061,software de compra y venta de divisas,FX-BUY,FX software purchase,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0062,cómo hacer arqueo de caja en casa de cambio,FX-CASH,FX closing problem,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0063,control de caja para casas de cambio,FX-CASH,FX closing problem,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0064,diferencias de caja en divisas,FX-CASH,FX closing problem,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0065,control de tasas en casas de cambio,FX-RATES,FX rate review,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0066,historial de tasas compra venta divisas,FX-RATES,FX rate review,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0067,software reportes DIAN casas de cambio,FX-REPORT,FX report preparation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0068,reportes UIAF casas de cambio,FX-REPORT,FX report preparation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0069,formato 1099 casas de cambio,FX-REPORT,FX report preparation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
+K0070,formato 1100 casas de cambio,FX-REPORT,FX report preparation,CO_ES,Colombia,es,Editorial seed,Hypothesis,Validate buyer task and observed results
