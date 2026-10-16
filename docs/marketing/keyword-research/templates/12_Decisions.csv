@@ -1,1 +1,41 @@
 ﻿Date,Map/brief ID,Decision,Evidence IDs,Old URL / prior hypothesis,New URL / next action,Redirect/canonical needs,Owner,Review date,Observed outcome
+2026-10-16,BUILD_20261016_DETAIL_PAGES,User authorized seven source-based topics in ES/EN before keyword validation. Implemented locally; research statuses retained.,DEL_SOFTWARE; DEL_AI; DEL_AUTOMATION; DEL_INTEGRATION; DEL_FX-CLOSING; DEL_FX-RATES; DEL_FX-REPORTS,Service clusters used /es/services; operational guide URLs were proposals.,See 15_Page_Delivery for fourteen implemented detail URLs; research exports and deployment remain.,New pages only; old hub and anchors preserved. Reciprocal EN/ES canonicals/alternates; sitemap expanded.,Camilo,,Production build + 22 rendered SEO/link checks + desktop/mobile browser checks passed. Not deployed; research validation pending.
+2026-10-16,DEL_FX_PLANS,Apply approved proposal to the existing product page in ES/EN; preserve prices and assisted trial terms.,DEL_FX_PLANS; approved pricing proposal; rendered price checks,Existing Currency Exchange product page; no new route needed.,/es/currency-exchange#cx-plans and English counterpart; deployment and keyword validation remain pending.,None: existing page canonicals retained; pricing uses a section anchor.,Camilo,,"Core/Growth prices, activation and editable plan inquiry verified. 7-day initial trial; month-total extension with paid annual membership. No payment or live email sent."
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+,,,,,,,,,
+2026-10-16,SCOPE_FX_FINANCE_RELEASE,"Core y Growth incluirán reportería, contabilidad y finanzas al lanzamiento, sin cambio de precios. Compromiso comercial; entrega integral pendiente.",Planes_y_Precios_JokerLabs_Currency_Exchange_v2_2026-10-16.md; decisión del propietario 2026-10-16,Backend contable existente; experiencia completa y conciliación pendientes de validación.,"Completar UI, gastos/ajustes, exportaciones y conciliación/reproceso; validar cierre y estados antes de liberar.",Ninguno; no se crea página nueva.,Camilo,,"Alcance documentado; no acredita implementación, despliegue ni validación de mercado."
+2026-10-16,SCOPE_FX_ONBOARDING,"Activación incluye configuración, parametrización, capacitación, acompañamiento de primera operación/cierre y carga inicial acordada. Importe sin cambio.",Aprobación del propietario; propuesta comercial; content/currency-exchange-plans.ts,"Servicios de implementación propuestos, pendientes de confirmación comercial.",Publicar alcance aprobado en /es/currency-exchange#cx-plans y equivalente inglés. Acordar carga inicial y agenda antes de iniciar.,Ninguno,Camilo,,Alcance incluido en tarjetas y propuesta; no acredita prestación del servicio ni despliegue.
+2026-10-16,GROWTH_CUSTOM_QUOTE,Growth pasa a cotización personalizada; Core conserva precios. Importes históricos de Growth solo como referencia interna.,Instrucción propietario; content/currency-exchange-plans.ts,,/es/currency-exchange#cx-plans y equivalente inglés; acordar capacidad y acompañamiento antes de cotizar.,,Camilo,,Web y propuesta alineadas; sin cambios a cobros ni catálogo del backend.
+2026-10-16,CORE_ANNUAL_VAT_PROMO,Mostrar equivalente mensual aproximado y pago anual visible: Core 1.250.000 COP + IVA primer año. 7 días de prueba; compra anual extiende a un mes total incluyendo los 7 días.,Confirmación propietario; content/currency-exchange-plans.ts; propuesta,,"Revisar /es/currency-exchange#cx-plans y #cx-trial; Growth cotizado, implementación separada.",,Camilo,,Copy ES/EN actualizado; no se crea cobro mensual ni se modifica facturación del backend.
+2026-10-16,CORE_PRICE_109900,Core: 109.900 COP + IVA equivalente mensual; pago anual lanzamiento 1.318.800 COP + IVA; ahorro 181.200 COP antes de IVA frente a anual regular 1.500.000. Sustituye CORE_ANNUAL_VAT_PROMO en importes.,Confirmación propietario: acomoda el valor en consecuencia; propuesta y contenido ES/EN,,Revisar oferta local; coordinar catálogo de cobro antes de aceptar pagos.,,Camilo,,"Web y propuesta actualizadas; Growth cotizado, implementación y prueba sin cambios. Backend no modificado."

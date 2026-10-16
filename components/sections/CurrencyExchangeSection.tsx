@@ -5,6 +5,8 @@ import { ArrowUpRight, ShieldCheck, Scale, History, Check, Building2, FileText, 
 import { useContent } from "@/components/layout/LocaleProvider";
 import { InquiryLink } from "@/components/shared/InquiryLink";
 
+import { CurrencyExchangePlans } from "@/components/sections/CurrencyExchangePlans";
+import { PLAN_COPY } from "@/content/currency-exchange-plans";
 import { CurrencyExchangeTrial } from "@/components/sections/CurrencyExchangeTrial";
 import { SiteLink } from "@/components/shared/SiteLink";
 
@@ -12,7 +14,7 @@ const icons = [Scale, History, ShieldCheck];
 
 export function CurrencyExchangeSection() {
   // Rendered as the main content of /currency-exchange, so the product title is the page h1.
-  const { currencyExchange: cx } = useContent();
+  const { currencyExchange: cx, locale } = useContent();
   const [viewIndex, setViewIndex] = useState(0);
   const view = cx.preview.views[viewIndex];
 
@@ -27,7 +29,7 @@ export function CurrencyExchangeSection() {
             <p className="flagship-sales-description">{cx.description}</p>
             <div className="cx-hero-badges">{cx.heroBadges.map((badge) => <span key={badge}><Check size={12} aria-hidden="true" />{badge}</span>)}</div>
             <div className="flagship-sales-ctas"><InquiryLink interest="currency_exchange">{cx.cta}</InquiryLink><a href="#cx-benefits" className="lab-action lab-action--text">{cx.tourCta}<ArrowUpRight size={17} /></a></div>
-            <p className="flagship-cta-note">{cx.ctaNote}</p>
+            <p className="flagship-cta-note">{cx.ctaNote}</p><a href="#cx-plans" className="flagship-plan-link">{PLAN_COPY[locale].link}<ArrowUpRight size={15} aria-hidden="true" /></a>
           </div>
           <figure className="flagship-preview">
             <figcaption className="flagship-preview-label">{cx.preview.label}</figcaption>
@@ -99,6 +101,7 @@ export function CurrencyExchangeSection() {
             </article>;
           })}
         </div>
+        <CurrencyExchangePlans />
         <CurrencyExchangeTrial />
         <p className="flagship-boundary">{cx.boundary}</p>
         <div className="flagship-services-bridge"><span>{cx.moreLabel}</span><SiteLink href="/services">{cx.moreCta}<ArrowUpRight size={16} /></SiteLink></div>

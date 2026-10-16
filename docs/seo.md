@@ -11,7 +11,7 @@ Updated 2026-10-15. Local implementation; deployment and Google indexing are sep
   Switching language loads the equivalent document; normal navigation stays in that language.
 - Unique titles/descriptions, self-canonicals, reciprocal EN/ES/x-default alternates,
   matching social metadata and the existing branded `/opengraph-image` asset.
-- `/sitemap.xml` lists the six canonical pages and language alternates. No invented
+- `/sitemap.xml` lists the twenty canonical pages and language alternates. No invented
   modification dates, priorities or publishing frequencies.
 - `/robots.txt` advertises the sitemap and excludes API crawling. This is not access control.
 - Organization JSON-LD uses the existing business name, website, email, logo and
@@ -53,7 +53,7 @@ street address merely to fill schema fields. Do not invent reviews or ratings.
 1. Ensure the live domain uses the same preferred HTTPS host as SITE_URL; verify
    redirects for alternate hosts before changing canonical configuration.
 2. In Google Search Console, verify the domain using the owner-provided DNS record.
-   Submit `https://jokerlabs.ai/sitemap.xml` and inspect all six canonical URLs.
+   Submit `https://jokerlabs.ai/sitemap.xml` and inspect all twenty canonical URLs.
    Confirm rendered language, indexing eligibility, canonical selection and crawl errors.
 3. Validate live JSON-LD using Google's Rich Results Test and Schema Markup Validator.
    Organization/product markup describes entities; it does not guarantee a rich result.
@@ -75,7 +75,7 @@ Run a production build, then `node --test tests/seo-artifacts.test.mjs`. This ch
 rendered HTML language, one H1, unique titles, descriptions, canonicals, reciprocal
 alternates, social URLs, parseable organization/product JSON-LD, Spanish navigation,
 all sitemap entries and robots discovery. TypeScript and targeted ESLint supplement
-these artifact checks. Browser interaction and live indexing remain separate checks.
+these artifact checks. Browser interaction was checked for the new detail pages; live indexing remains a separate check.
 
 ## References
 
@@ -89,10 +89,10 @@ these artifact checks. Browser interaction and live indexing remain separate che
   https://support.google.com/business/answer/7091
 
 Local validation: production webpack build passed with network access for Google
-Fonts; seven rendered-artifact checks passed; targeted ESLint passed. The build
+Fonts; twenty-two rendered-artifact checks passed; targeted ESLint passed. The build
 retains the existing edge social-image notice and a fallback metadataBase warning
-for the generated not-found document. All six public-page social image URLs and
-canonicals were verified as absolute production URLs. No browser/live crawl was run.
+for the generated not-found document. All twenty public-page social image URLs and
+canonicals were verified as absolute production URLs. Desktop/mobile browser checks cover the new detail pages; no live Google crawl was run.
 
 ## Keyword research workbook
 
@@ -100,3 +100,12 @@ Use the [keyword-to-page workflow](marketing/keyword-research/START-HERE.md) and
 its Excel workbook to collect market-specific Planner data, verify intent, assign
 pages and track outcomes. Starter keywords and page assignments are hypotheses;
 measured fields remain blank until sourced exports are supplied.
+
+
+## Detail-page expansion — 2026-10-16
+
+Four services and three product guides now have ES/EN detail URLs, translated slug
+navigation and hub/related links. Metadata and sitemap share the route registry.
+See [the implementation ledger](marketing/keyword-research/PAGE-DELIVERY.md).
+These pages were authorized from repository evidence before keyword validation;
+research and deployment statuses remain independently tracked in the main workbook.

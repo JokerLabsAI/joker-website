@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Sun, Moon, Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { Sun, Moon, Menu, X, ChevronDown, ArrowRight, BookOpen, BadgeDollarSign, CalendarDays } from "lucide-react";
 import { usePathname } from "next/navigation";
 import type { LucideIcon } from "lucide-react";
 import { Logo } from "@/components/shared/Logo";
@@ -10,13 +10,15 @@ import { SiteLink } from "@/components/shared/SiteLink";
 import { useTheme } from "@/components/layout/ThemeProvider";
 import { useContent, useLocale } from "@/components/layout/LocaleProvider";
 import { NAV_MENU } from "@/lib/constants";
-import { localizedPath } from "@/lib/seo";
+import { DETAIL_CONTENT } from "@/content/detail-pages";
+import { DETAIL_ROUTES } from "@/lib/page-routes";
+import { localizedPath } from "@/lib/page-routes";
 import type { NavEntry } from "@/lib/locale-types";
 
 type MenuId = "portfolio" | "company";
 type MenuLink = NavEntry & { href: string; icon: LucideIcon };
 
-const PORTFOLIO_PATHS = ["/currency-exchange", "/services"];
+const PORTFOLIO_PATHS = ["/currency-exchange", "/services", "/resources"];
 
 function MenuItem({ item, onSelect }: { item: MenuLink; onSelect: () => void }) {
   const pathname = usePathname();
@@ -75,7 +77,12 @@ export function Navbar() {
   const hoverOpenedAt = useRef(0);
 
   const links = {
-    products: NAV_MENU.products.map((link, i) => ({ ...link, ...nav.products[i] })),
+    products: [
+      ...NAV_MENU.products.map((link, i) => ({ ...link, ...nav.products[i] })),
+      { href: "/currency-exchange#cx-plans", icon: BadgeDollarSign, title: locale === "es" ? "Planes y precios" : "Plans and pricing", description: locale === "es" ? "Core y cotización personalizada Growth" : "Core and custom Growth quotes" },
+      { href: "/currency-exchange#cx-trial", icon: CalendarDays, title: locale === "es" ? "Prueba de 7 días" : "7-day trial", description: locale === "es" ? "Un mes total con compra anual" : "One month total with annual purchase" },
+    ],
+    guides: DETAIL_ROUTES.filter((route) => route.kind === "guide").map((route) => ({ href: route.en, icon: BookOpen, title: DETAIL_CONTENT[locale][route.id].title, description: "" })),
     services: NAV_MENU.services.map((link, i) => ({ ...link, title: content.services.items[i]?.title ?? "", description: content.services.items[i]?.tag ?? "" })),
     company: NAV_MENU.company.map((link, i) => ({ ...link, ...nav.companyItems[i] })),
   };
@@ -161,12 +168,13 @@ export function Navbar() {
           <div ref={menuAreaRef} className="jl-nav-area" style={{ pointerEvents: "auto" }} onPointerEnter={cancelClose} onPointerLeave={(event) => { if (event.pointerType === "mouse") scheduleClose(); }} onBlur={(event) => { if (!event.currentTarget.contains(event.relatedTarget as Node | null)) setOpenMenu(null); }}>
             <nav className="jl-nav-pill" aria-label={nav.label}>
               {/* Each panel follows its trigger in the DOM so Tab moves from the button into its links. */}
-              <MenuTrigger id="portfolio" label={nav.portfolio} open={openMenu === "portfolio"} current={PORTFOLIO_PATHS.includes(localizedPath(pathname, "en"))} onToggle={toggleMenu} onHover={hoverMenu} />
+              <MenuTrigger id="portfolio" label={nav.portfolio} open={openMenu === "portfolio"} current={PORTFOLIO_PATHS.some((path) => localizedPath(pathname, "en").startsWith(path))} onToggle={toggleMenu} onHover={hoverMenu} />
               <AnimatePresence>
                 {openMenu === "portfolio" && (
                   <motion.div key="portfolio" id="jl-mega-portfolio" className="jl-mega" {...panelMotion}>
                     <div className="jl-mega-columns jl-mega-columns--portfolio">
-                      <MenuGroup id="jl-mega-products" label={nav.productsLabel} items={links.products} onSelect={closeAll} />
+                      <div className="jl-mega-product-links"><MenuGroup id="jl-mega-products" label={nav.productsLabel} items={links.products} onSelect={closeAll} />
+                      <MenuGroup id="jl-mega-guides" label={locale === "es" ? "Guías de Currency Exchange" : "Currency Exchange guides"} items={links.guides} onSelect={closeAll} /></div>
                       <MenuGroup id="jl-mega-services" label={nav.servicesLabel} items={links.services} onSelect={closeAll} columns={2} />
                     </div>
                     <div className="jl-mega-footer">
@@ -218,6 +226,14 @@ export function Navbar() {
                   {links.products.map((item) => <MenuItem key={item.href} item={item} onSelect={closeAll} />)}
                   <MenuItem item={{ href: NAV_MENU.allServices, icon: NAV_MENU.services[0].icon, title: nav.servicesLabel, description: links.services.map((s) => s.title).join(" · ") }} onSelect={closeAll} />
                 </ul>
+              </section>
+              <section aria-labelledby="jl-mobile-services">
+                <h2 id="jl-mobile-services" className="jl-mega-label">{nav.servicesLabel}</h2>
+                <ul className="jl-mega-list">{links.services.map((item) => <MenuItem key={item.href} item={item} onSelect={closeAll} />)}</ul>
+              </section>
+              <section aria-labelledby="jl-mobile-guides">
+                <h2 id="jl-mobile-guides" className="jl-mega-label">{locale === "es" ? "Guías de Currency Exchange" : "Currency Exchange guides"}</h2>
+                <ul className="jl-mega-list">{links.guides.map((item) => <MenuItem key={item.href} item={item} onSelect={closeAll} />)}</ul>
               </section>
               <section aria-labelledby="jl-mobile-company">
                 <h2 id="jl-mobile-company" className="jl-mega-label">{nav.company}</h2>

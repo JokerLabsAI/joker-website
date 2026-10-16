@@ -59,6 +59,7 @@ export const en: SiteContent = {
   },
 
   services: {
+    detailCta: "Explore this service",
   "eyebrow": "01 / Laboratory services",
   "line1": "The capability behind our products.",
   "line2": "Applied to your business.",
@@ -203,7 +204,7 @@ export const en: SiteContent = {
     "startDescription": "Request your trial. We’ll review your operation and coordinate access so you can evaluate the current capabilities.",
     "startCta": "Request my 7-day trial",
     "annualTitle": "Give your team more time.",
-    "annualDescription": "Purchase a one-year membership to extend your trial to one month total, including the initial 7 days.",
+    "annualDescription": "Purchase annual membership and extend your evaluation to one month total, including the initial 7 days. Core: COP $1,318,800 + VAT for the first year, billed annually. Implementation is charged separately.",
     "annualCta": "Explore annual membership",
     "steps": [
         {
@@ -219,7 +220,7 @@ export const en: SiteContent = {
             "description": "Review the fit and annual membership with our team before purchasing."
         }
     ],
-    "note": "Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. We confirm pricing, plan scope, activation dates and membership terms before payment.",
+    "note": "Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. Before payment we confirm pricing, scope, exact dates, calculation of the total month, annual period, activation charge, taxes, cancellation, refunds and data handling. An access request does not activate a company or authorize charges.",
     "requestLabel": "7-day trial requested",
     "annualRequestLabel": "Annual membership / one-month trial requested"
 },
@@ -527,7 +528,7 @@ export const en: SiteContent = {
   "items": [
 {
     "question": "How does the trial extension work?",
-    "answer": "Purchase a one-year membership to extend your trial to one month total, including the initial 7 days. Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. We confirm pricing, plan scope, activation dates and membership terms before payment."
+    "answer": "Purchase annual membership and extend your evaluation to one month total, including the initial 7 days. Core: COP $1,318,800 + VAT for the first year, billed annually. Implementation is charged separately. Trial access is coordinated with our team. Annual membership is a paid purchase; the extended trial totals one month. Before payment we confirm pricing, scope, exact dates, calculation of the total month, annual period, activation charge, taxes, cancellation, refunds and data handling. An access request does not activate a company or authorize charges."
 },
     {
       "question": "Is JokerLabs a laboratory or exchange software?",

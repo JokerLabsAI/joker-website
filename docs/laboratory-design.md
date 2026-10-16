@@ -355,3 +355,31 @@ raised arm, Joker raised in the middle, then return to orbit. Reduced-motion and
 paused activation show the fanned hand directly. Card textures are local canvases;
 the scene rebuilds on locale change. The SVG fallback shows five suit cards around
 the character, and the accessible label describes the cards in both languages.
+
+## Topic illustrations and quiet Jais notes — 2026-10-16
+
+Detail pages now use a split hero with a static, localized SVG workflow illustration.
+The seven topics have distinct graphics: a permissioned portal, AI draft review,
+trigger/task/review, connected systems, cash balance comparison, rate change and
+report-file preparation. Captions explicitly identify illustrations and sample data.
+`TopicArtwork` provides an accessible description; decorative card thumbnails are
+hidden from assistive technology because adjacent headings name their destinations.
+
+A compact anchor navigation supports scanning; overview panels and numbered step
+cards break up the reading flow. Related pages, the services hub and product guide
+cards reuse the topic graphics. Theme tokens govern diagrams in both themes.
+
+Jais appears once per detail page in an inline note beside the practical example.
+The existing static 96px PNG is displayed at 64px (48px on small screens), with a
+short contextual reminder. It is decorative beside a visible Jais label and adds
+no extra keyboard stop. No floating mascot, chat affordance, autoplay, canvas or
+animation is introduced on these pages. The homepage character remains separate.
+
+
+### Development stylesheet loading fix
+
+The active localhost:3000 development server was observed serving an older global
+CSS bundle while rendering the new topic SVG markup. Detail-page styles now live
+in `app/detail-pages.css`, explicitly imported by `SiteDocument` after the shared
+styles. The active development server was checked directly: grid layout, SVG
+colors and the static Jais image load successfully without browser errors.
