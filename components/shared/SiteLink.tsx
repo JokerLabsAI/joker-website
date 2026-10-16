@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLocale } from "@/components/layout/LocaleProvider";
-import { localizedPath } from "@/lib/seo";
+import { localizedPath } from "@/lib/page-routes";
 
 // Anchors on the current page ("#id", or "/path#id" while on /path) scroll smoothly;
 // "/" while on the home page scrolls to the top; anything else navigates.

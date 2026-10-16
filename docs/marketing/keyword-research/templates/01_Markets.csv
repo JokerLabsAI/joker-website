@@ -1,5 +1,5 @@
 ﻿Market ID,Country,Location scope,Language,Search network,Reporting window,Account currency,Run ID,Export date,Owner,Notes
-CO_ES,Colombia,National,Spanish,Google,Latest 12 complete months - enter dates,,,,,Country service research
-PE_ES,Peru,National,Spanish,Google,Same exact dates as CO,,,,,Service research only
-MX_ES,Mexico,National,Spanish,Google,Same exact dates as CO,,,,,Service research only
-CALI_ES,Colombia,Cali,Spanish,Google,Same dates where available,,,,,Overlaps Colombia - do not add national + Cali volume
+CO_ES,Colombia,National,Spanish,Google,Latest 12 complete months - enter dates,,,,Camilo,Country service research
+PE_ES,Peru,National,Spanish,Google,Same exact dates as CO,,,,Camilo,Service research only
+MX_ES,Mexico,National,Spanish,Google,Same exact dates as CO,,,,Camilo,Service research only
+CALI_ES,Colombia,Cali,Spanish,Google,Same dates where available,,,,Camilo,Overlaps Colombia - do not add national + Cali volume

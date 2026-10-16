@@ -6,7 +6,7 @@ import { en } from "@/content/en";
 import { es } from "@/content/es";
 
 import { usePathname } from "next/navigation";
-import { localizedPath, type Locale } from "@/lib/seo";
+import { localizedPath, type Locale } from "@/lib/page-routes";
 
 const CONTENT_MAP: Record<Locale, SiteContent> = { en, es };
 

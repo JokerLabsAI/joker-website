@@ -2,17 +2,14 @@ import type { Metadata } from "next";
 import { SITE } from "@/lib/constants";
 
 export const SITE_URL = "https://jokerlabs.ai";
-export type Locale = "en" | "es";
+import { localizedPath, type Locale } from "@/lib/page-routes";
+export { localizedPath } from "@/lib/page-routes";
+export type { Locale } from "@/lib/page-routes";
 export type PageKey = "home" | "services" | "currency-exchange";
 export const PAGE_PATHS: Record<PageKey, string> = {
   home: "/", services: "/services", "currency-exchange": "/currency-exchange",
 };
 
-export function localizedPath(path: string, locale: Locale): string {
-  if (!path.startsWith("/") || path.startsWith("//")) return path;
-  const base = path.replace(/^\/es(?=\/|#|\?|$)/, "") || "/";
-  return locale === "es" ? `/es${base === "/" ? "" : base.replace(/^\/(?=[#?])/, "")}` : (base.startsWith("#") || base.startsWith("?") ? `/${base}` : base);
-}
 
 const copy = {
   en: {
@@ -37,15 +34,19 @@ export const baseMetadata: Metadata = {
 export function pageMetadata(page: PageKey, locale: Locale): Metadata {
   const [title, description] = copy[locale][page];
   const path = PAGE_PATHS[page];
-  const url = `${SITE_URL}${localizedPath(path, locale)}`;
+  return metadataForPage(title, description, path, localizedPath(path, "es"), locale);
+}
+
+export function metadataForPage(title: string, description: string, englishPath: string, spanishPath: string, locale: Locale): Metadata {
+  const url = `${SITE_URL}${locale === "es" ? spanishPath : englishPath}`;
   return {
     title, description,
     alternates: {
       canonical: url,
       languages: {
-        en: `${SITE_URL}${path}`,
-        es: `${SITE_URL}${localizedPath(path, "es")}`,
-        "x-default": `${SITE_URL}${path}`,
+        en: `${SITE_URL}${englishPath}`,
+        es: `${SITE_URL}${spanishPath}`,
+        "x-default": `${SITE_URL}${englishPath}`,
       },
     },
     openGraph: { title, description, url, type: "website", siteName: "JokerLabs", locale: locale === "es" ? "es_CO" : "en_US", alternateLocale: locale === "es" ? "en_US" : "es_CO", images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: "JokerLabs — AI, Software, Automation" }] },

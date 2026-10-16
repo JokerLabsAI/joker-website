@@ -5,7 +5,7 @@ Status: Research pending / Ready for review / Approved / Published
 | Field | Fill in |
 | --- | --- |
 | Brief ID / map IDs | |
-| Owner / product reviewer / writer | |
+| Research owner / product reviewer / writer | Camilo / [reviewer] / [writer] |
 | Target URL / current URL | |
 | Existing vs proposed page | |
 | Language / markets | |
