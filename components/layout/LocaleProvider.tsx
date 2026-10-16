@@ -1,14 +1,14 @@
 "use client";
 
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
 import type { SiteContent } from "@/lib/locale-types";
 import { en } from "@/content/en";
 import { es } from "@/content/es";
 
-type Locale = "en" | "es";
+import { usePathname } from "next/navigation";
+import { localizedPath, type Locale } from "@/lib/seo";
 
 const CONTENT_MAP: Record<Locale, SiteContent> = { en, es };
-const STORAGE_KEY = "jl-locale";
 
 interface LocaleContextValue {
   locale: Locale;
@@ -31,23 +31,14 @@ export function useLocale() {
   return { locale, setLocale };
 }
 
-export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
-    if (stored === "en" || stored === "es") setLocaleState(stored);
-    setMounted(true);
-  }, []);
-
-  useEffect(() => {
-    if (!mounted) return;
-    localStorage.setItem(STORAGE_KEY, locale);
-    document.documentElement.lang = locale;
-  }, [locale, mounted]);
-
-  const setLocale = (l: Locale) => setLocaleState(l);
+export function LocaleProvider({ children, initialLocale }: { children: React.ReactNode; initialLocale: Locale }) {
+  const pathname = usePathname();
+  const locale = initialLocale;
+  const setLocale = (nextLocale: Locale) => {
+    if (nextLocale === locale) return;
+    // Each language has a static root document; navigate to its equivalent URL.
+    window.location.assign(`${localizedPath(pathname, nextLocale)}${window.location.search}${window.location.hash}`);
+  };
 
   return (
     <LocaleContext.Provider value={{ locale, content: CONTENT_MAP[locale], setLocale }}>

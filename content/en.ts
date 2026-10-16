@@ -41,7 +41,7 @@ export const en: SiteContent = {
 },
 
   laboratory: {
-    location: "FROM COLOMBIA · TO THE WORLD",
+    location: "BASED IN CALI, COLOMBIA",
     heroNote: "Ambitious ideas. Applied engineering.",
     eyebrow: "The laboratory",
     title: "Curiosity moves us.",
@@ -478,7 +478,7 @@ export const en: SiteContent = {
     line2: "that holds every suit.",
     lead: "JokerLabs is a creative technology laboratory founded by five engineers from three engineering disciplines: Mechatronics, Biomedical Engineering, and Mechanical Engineering, specializing in artificial intelligence, software engineering, automation, and systems architecture.",
     body1: "We're not a traditional agency or a siloed consulting firm. We're a multidisciplinary technology lab built to solve problems that live at the intersection of software, hardware, AI, automation, and operations. The kind of challenges that require every suit in the deck.",
-    body2: "Based in Colombia and working globally. We bring Latin American innovation, engineering talent, and world-class execution to projects anywhere in the world.",
+    body2: "Based in Cali, Colombia. We work with businesses in Colombia, Peru and Mexico to develop AI, software and automation solutions tailored to their operations.",
     statsTitle: "The lab, by the numbers.",
     stats: [
       { value: "4", label: "Core disciplines" },
@@ -567,6 +567,8 @@ export const en: SiteContent = {
   },
 
   contact: {
+    location: "Based in Cali, Colombia",
+    serviceArea: "Services for businesses in Colombia, Peru and Mexico.",
   "eyebrow": "The next step",
   "line1": "Let’s discuss",
   "line2": "your operations.",
@@ -588,6 +590,7 @@ export const en: SiteContent = {
 },
 
   footer: {
+    googleProfile: "JokerLabs on Google",
   "tagline": "JokerLabs is an artificial intelligence laboratory. We build our own products and solutions for businesses. Currency Exchange is our flagship product.",
   "contactLabel": "Contact",
   "cta": "Let’s discuss your project",

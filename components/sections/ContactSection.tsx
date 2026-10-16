@@ -18,6 +18,7 @@ export function ContactSection({ defaultInterest = "services" }: { defaultIntere
   const [form, setForm] = useState({ name: "", email: "", message: "" });
   const [interest, setInterest] = useState<InquiryInterest>(defaultInterest);
   const [offer, setOffer] = useState<"trial_7_days" | "annual_membership" | undefined>();
+  const [status, setStatus] = useState<Status>("idle");
   useEffect(() => {
     const onSelect = (event: Event) => {
       const detail = (event as CustomEvent<{ interest?: string; offer?: string }>).detail;
@@ -31,7 +32,6 @@ export function ContactSection({ defaultInterest = "services" }: { defaultIntere
     window.addEventListener("inquiry:select", onSelect);
     return () => window.removeEventListener("inquiry:select", onSelect);
   }, []);
-  const [status, setStatus] = useState<Status>("idle");
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -76,7 +76,7 @@ export function ContactSection({ defaultInterest = "services" }: { defaultIntere
                 </div>
                 <div className="flex items-center gap-3 text-sm" style={{ color: "var(--dim)" }}>
                   <span style={{ color: "var(--jl-accent)" }}>📍</span>
-                  <span>{SITE.location}</span>
+                  <span>{c.contact.location}<br />{c.contact.serviceArea}</span>
                 </div>
               </div>
             </RevealBlock>
