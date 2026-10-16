@@ -115,3 +115,71 @@ Spanish equivalent. Route-group pages share the product component while serving
 localized static HTML through separate language root layouts. Metadata, canonical
 URLs and reciprocal language alternates come from `lib/seo.ts`; the sitemap lists
 both. Language selection is URL-based. See [SEO implementation and launch steps](seo.md).
+
+
+## Dedicated services and operational guides — 2026-10-16
+
+The four service topics now have dedicated ES/EN pages; the product page links to
+cash-closing, rate-review and report-preparation guides. `content/detail-pages.ts`
+contains their supported copy, and `lib/page-routes.ts` owns translated detail
+paths. Static entry files under services/[slug] and resources/[slug] (recursos in
+Spanish) render the shared detail page. The sitemap now lists twenty page URLs.
+Read [delivery evidence](marketing/keyword-research/PAGE-DELIVERY.md) for source
+boundaries and the workbook's distinction between implementation and research.
+
+## Plans and pricing from the revised commercial proposal — 2026-10-16
+
+The product page now has `#cx-plans` before the trial closing panel. Public ES/EN
+copy in `content/currency-exchange-plans.ts` preserves the approved document's
+annual prices, first-year launch prices, monthly equivalents, savings and one-time
+activation amount. Launch validity and annual payment are explicit; activation
+payment timing is agreed before payment rather than inferred from the trial end.
+Core is one branch, Growth up to five, both with four users per branch.
+Support and offered 7/29-day backup windows retain the proposal's qualifications.
+The six shared capability cards distinguish file generation, human review and
+planned features; expanded corporate customer documentation requires scope review.
+
+`CurrencyExchangePlans` and its dedicated `app/currency-exchange-plans.css` use the
+shared theme and mobile layouts. A unique root class (`cx-pricing`) avoids the old
+legacy `cx-plans` grid styles; the anchor ID remains `cx-plans`.
+Core/Growth inquiry links pass an allowlisted transient plan choice to the contact
+form. Visitors may change or clear it; switching interest clears plan/offer. The
+existing contact message carries `[plan:core]` or `[plan:growth]`, and analytics may
+include the non-sensitive plan value. No backend contract, checkout, provisioning,
+billing entitlement or payment consent changes were made.
+
+## Alcance incluido para la liberación: reportería, contabilidad y finanzas
+
+Por decisión comercial del 16 de octubre de 2026, Core y Growth incluirán al liberar la aplicación el módulo de reportería, contabilidad y finanzas, sin recargo por este módulo ni modificación de los precios actuales. Se conservan los límites de sucursales, usuarios y las condiciones de servicio de cada plan, así como la prueba inicial de 7 días y su extensión a un mes total con la compra anual.
+
+El alcance de lanzamiento comprende reportes operativos de caja, compras, ventas, movimientos y cambios de tasas; filtros y exportaciones; margen de intermediación con su fórmula visible; catálogo de cuentas y comprobantes; asientos y reversión; cierre de períodos; balance de prueba, mayor, balance general y estado de resultados. La generación de archivos regulatorios conserva sus condiciones de configuración, permisos y revisión, sin prometer presentación ni aceptación automática.
+
+La entrega debe incluir pantallas utilizables y permisos para configurar, consultar y exportar la información financiera; registro o incorporación de gastos y ajustes que alimenten los estados; y conciliación entre las operaciones de cambio y sus asientos, con identificación de pendientes, motivos y reprocesamiento trazable. El margen de intermediación se distinguirá de la utilidad neta.
+
+Este es un compromiso de alcance para el lanzamiento, no una declaración de disponibilidad actual. Antes de liberar: validar de extremo a extremo compras, ventas, gastos, ajustes, reversión y cierre; verificar saldos y resultados contra casos conocidos; probar accesos y exportaciones; y resolver o exponer de forma recuperable toda operación pendiente de contabilización. La existencia de endpoints no constituye aceptación del módulo.
+
+La inclusión de este módulo no amplía automáticamente la oferta a crédito, conciliación bancaria, facturación electrónica o asistente de IA; estos conservan su alcance y estado previamente definidos.
+
+## Implementación y puesta en marcha incluida en la activación
+
+La activación única de $3.000.000 COP incluye los siguientes servicios, aprobados por el propietario. No se modifica el importe ni se establece un calendario de pago nuevo.
+
+- Configuración de la empresa, sucursal, usuarios y permisos.
+- Parametrización inicial de divisas, tasas y saldos.
+- Capacitación del equipo.
+- Acompañamiento en la primera operación y cierre.
+- Carga de información inicial dentro del alcance acordado.
+
+Antes de iniciar se acuerdan fuentes, volumen y formato de la carga inicial, responsables y agenda de capacitación y acompañamiento. La migración adicional o compleja requiere cotización separada. Se conservan la prueba de 7 días, su extensión a un mes total con compra anual y el acuerdo escrito del calendario de cobro antes de cualquier pago.
+
+## Growth: cotización personalizada
+
+Growth se ofrece mediante cotización según las sucursales requeridas y el acompañamiento. No se publica una anualidad, descuento, ahorro ni equivalencia mensual fija para Growth. La capacidad estándar del producto sigue limitada a cinco sucursales; cualquier ampliación requiere evaluación y habilitación. Se mantienen el núcleo incluido, la implementación y la estrategia de prueba. Las tarifas anteriores se conservan únicamente como referencia interna, no como oferta vigente.
+
+## Presentación de precio y promoción — 2026-10-16
+
+Core muestra el equivalente aproximado de $104.167 COP + IVA al mes, con pago anual de $1.250.000 COP + IVA por el primer año inmediatamente visible. No se ofrece pago mensual. Growth conserva cotización personalizada. La implementación se cobra por separado y su tratamiento tributario se confirma en la propuesta. La promoción comienza con 7 días de prueba; comprar la anualidad extiende la evaluación a un mes total, incluidos esos 7 días, no un mes adicional. No modifica los términos pendientes del período anual ni promete devolución.
+
+## Actualización aprobada de tarifa Core — 2026-10-16
+
+Sustituye los importes anteriores: equivalente mensual de $109.900 COP + IVA, con pago anual de lanzamiento de $1.318.800 COP + IVA (12 × $109.900). La tarifa anual regular continúa en $1.500.000 COP antes de IVA; el ahorro del primer año es $181.200 COP antes de IVA. Growth sigue bajo cotización y la implementación mantiene su importe. No se habilita pago mensual ni se cambia la promoción de 7 días / un mes total con compra anual. Este cambio actualiza la oferta comercial, no los cobros del backend.

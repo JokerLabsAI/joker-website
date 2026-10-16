@@ -168,3 +168,6 @@
   .jl-service-card, .jl-faq-list summary > svg { transition: none; }
   .jl-service-card:hover { transform: none; }
 }
+
+.jl-mega-product-links { display: grid; gap: 22px; }
+#jl-mega-portfolio { max-height: calc(100dvh - 110px); overflow-y: auto; }

@@ -46,6 +46,7 @@ export interface SiteContent {
   };
 
   services: {
+    detailCta: string;
     eyebrow: string;
     line1: string;
     line2: string;

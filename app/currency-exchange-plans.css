@@ -1,0 +1,68 @@
+/* Public commercial comparison; prices never initiate a payment. */
+.flagship-plan-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 13px; color: var(--jl-accent); text-decoration: underline; text-underline-offset: 4px; }
+.cx-pricing { margin-top: 65px; scroll-margin-top: 110px; }
+.cx-pricing h2 { font-size: clamp(28px, 3.8vw, 42px); font-weight: 500; line-height: 1.15; letter-spacing: -.035em; margin-top: 16px; }
+.cx-plans-intro { max-width: 760px; font-size: 15px; color: var(--dim); margin-top: 18px; }
+.cx-plan-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 30px; }
+.cx-plan-card { padding: 30px; border: 1px solid var(--border-s); border-radius: 18px; background: var(--background); min-width: 0; }
+.cx-plan-card--growth { border-color: var(--jl-accent); }
+.cx-plan-heading { display: flex; align-items: center; gap: 12px; }
+.cx-plan-heading svg { color: var(--jl-accent); }
+.cx-plan-heading h3 { font-size: 28px; font-weight: 500; }
+.cx-plan-card > p { font-size: 14px; color: var(--dim); margin-top: 10px; }
+.cx-plan-price { margin-top: 26px; display: flex; flex-direction: column; gap: 7px; }
+.cx-plan-price > span:first-child { font-size: 12px; color: var(--jl-accent); }
+.cx-plan-price strong { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; letter-spacing: -.04em; font-weight: 500; }
+.cx-plan-price > span:last-child { font-size: 13px; color: var(--dim); }
+.cx-plan-breakdown { margin: 24px 0; }
+.cx-plan-breakdown > div { display: flex; justify-content: space-between; gap: 16px; border-top: 1px solid var(--border-s); padding: 12px 0; font-size: 12px; }
+.cx-plan-breakdown dt { color: var(--dim); }
+.cx-plan-breakdown dd { margin: 0; text-align: right; }
+.cx-plan-card ul { display: grid; gap: 13px; margin: 0 0 27px; }
+.cx-plan-card li { display: flex; align-items: start; gap: 10px; font-size: 14px; }
+.cx-plan-card li svg { color: var(--jl-accent); flex-shrink: 0; margin-top: 3px; }
+.cx-plan-billing-note { font-size: 12px; line-height: 1.7; color: var(--dim); max-width: 900px; margin-top: 20px; }
+.cx-plan-activation { display: flex; align-items: start; gap: 18px; margin-top: 26px; padding: 25px; border: 1px solid var(--border-s); border-radius: 12px; background: var(--surf); }
+.cx-plan-activation > svg { color: var(--jl-accent); flex-shrink: 0; }
+.cx-plan-activation h3 { font-size: 20px; font-weight: 500; }
+.cx-plan-activation p { color: var(--dim); font-size: 13px; margin-top: 10px; max-width: 850px; }
+.cx-plan-shared-title { font-size: 25px; font-weight: 500; margin: 38px 0 22px; }
+.cx-plan-shared { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.cx-plan-shared article { border-top: 1px solid var(--border-s); padding-top: 20px; }
+.cx-plan-shared h4 { font-size: 17px; font-weight: 500; }
+.cx-plan-shared p { color: var(--dim); font-size: 13px; margin-top: 12px; }
+.cx-plan-terms { margin-top: 30px; border: 1px solid var(--border-s); border-radius: 12px; padding: 23px; }
+.cx-plan-terms summary { cursor: pointer; font-size: 17px; }
+.cx-plan-terms ul { list-style: disc; padding-left: 20px; margin-top: 20px; }
+.cx-plan-terms li, .cx-plan-terms p { font-size: 13px; line-height: 1.8; color: var(--dim); }
+.cx-plan-terms li + li, .cx-plan-terms p { margin-top: 14px; }
+.cx-plan-terms h4 { margin-top: 25px; font-size: 16px; }
+@media (max-width: 900px) { .cx-plan-shared { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 650px) {
+  .cx-plan-grid, .cx-plan-shared { grid-template-columns: 1fr; }
+  .cx-plan-card { padding: 23px; }
+  .cx-plan-activation { padding: 20px; gap: 12px; }
+  .cx-plan-breakdown > div { flex-wrap: wrap; }
+}
+
+.cx-plan-feature-group { border-top: 1px solid var(--border-s); padding-top: 20px; margin-top: 20px; }
+.cx-plan-feature-group h4 { font-size: 16px; font-weight: 600; margin-bottom: 14px; }
+.cx-plan-feature-group ul { gap: 10px; margin-bottom: 0; }
+.cx-plan-feature-group li { font-size: 13px; line-height: 1.6; }
+.cx-plan-finance { padding: 20px; border: 1px solid var(--border-s); border-radius: 12px; background: var(--surf); }
+.cx-plan-release-badge { display: inline-block; padding: 4px 9px; border: 1px solid var(--border-s); border-radius: 6px; color: var(--jl-accent); font-size: 11px; margin-bottom: 15px; }
+.cx-plan-finance > p { font-size: 12px; line-height: 1.7; color: var(--dim); margin-top: 14px; }
+.cx-plan-trial { margin: 22px 0; font-size: 14px; }
+.cx-plan-trial p { margin-top: 6px; font-size: 12px; line-height: 1.7; color: var(--dim); }
+.cx-plan-card > .lab-action { width: 100%; justify-content: center; }
+
+.cx-plan-onboarding { display: grid; gap: 10px; margin-top: 18px; }
+.cx-plan-onboarding li { display: flex; align-items: start; gap: 10px; font-size: 13px; line-height: 1.6; }
+.cx-plan-onboarding svg { flex-shrink: 0; color: var(--jl-accent); margin-top: 3px; }
+
+.cx-plan-price--quote { margin-bottom: 28px; }
+.cx-plan-price--quote strong { font-size: clamp(26px, 3vw, 38px); }
+.cx-plan-price--quote p { font-size: 14px; color: var(--dim); line-height: 1.7; }
+
+.cx-plan-annual-total { font-size: 15px; line-height: 1.6; margin: 8px 0; color: var(--foreground); }
+.cx-plan-annual-total b { font-weight: 600; }
