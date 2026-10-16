@@ -220,11 +220,15 @@ export const MARQUEE_ITEMS_2 = [
 
 // ─── Site config ──────────────────────────────────────────────────────────────
 export const SITE = {
+  googleBusinessProfile: "https://www.google.com/search?kgmid=/g/11zfb2610_&q=Jokerlabs.ai",
   email: "jokermaster@jokerlabs.ai",
   linkedin: "https://linkedin.com/company/jokerlabsai",
   instagram: "https://instagram.com/jokerlabsai",
   tiktok: "https://tiktok.com/@jokerlabsai",
   facebook: "https://facebook.com/jokerlabsai",
   youtube: "https://youtube.com/@jokerlabsai",
-  location: "Colombia · Working globally",
+  city: "Cali",
+  countryCode: "CO",
+  serviceCountries: ["Colombia", "Peru", "Mexico"],
+  location: "Cali, Colombia",
 } as const;

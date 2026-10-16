@@ -1,0 +1,13 @@
+﻿Step,What to fill,Completion evidence,Owner,Status
+1. Access,Search Console / Keyword Planner / Trends / profile,Record account access and live deployment; no campaign required,,Not started
+2. Settings,01_Markets,Same reporting windows and network; separate countries,,Not started
+3. Discovery,03_Seeds + 04_Keyword_Data,Import measured observations with run ID and raw filename,,Not started
+4. Intent,05_SERP_Evidence,Dated organic URLs and buyer-task review,,Not started
+5. Context,06_Insights,Trends settings and anonymized buyer language,,Not started
+6. Decisions,07_Page_Map,One destination per cluster/market; hypotheses reviewed,,Not started
+7. Production,08_Content_Briefs,Reviewed brief with actual proof and claims scope,,Not started
+8. Measurement,09_Search_Console + 10_Outcomes,Record reporting windows and attribution limitations,,Not started
+Read first,START-HERE.md,"No volumes, rankings or competitors have been researched in accounts",,Reference
+Use inputs,Blue text; blank means unknown,Gray cells in Page Map calculate scores after validation,,Reference
+Geography,Cali base; CO/PE/MX services,FX product/regulatory claims stay Colombia-specific,,Reference
+Capacity,First 300 rows styled for metrics; extend tables as needed,Do not sort a single column independently; sort the full table,,Reference

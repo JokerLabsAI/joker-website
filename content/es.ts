@@ -41,7 +41,7 @@ export const es: SiteContent = {
 },
 
   laboratory: {
-    location: "DESDE COLOMBIA · PARA EL MUNDO",
+    location: "DESDE CALI, COLOMBIA",
     heroNote: "Ideas ambiciosas. Ingeniería aplicada.",
     eyebrow: "El laboratorio",
     title: "La curiosidad nos mueve.",
@@ -478,7 +478,7 @@ export const es: SiteContent = {
     line2: "que tiene todos los palos de la baraja.",
     lead: "JokerLabs es un laboratorio de inteligencia artificial fundado por cinco ingenieros provenientes de tres ramas de la ingeniería: Mecatrónica, Biomédica y Mecánica, con especialización en inteligencia artificial, ingeniería de software, automatización y arquitectura de sistemas.",
     body1: "No somos una agencia generalista ni una consultora tradicional. Somos un laboratorio multidisciplinario diseñado para resolver problemas que viven en la intersección entre tecnología, procesos e infraestructura. Problemas que requieren todos los palos de la baraja para resolverse correctamente.",
-    body2: "Con base en Colombia y trabajando a nivel global. Llevamos el talento y la innovación latinoamericana a proyectos en cualquier parte del mundo, con la calidad y disciplina de un laboratorio de primer nivel.",
+    body2: "Con base en Cali, Colombia. Trabajamos con empresas en Colombia, Perú y México para desarrollar soluciones de inteligencia artificial, software y automatización adaptadas a su operación.",
     statsTitle: "El laboratorio, en números.",
     stats: [
       { value: "4", label: "Disciplinas principales" },
@@ -567,6 +567,8 @@ export const es: SiteContent = {
   },
 
   contact: {
+    location: "Con base en Cali, Colombia",
+    serviceArea: "Servicios para empresas en Colombia, Perú y México.",
   "eyebrow": "El siguiente paso",
   "line1": "Hablemos de",
   "line2": "tu operación.",
@@ -588,6 +590,7 @@ export const es: SiteContent = {
 },
 
   footer: {
+    googleProfile: "JokerLabs en Google",
   "tagline": "JokerLabs es un laboratorio de inteligencia artificial. Creamos productos propios y soluciones para empresas. Currency Exchange es nuestro producto insignia.",
   "contactLabel": "Contacto",
   "cta": "Hablemos de tu proyecto",
