@@ -1,15 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowUpRight, ShieldCheck, Layers3, ChartNoAxesCombined, Check, Building2, FileText, ArrowRight, RefreshCw, ScanLine, BellRing } from "lucide-react";
+import { ArrowUpRight, ShieldCheck, Scale, History, Check, Building2, FileText, ArrowRight, RefreshCw, ScanLine, BellRing } from "lucide-react";
 import { useContent } from "@/components/layout/LocaleProvider";
 import { InquiryLink } from "@/components/shared/InquiryLink";
 
 import { CurrencyExchangeTrial } from "@/components/sections/CurrencyExchangeTrial";
+import { SiteLink } from "@/components/shared/SiteLink";
 
-const icons = [ShieldCheck, Layers3, ChartNoAxesCombined];
+const icons = [Scale, History, ShieldCheck];
 
 export function CurrencyExchangeSection() {
+  // Rendered as the main content of /currency-exchange, so the product title is the page h1.
   const { currencyExchange: cx } = useContent();
   const [viewIndex, setViewIndex] = useState(0);
   const view = cx.preview.views[viewIndex];
@@ -21,7 +23,7 @@ export function CurrencyExchangeSection() {
         <div className="flagship-sales-hero">
           <div className="flagship-sales-copy"><div className="cx-brand-lockup"><span>CX</span><strong>Currency<br />Exchange</strong></div>
             <span className="flagship-product-label">{cx.productLabel}</span>
-            <h2 id="flagship-title">{cx.title}<br /><em>{cx.headlineAccent}</em></h2>
+            <h1 id="flagship-title">{cx.title}<br /><em>{cx.headlineAccent}</em></h1>
             <p className="flagship-sales-description">{cx.description}</p>
             <div className="cx-hero-badges">{cx.heroBadges.map((badge) => <span key={badge}><Check size={12} aria-hidden="true" />{badge}</span>)}</div>
             <div className="flagship-sales-ctas"><InquiryLink interest="currency_exchange">{cx.cta}</InquiryLink><a href="#cx-benefits" className="lab-action lab-action--text">{cx.tourCta}<ArrowUpRight size={17} /></a></div>
@@ -52,10 +54,26 @@ export function CurrencyExchangeSection() {
             return <article key={item.title}><Icon size={25} strokeWidth={1.4} /><span className="flagship-number">0{index + 1}</span><h3>{item.title}</h3><p>{item.description}</p></article>;
           })}
         </div>
-        <div className="flagship-updates">
-          <div><span className="lab-kicker"><span className="lab-status-dot" />CURRENCY EXCHANGE</span><h3 className="flagship-updates-heading">{cx.updatesLabel}</h3><p>{cx.updatesDescription}</p></div>
-          <div className="flagship-update-list">{cx.updates.map((update) => <article key={update.title}><Check size={16} aria-hidden="true" /><h3>{update.title}</h3><p>{update.description}</p></article>)}</div>
-        </div>
+        <section className="cx-daily-cases" aria-labelledby="cx-daily-cases-title">
+          <span className="lab-kicker">{cx.dailyCases.eyebrow}</span>
+          <h2 id="cx-daily-cases-title">{cx.dailyCases.title}</h2>
+          <p className="cx-daily-cases-intro">{cx.dailyCases.description}</p>
+          <div className="cx-daily-cases-grid">
+            {cx.dailyCases.items.map((item) => (
+              <article key={item.title}>
+                <span className="cx-daily-case-moment">{item.moment}</span>
+                <h3>{item.title}</h3>
+                <p>{item.situation}</p>
+                <dl>
+                  <div><dt>{cx.dailyCases.actionLabel}</dt><dd>{item.action}</dd></div>
+                  <div><dt>{cx.dailyCases.resultLabel}</dt><dd>{item.result}</dd></div>
+                </dl>
+              </article>
+            ))}
+          </div>
+          <p className="cx-daily-cases-note">{cx.dailyCases.note}</p>
+          <InquiryLink interest="currency_exchange" className="lab-action lab-action--text">{cx.dailyCases.cta}<ArrowUpRight size={17} aria-hidden="true" /></InquiryLink>
+        </section>
         <div className="cx-compliance" aria-labelledby="cx-compliance-title">
           <div className="cx-compliance-intro"><span className="lab-kicker"><ShieldCheck size={16} />{cx.compliance.eyebrow}</span><h3 id="cx-compliance-title">{cx.compliance.title}<br /><em>{cx.compliance.accent}</em></h3><p>{cx.compliance.description}</p></div>
           <div className="cx-compliance-cards">{cx.compliance.cards.map((card) => <article key={card.name}><div className="cx-compliance-card-top"><span>{card.name}</span><FileText size={24} strokeWidth={1.4} aria-hidden="true" /></div><h4>{card.title}</h4><p>{card.description}</p><div className="cx-compliance-tags">{card.tags.map((tag) => <span key={tag}>{tag}</span>)}</div></article>)}</div>
@@ -83,7 +101,7 @@ export function CurrencyExchangeSection() {
         </div>
         <CurrencyExchangeTrial />
         <p className="flagship-boundary">{cx.boundary}</p>
-        <div className="flagship-services-bridge"><span>{cx.moreLabel}</span><a href="#services">{cx.moreCta}<ArrowUpRight size={16} /></a></div>
+        <div className="flagship-services-bridge"><span>{cx.moreLabel}</span><SiteLink href="/services">{cx.moreCta}<ArrowUpRight size={16} /></SiteLink></div>
       </div>
     </section>
   );
