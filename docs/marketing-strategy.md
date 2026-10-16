@@ -90,3 +90,18 @@ Use rules for deterministic checks and deadlines; reserve AI claims for implemen
 For JokerLabs marketing operations, use AI to draft Spanish/English content, adapt workflow demonstrations for each audience, cluster recurring prospect objections and prepare follow-up drafts. A person reviews capability claims and approves publication or outreach. Use anonymized examples and approved product facts. This describes a proposed workflow; no outreach or content automation has been activated.
 
 The assistant becomes the central product differentiator once verified and deliverable. Until then, lead with current operational value, show the AI vision in a visibly planned section and invite a discussion about it. Keep trial messaging tied to capabilities visitors can evaluate today.
+
+## Public plan comparison — 2026-10-16
+
+The owner authorized applying the revised commercial proposal to the website.
+Core/Growth rates are unchanged: annual COP 1,500,000/4,200,000; first-year launch
+COP 1,250,000/3,150,000; approximate monthly equivalents COP 104,167/262,500 and
+savings COP 250,000/1,050,000. One-time activation remains COP 3,000,000 and is
+shown separately. Equivalents are not monthly billing offers. Launch validity,
+activation timing, taxes, precise trial/annual periods and cancellation/refund/data
+conditions require confirmation in the accepted proposal before payment.
+
+The product comparison supports an editable plan inquiry, not a purchase. All
+seven-day/month-total trial boundaries remain. Support and backups follow the
+qualified offer; no uptime, universal compliance, automated filing or live AI
+assistant guarantee is introduced. No prices in the operational backend were changed.

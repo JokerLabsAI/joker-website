@@ -9,13 +9,42 @@ Currency Exchange currently addresses Colombian exchange houses. Spanish is the
 first research language; English routes exist but English keyword demand remains
 a separate research task. No keyword volumes or competitor findings were fabricated.
 
+## Research ownership
+
+Updated 2026-10-16: **Camilo owns the full research process**, including tool setup,
+exports, intent review, clustering, page mapping, briefs and performance review.
+The starter Owner fields reflect this assignment; research statuses and evidence
+ratings remain unchanged. Product/regulatory review and publishing are distinct
+responsibilities: research ownership does not establish that these reviews occurred.
+
+Use [the main workbook](JokerLabs_Keyword_to_Page_Workbook.xlsx). After Excel was
+closed, the 48 ownership assignments were applied to the original workbook.
+Existing non-owner content, formulas and workbook structure were checked and
+preserved. The earlier `_Camilo.xlsx` copy is no longer the working master.
+Future blank rows and reviewer fields remain unassigned.
+
+## Page implementation update — 2026-10-16
+
+At Camilo's request, the four service topics and three operational guides have now
+been implemented from repository evidence in Spanish and English. This is an
+explicit production decision before keyword-account research, not a validation of
+the starter keyword map. The site now has twenty local page URLs and the main
+workbook has sixteen tabs, including `15_Page_Delivery`.
+
+See [page delivery and source evidence](PAGE-DELIVERY.md). Page records, content
+briefs and service destinations reflect the implementation. The first research
+session below still applies: collect exports and inspect intent before claiming
+search demand, prioritization or ranking results. No page has been marked live or
+indexed by these local checks. Reporting content describes product file generation;
+regulatory obligations and foreign product compatibility are not inferred.
+
 ## Workbook and template index
 
 | Tab/file | Purpose |
 | --- | --- |
 | 00_Start | Assign owners and track the research sequence |
 | 01_Markets | Record country, city, language, dates, currency and run IDs |
-| 02_Pages | Separate six current local routes from seven proposed pages |
+| 02_Pages | Track twenty implemented local ES/EN routes; deployment remains pending |
 | 03_Seeds | 70 starter keyword/market observations; all hypotheses |
 | 04_Keyword_Data | Enter sourced estimates, ranges, bids and export references |
 | 05_SERP_Evidence | Log actual ranking URLs, buyer intent and inspection conditions |
@@ -27,6 +56,7 @@ a separate research task. No keyword volumes or competitor findings were fabrica
 | 11_Exclusions | Review irrelevant intent and unavailable-product claims |
 | 12_Decisions | Record evidence, URL changes, ownership and review dates |
 | 13_Definitions / 14_Sources | Interpret fields and trace methodology |
+| 15_Page_Delivery | Fourteen new detail URLs, source evidence, verification and remaining work |
 | planner-imports/*.csv | Ten one-column topic batches for discovery/volume checks |
 | templates/*.csv | Portable seeded tables; CSV does not retain workbook formulas |
 | [Page brief](templates/PAGE-BRIEF.md) | Expanded fillable writing and approval brief |
@@ -39,7 +69,7 @@ Do not treat spreadsheet input validation as approval of evidence or publication
 
 ## 1. Set up access and preserve a baseline
 
-- Assign a research owner, product reviewer, writer and publishing owner in the workbook.
+- Research owner: Camilo. Assign any required product reviewer and publishing owner separately in the workbook.
 - Confirm the SEO changes have actually been deployed. Local pages do not establish
   live indexing. Verify the domain in Search Console and submit `/sitemap.xml`.
 - Open Keyword Planner in your Google Ads account. Google currently requires account
@@ -189,10 +219,11 @@ Use `02_Pages` for actual route status and `07_Page_Map` for research decisions:
 - Brand/company: `/es` (English counterpart `/`).
 - Service discovery: `/es/services`, currently a hub covering several services.
 - Specialized software/AI/automation/integration intent: existing hub initially;
-  dedicated child URLs are **proposals** requiring demand, intent and delivery evidence.
+  dedicated child URLs are implemented locally under the authorized production
+  decision above; their demand and intent assignments still require research.
 - Exchange-house software buyers in Colombia: `/es/currency-exchange`.
-- FX operational questions: proposed support guides only when their topic helps the
-  product buyer and product evidence supports the content.
+- FX operational questions: the three implemented support guides cover closing,
+  rate review and product report preparation; validate their search targeting.
 
 Do not create separate Peru/Mexico pages simply by swapping country names. One
 strong Spanish services page can serve all three markets; country pages require
@@ -258,12 +289,71 @@ Deliverable: evidence-backed changes, not rankings monitored without decisions.
 
 ## First working session
 
-1. Complete market settings and owners; confirm live deployment/Search Console access.
-2. Research Colombian Currency Exchange purchase terms and software/AI service terms.
-3. Inspect results for five promising phrases; record exact URLs and intent.
-4. Repeat the service batches separately for Peru and Mexico.
-5. Validate a small set of clusters, choose destinations and complete two briefs.
-6. Schedule content only after reviewing the evidence and delivery scope.
+### Start with two Colombia runs
+
+The workbook and CSVs are prepared, but no account data has been collected yet. Start
+with these two national batches; do not combine their results:
+
+| Run ID | Market | Seed batch | Question |
+| --- | --- | --- | --- |
+| `CO_ES_20261016_FXBUY_01` | Colombia, national, Spanish | `planner-imports/fx-buy.csv` | Do exchange-house buyers search for operational software, and what purchase task do results serve? |
+| `CO_ES_20261016_SOFTWARE_01` | Colombia, national, Spanish | `planner-imports/software.csv` | What buyer needs and page formats appear for custom-software services? |
+
+Use 2025-10-01 through 2026-09-30 as the initial comparison window (the latest 12
+complete months as of 2026-10-16). If the tool does not offer that exact window,
+record the dates it does offer and use the same dates for comparable national runs.
+Record Keyword Planner's account currency; do not assume it from the market. Keep
+FX-specific research Colombia-only. Cali targeting is a separate follow-up run and
+must not be added to national Colombia figures.
+
+### Session checklist
+
+1. **Open the workbook and establish the baseline.** In `00_Start`, assign researcher,
+  product reviewer, writer and publishing owner, or mark each unassigned. In
+  `01_Markets`, verify Colombia / national / Spanish / Google Search and enter the
+  exact dates, account currency, run ID, extraction date and owner. Confirm whether
+  the Spanish routes are live and whether Search Console has usable data. Do not
+  block Keyword Planner discovery on Search Console if it is not yet available.
+2. **Run FX purchase discovery.** In Google Ads, open Keyword Planner → Discover new
+  keywords and enter the terms from `planner-imports/fx-buy.csv`. Set Colombia and
+  Spanish, Google Search, and the recorded date window. Export keyword ideas and
+  historical metrics. Save the untouched download under `raw-exports/` using the
+  naming rule in its README. Duplicate `templates/RESEARCH-RUN.md`, name it for
+  this run ID, and record settings and the exact export filename.
+3. **Run software discovery separately.** Repeat with `planner-imports/software.csv`
+  and the same national settings, dates and account currency. Save a distinct
+  untouched export and run note. Do not mix FX and service terms in one export.
+4. **Transfer observations, not guesses.** Add exported metrics to `04_Keyword_Data`
+  with run ID, market, source, exact displayed value or range, date window and raw
+  filename. Match existing phrases to their `03_Seeds` keyword IDs. Add genuinely
+  new relevant phrases there with the source noted; never give a blank or withheld
+  value a numeric zero. The seed lists are discovery inputs, not measured results.
+5. **Inspect actual results.** For each batch, choose up to five relevant phrases
+  after reviewing the export. Search each in Google with the country/language
+  conditions recorded; if location cannot be controlled, label the inspection
+  approximate. Log organic URLs (separate from ads, Maps and AI features), positions,
+  page formats and observed buyer tasks in `05_SERP_Evidence`. Keep dated screenshots
+  or reproducible result references. Do not call a suggested domain a competitor
+  until its result and offer have been reviewed.
+6. **Stop at a reviewable evidence set.** Update `07_Page_Map` only after linking
+  keyword and SERP evidence. Leave status `Collecting` if either is missing. Record
+  unknowns and the next action in the run note. The first session is complete when
+  both original exports are preserved, observations are traceable, and the selected
+  SERPs have dated evidence; it does not require a page or volume conclusion.
+
+### After the first session
+
+- Review whether FX purchase intent maps to `/es/currency-exchange`; treat any new
+  regulatory or reporting topic as a separate claim review, not a keyword-led promise.
+- Review how software intent should be divided between `/es/services` and the
+  implemented `/es/services/desarrollo-software` page. Use the same country-level service process for Peru and
+  Mexico in separate runs; do not create country pages from translated or swapped
+  keywords alone.
+- Add AI, automation and integration batches only after these first two exports have
+  been reviewed. Then check Trends and buyer vocabulary, validate candidate clusters,
+  and draft no more than two briefs from supported evidence.
+- If Google account access is not ready, the immediate task is access setup and owner
+  assignment. Do not create or launch an advertising campaign for this research.
 
 Blank cells are intentional. All starter rows are hypotheses. A CSV export from
 Keyword Planner plus the corresponding SERP observations is the first useful input

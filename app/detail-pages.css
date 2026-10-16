@@ -1,0 +1,110 @@
+/* Evidence-based service pages and operational guides. */
+.jl-detail { background: var(--bg2); padding-top: 150px; }
+.jl-detail-breadcrumb { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 38px; color: var(--dim); font-size: 13px; }
+.jl-detail-breadcrumb a:hover { color: var(--jl-accent); }
+.jl-detail-header { max-width: 860px; }
+.jl-detail h1 { font-size: clamp(34px, 5vw, 62px); line-height: 1.12; letter-spacing: -.045em; font-weight: 500; margin: 22px 0; }
+.jl-detail-intro { font-size: 18px; color: var(--dim); line-height: 1.7; margin-bottom: 28px; }
+.jl-detail h2 { font-size: clamp(23px, 3vw, 32px); line-height: 1.25; font-weight: 500; letter-spacing: -.025em; margin-bottom: 18px; }
+.jl-detail-sections { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 42px; margin-top: 65px; }
+.jl-detail-sections section { border-top: 1px solid var(--border-s); padding-top: 25px; }
+.jl-detail p, .jl-detail li { line-height: 1.75; }
+.jl-detail-sections p, .jl-detail-sections li, .jl-detail-steps li, .jl-detail-faq p { font-size: 15px; color: var(--dim); }
+.jl-detail ul { list-style: disc; padding-left: 22px; margin-top: 20px; }
+.jl-detail li + li { margin-top: 12px; }
+.jl-detail-example { padding: 32px; margin-top: 48px; background: var(--background); border: 1px solid var(--border-s); border-left: 3px solid var(--jl-accent); border-radius: 8px; }
+.jl-detail-example h2 { margin-top: 18px; }
+.jl-detail-example p { color: var(--dim); font-size: 16px; max-width: 880px; }
+.jl-detail-steps, .jl-detail-faq, .jl-detail-related { margin-top: 48px; }
+.jl-detail-steps ol { list-style: decimal; padding-left: 25px; }
+.jl-detail-faq details { border-top: 1px solid var(--border-s); padding: 20px 0; }
+.jl-detail-faq summary { cursor: pointer; font-size: 17px; }
+.jl-detail-faq p { max-width: 880px; margin-top: 16px; }
+.jl-detail-boundary { max-width: 900px; margin-top: 25px; font-size: 13px; color: var(--dim); }
+.jl-detail-related > div { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-bottom: 22px; }
+.jl-detail-related > div a { display: flex; justify-content: space-between; align-items: start; gap: 15px; padding: 20px; border: 1px solid var(--border-s); border-radius: 8px; font-size: 15px; }
+.jl-detail-related svg { flex-shrink: 0; margin-top: 3px; }
+.jl-detail-related a:hover { color: var(--jl-accent); }
+.cx-guides { margin-top: 55px; }
+.cx-guides > h2 { font-size: clamp(25px, 3vw, 34px); margin: 16px 0 24px; }
+.cx-guides-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
+.cx-guides-grid a { padding: 25px; border: 1px solid var(--border-s); border-radius: 10px; background: var(--background); }
+.cx-guides-grid h3 { font-size: 20px; line-height: 1.3; margin-bottom: 14px; }
+.cx-guides-grid p { color: var(--dim); font-size: 14px; }
+.cx-guides-grid a:hover h3 { color: var(--jl-accent); }
+.jl-service-card .jl-card-link + .jl-card-link { margin-left: 16px; }
+@media (max-width: 760px) {
+  .jl-detail { padding-top: 115px; }
+  .jl-detail-sections, .jl-detail-related > div, .cx-guides-grid { grid-template-columns: 1fr; }
+  .jl-detail-sections { gap: 28px; margin-top: 40px; }
+  .jl-detail-example { padding: 24px; }
+}
+
+/* Static, theme-aware topic illustrations and quiet Jais notes. */
+.jl-detail-header { max-width: none; display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.jl-detail-header h1 { font-size: clamp(34px, 4.1vw, 54px); }
+.jl-detail-hero-copy { min-width: 0; }
+.jl-detail-header .jl-detail-intro { font-size: 16px; }
+.jl-detail-hero-art { margin: 0; padding: 18px; border: 1px solid var(--border-s); border-radius: 22px; background: var(--background); box-shadow: 0 18px 60px color-mix(in srgb, var(--jl-primary) 9%, transparent); }
+.jl-detail-art-heading { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 2px 0 17px; font: 10px var(--font-mono-jb), monospace; color: var(--dim); }
+.jl-detail-art-status { color: var(--jl-accent); text-align: right; }
+.jl-detail-hero-art figcaption { font-size: 11px; color: var(--dim); margin-top: 14px; line-height: 1.6; }
+.topic-artwork { display: block; width: 100%; height: auto; color: var(--foreground); }
+.topic-canvas { fill: var(--surf); stroke: var(--border-s); }
+.topic-panel { fill: var(--background); stroke: var(--border-s); stroke-width: 1.5; }
+.topic-grid path { fill: none; stroke: var(--border-s); opacity: .35; }
+.topic-ink { fill: var(--foreground); font-family: var(--font-space), sans-serif; }
+.topic-small { font-size: 15px; fill: var(--dim); }
+.topic-tiny { font-size: 12px; fill: var(--dim); }
+.topic-label { font-size: 17px; font-weight: 500; }
+.topic-number { font-size: 23px; font-weight: 600; }
+.topic-line { fill: none; stroke: var(--border-s); stroke-width: 3; stroke-linecap: round; }
+.topic-connector { fill: none; stroke: var(--jl-accent); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.topic-rate-line { fill: none; stroke: var(--jl-accent); stroke-width: 5; stroke-linejoin: round; }
+.topic-dashed { stroke-dasharray: 5 7; }
+.topic-accent { fill: var(--jl-accent); }
+.topic-accent-soft { fill: color-mix(in srgb, var(--jl-accent) 15%, var(--background)); }
+.topic-muted-fill { fill: var(--dim); opacity: .5; }
+.topic-muted-surface { fill: var(--surf2); }
+.topic-hub { fill: var(--background); stroke: var(--jl-accent); stroke-width: 2; }
+.jl-detail-jumpnav { display: flex; align-items: center; flex-wrap: wrap; gap: 10px; margin-top: 42px; padding: 20px 0; border-top: 1px solid var(--border-s); border-bottom: 1px solid var(--border-s); }
+.jl-detail-jumpnav > span { font: 10px var(--font-mono-jb), monospace; color: var(--dim); margin-right: 12px; }
+.jl-detail-jumpnav a { padding: 8px 12px; border-radius: 20px; border: 1px solid var(--border-s); font-size: 12px; background: var(--background); }
+.jl-detail-jumpnav a:hover { border-color: var(--jl-accent); color: var(--jl-accent); }
+.jl-detail-sections { margin-top: 40px; gap: 24px; }
+.jl-detail-sections section { position: relative; border: 1px solid var(--border-s); border-radius: 14px; padding: 28px; background: var(--background); }
+.jl-detail-section-index { display: inline-grid; place-items: center; width: 38px; height: 38px; border-radius: 10px; margin-bottom: 22px; color: var(--jl-accent); background: color-mix(in srgb, var(--jl-accent) 12%, transparent); font: 13px var(--font-mono-jb), monospace; }
+.jl-detail-sections h2 { font-size: 25px; }
+.jl-jais-note { display: flex; align-items: center; gap: 16px; max-width: 800px; margin-top: 24px; padding-top: 22px; border-top: 1px solid var(--border-s); }
+.jl-jais-avatar { width: 64px; height: 64px; flex-shrink: 0; object-fit: contain; }
+.jl-jais-note span { color: var(--jl-accent); font-size: 12px; font-weight: 500; }
+.jl-jais-note p { font-size: 14px; margin-top: 5px; }
+.jl-detail-steps ol { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; list-style: none; padding: 0; margin-top: 24px; }
+.jl-detail-steps li { padding: 23px; border: 1px solid var(--border-s); border-radius: 12px; background: var(--background); }
+.jl-detail-steps li + li { margin-top: 0; }
+.jl-detail-steps li > span { display: block; color: var(--jl-accent); font: 23px var(--font-mono-jb), monospace; margin-bottom: 20px; }
+.jl-detail-steps li p { font-size: 14px; color: var(--dim); }
+.jl-detail-related > div a { display: block; padding: 18px; }
+.jl-detail-related > div a > .topic-artwork { max-height: 150px; margin-bottom: 18px; }
+.jl-detail-related > div a > span { display: flex; justify-content: space-between; gap: 15px; }
+.cx-guides-grid .topic-artwork { margin-bottom: 22px; }
+.jl-service-art { margin: 22px 0; max-width: 280px; }
+.jl-service-art .topic-artwork { max-height: 160px; }
+.jl-service-pattern { opacity: .12; }
+@media (max-width: 1050px) {
+  .jl-detail-header { gap: 28px; }
+  .jl-detail-steps ol { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .jl-detail-header { grid-template-columns: 1fr; }
+  .jl-detail-hero-art { max-width: 540px; width: 100%; }
+  .jl-detail-header h1 { font-size: clamp(32px, 8vw, 44px); }
+  .jl-detail-jumpnav > span { flex-basis: 100%; margin-bottom: 4px; }
+  .jl-detail-sections section { padding: 23px; }
+}
+@media (max-width: 420px) {
+  .jl-detail-steps ol { grid-template-columns: 1fr; }
+  .jl-detail-steps li { display: flex; align-items: start; gap: 18px; padding: 20px; }
+  .jl-detail-steps li > span { margin-bottom: 0; }
+  .jl-jais-avatar { width: 48px; height: 48px; }
+}

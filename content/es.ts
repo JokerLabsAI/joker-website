@@ -59,6 +59,7 @@ export const es: SiteContent = {
   },
 
   services: {
+    detailCta: "Explorar el servicio",
   "eyebrow": "01 / Servicios del laboratorio",
   "line1": "La capacidad que construye productos.",
   "line2": "Aplicada a tu negocio.",
@@ -203,7 +204,7 @@ export const es: SiteContent = {
     "startDescription": "Solicita tu prueba. Revisamos tu operación y coordinamos el acceso para que evalúes las capacidades actuales.",
     "startCta": "Solicitar mi prueba de 7 días",
     "annualTitle": "Dale más tiempo a tu equipo.",
-    "annualDescription": "Adquiere una membresía de un año para extender tu prueba a un mes en total, incluidos los primeros 7 días.",
+    "annualDescription": "Compra la anualidad y extiende tu evaluación a un mes total, incluidos los primeros 7 días. Core: $1.318.800 COP + IVA por el primer año, con pago anual. La implementación se cobra por separado.",
     "annualCta": "Explorar la membresía anual",
     "steps": [
         {
@@ -219,7 +220,7 @@ export const es: SiteContent = {
             "description": "Revisa el encaje y la membresía anual con nuestro equipo antes de comprar."
         }
     ],
-    "note": "El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Confirmamos precio, alcance del plan, fechas de activación y condiciones de la membresía antes del pago.",
+    "note": "El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Antes del pago confirmamos precio, alcance, fechas exactas, cálculo del mes total, periodo anual, cobro de activación, impuestos, cancelación, devoluciones y tratamiento de datos. Solicitar acceso no activa la empresa ni autoriza cobros.",
     "requestLabel": "Solicitud de prueba de 7 días",
     "annualRequestLabel": "Solicitud de membresía anual / prueba de un mes"
 },
@@ -527,7 +528,7 @@ export const es: SiteContent = {
   "items": [
 {
     "question": "¿Cómo funciona la extensión de la prueba?",
-    "answer": "Adquiere una membresía de un año para extender tu prueba a un mes en total, incluidos los primeros 7 días. El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Confirmamos precio, alcance del plan, fechas de activación y condiciones de la membresía antes del pago."
+    "answer": "Compra la anualidad y extiende tu evaluación a un mes total, incluidos los primeros 7 días. Core: $1.318.800 COP + IVA por el primer año, con pago anual. La implementación se cobra por separado. El acceso a la prueba se coordina con nuestro equipo. La membresía anual requiere una compra; la prueba extendida suma un mes en total. Antes del pago confirmamos precio, alcance, fechas exactas, cálculo del mes total, periodo anual, cobro de activación, impuestos, cancelación, devoluciones y tratamiento de datos. Solicitar acceso no activa la empresa ni autoriza cobros."
 },
     {
       "question": "¿JokerLabs es un laboratorio o un software de cambio?",

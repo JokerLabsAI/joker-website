@@ -2,8 +2,9 @@
 
 | Setting | Fill in |
 | --- | --- |
-| Researcher / extraction date | |
-| Tool | Keyword Planner / Search Console / Trends / manual Google results |
+| Researcher / reviewer | |
+| Run ID / extraction date | |
+| Tool and workflow | |
 | Cluster / market ID | |
 | Country and location scope | |
 | Language | |
@@ -11,8 +12,21 @@
 | Exact reporting start/end | |
 | Currency, where relevant | |
 | Device and personalization/location limitations | |
-| Seed file / website used | |
+| Seed file / website / query filter | |
 | Original export path / settings screenshot | |
+| Workbook tables updated | |
+
+## Run checklist
+
+- [ ] Confirm market, language, network, location and reporting window before export.
+- [ ] Save the original export unchanged and record its filename above.
+- [ ] Transfer observations to the appropriate workbook table with this run ID and
+	source reference; keep unknowns blank and preserve displayed ranges/rounding.
+- [ ] For SERP work, record the query, date, location, device, organic URL and buyer
+	task in `05_SERP_Evidence`; separate organic results from ads, Maps and AI features.
+- [ ] Link evidence IDs in `07_Page_Map`; keep the status `Collecting` until evidence
+	review is complete.
+- [ ] Record limitations, decisions and a named next action below.
 
 ## Findings
 
@@ -23,6 +37,8 @@
 - Service/product fit:
 - Proposed cluster or page decision:
 - Reviewer / next action:
+- Open questions / limitations:
+- Next action / owner / due date:
 
 Do not change original exports. One export must retain one known set of settings.
 A country-filtered Search Console table and a national Keyword Planner estimate

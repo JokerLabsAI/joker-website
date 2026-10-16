@@ -8,10 +8,10 @@ export const NAV_MENU = {
     { href: "/currency-exchange", icon: ArrowLeftRight },
   ],
   services: [
-    { href: "/services#service-ai",          icon: Cpu },
-    { href: "/services#service-software",    icon: Code2 },
-    { href: "/services#service-automation",  icon: Workflow },
-    { href: "/services#service-integration", icon: Network },
+    { href: "/services/artificial-intelligence",          icon: Cpu },
+    { href: "/services/custom-software",    icon: Code2 },
+    { href: "/services/process-automation",  icon: Workflow },
+    { href: "/services/system-integrations", icon: Network },
   ],
   company: [
     { href: "/#why",     icon: ShieldCheck },
