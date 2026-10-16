@@ -181,6 +181,8 @@ export interface SiteContent {
   };
 
   contact: {
+    location: string;
+    serviceArea: string;
     eyebrow: string;
     line1: string;
     line2: string;
@@ -199,6 +201,7 @@ export interface SiteContent {
   };
 
   footer: {
+    googleProfile: string;
     tagline: string;
     contactLabel: string;
     cta: string;

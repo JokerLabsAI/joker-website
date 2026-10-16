@@ -25,9 +25,9 @@ contact hardening and durable intake remain pending.
 - `components/shared/InquiryLink.tsx`: transient inquiry and offer selection.
 - `components/sections/ContactSection.tsx`: editable interest and delivery confirmation.
 - `content/es.ts`, `content/en.ts`, `lib/locale-types.ts`: bilingual content contract.
-- `app/currency-exchange/page.tsx`: standalone product page (section + demo contact form).
-- `app/services/page.tsx`: standalone services page.
-- `app/page.tsx`, `lib/constants.ts`: company page order and Portfolio/Company navigation (`NAV_MENU`).
+- `app/(english)/currency-exchange/page.tsx`: standalone product page (section + demo contact form).
+- `app/(english)/services/page.tsx`: standalone services page.
+- `app/(english)/page.tsx`, `lib/constants.ts`: company page order and Portfolio/Company navigation (`NAV_MENU`).
 
 ## Evidence and contract boundaries
 
@@ -107,3 +107,11 @@ cause detection or regulatory submission. The responsive grid uses three, two or
 one columns; every case remains visible without animation or timed rotation.
 Core/Growth limits remain in the closing qualification. The demo inquiry CTA
 preserves Currency Exchange interest and requires explicit form submission.
+
+## Search entry points — 2026-10-15
+
+`/currency-exchange` is the English product URL; `/es/currency-exchange` is its
+Spanish equivalent. Route-group pages share the product component while serving
+localized static HTML through separate language root layouts. Metadata, canonical
+URLs and reciprocal language alternates come from `lib/seo.ts`; the sitemap lists
+both. Language selection is URL-based. See [SEO implementation and launch steps](seo.md).
