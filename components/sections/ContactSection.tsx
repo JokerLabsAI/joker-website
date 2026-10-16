@@ -13,10 +13,10 @@ import type { InquiryInterest } from "@/components/shared/InquiryLink";
 
 type Status = "idle" | "sending" | "sent" | "error";
 
-export function ContactSection() {
+export function ContactSection({ defaultInterest = "services" }: { defaultInterest?: InquiryInterest }) {
   const c = useContent();
   const [form, setForm] = useState({ name: "", email: "", message: "" });
-  const [interest, setInterest] = useState<InquiryInterest>("services");
+  const [interest, setInterest] = useState<InquiryInterest>(defaultInterest);
   const [offer, setOffer] = useState<"trial_7_days" | "annual_membership" | undefined>();
   useEffect(() => {
     const onSelect = (event: Event) => {

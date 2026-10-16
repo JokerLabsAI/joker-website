@@ -4,7 +4,27 @@ export const es: SiteContent = {
   locale: "es",
 
   nav: {
-    items: ["Inicio", "Producto", "Servicios", "Proceso", "Equipo", "Contacto"],
+    label: "Navegación principal",
+    toggle: "Abrir o cerrar navegación",
+    home: "Inicio",
+    portfolio: "Portafolio",
+    company: "Empresa",
+    contact: "Contacto",
+    productsLabel: "Productos",
+    servicesLabel: "Servicios",
+    companyLabel: "JokerLabs",
+    products: [
+      { title: "Currency Exchange", description: "Caja, divisas, clientes y reportes para casas de cambio" },
+    ],
+    companyItems: [
+      { title: "Por qué JokerLabs", description: "Construimos producto propio y nos involucramos en el tuyo" },
+      { title: "Cómo trabajamos", description: "Del reto de negocio a una solución validada" },
+      { title: "Equipo", description: "Las personas detrás del laboratorio" },
+      { title: "Preguntas frecuentes", description: "Tiempos, precios y qué pasa después de escribirnos" },
+    ],
+    allServices: "Ver todos los servicios",
+    productCta: "Conoce Currency Exchange",
+    demo: "Solicitar una demo",
     cta: "Hablemos",
   },
 
@@ -39,7 +59,7 @@ export const es: SiteContent = {
   },
 
   services: {
-  "eyebrow": "02 / Servicios del laboratorio",
+  "eyebrow": "01 / Servicios del laboratorio",
   "line1": "La capacidad que construye productos.",
   "line2": "Aplicada a tu negocio.",
   "sub": "Si necesitas una solución propia, trabajamos contigo para identificar el problema, validar una ruta y llevarla a producción. La IA es el centro; software, automatización e infraestructura hacen posible su uso.",
@@ -95,6 +115,59 @@ export const es: SiteContent = {
   },
 
   currencyExchange: {
+    dailyCases: {
+      "eyebrow": "EN EL DÍA A DÍA DE TU CASA DE CAMBIO",
+      "title": "Situaciones que tu equipo conoce.",
+      "description": "Desde la atención al cliente hasta el cierre de caja: así puedes usar Currency Exchange para revisar lo que ocurre en tu operación.",
+      "actionLabel": "Qué puedes hacer",
+      "resultLabel": "Qué puedes revisar",
+      "note": "Casos ilustrativos de capacidades actuales, sujetos a permisos, plan y configuración. El equipo revisa la información y toma las decisiones.",
+      "cta": "Solicitar una demo de mi flujo de trabajo",
+      "items": [
+        {
+          "moment": "Al cerrar caja",
+          "title": "«Faltan 10 dólares. ¿Qué pasó?»",
+          "situation": "El conteo físico es de 1.240 USD, pero el saldo esperado es de 1.250 USD.",
+          "action": "Compara ambos saldos por divisa y consulta los movimientos y ajustes registrados.",
+          "result": "Un faltante de 10 USD identificado para investigar. El sistema muestra la diferencia; tu equipo determina su causa."
+        },
+        {
+          "moment": "Durante la jornada",
+          "title": "«¿Quién cambió la tasa de compra?»",
+          "situation": "La tasa de compra del dólar pasó de 4.000 a 4.020 COP durante el día.",
+          "action": "Consulta el historial de cambios de tasas de la sede.",
+          "result": "La tasa anterior, la nueva, el responsable y el motivo registrado, para entender el cambio con contexto."
+        },
+        {
+          "moment": "Cuando vuelve un cliente",
+          "title": "«Necesito el recibo de mi operación.»",
+          "situation": "Un cliente pide el soporte de una venta de divisas que ya quedó registrada.",
+          "action": "Localiza la transacción en el historial y genera su recibo.",
+          "result": "El soporte con cliente, operador, divisa, tasa e importe. Este recibo es distinto de una factura electrónica."
+        },
+        {
+          "moment": "Al registrar un cliente",
+          "title": "«Este nombre se parece al de una lista.»",
+          "situation": "Durante el registro aparecen candidatos con nombres similares.",
+          "action": "Revisa los candidatos y la información disponible antes de registrar tu decisión.",
+          "result": "Las coincidencias que requieren evaluación. La similitud de nombre por sí sola no confirma que sea la misma persona."
+        },
+        {
+          "moment": "Al trabajar con tu asesor",
+          "title": "«Necesito revisar los reportes de la sede.»",
+          "situation": "Tu asesor necesita consultar información sin intervenir en la operación diaria.",
+          "action": "Asigna el perfil de consulta y las sucursales que le correspondan.",
+          "result": "Historial, recibos y reportes dentro de su alcance autorizado, sin permisos para modificar operaciones."
+        },
+        {
+          "moment": "Al preparar reportes",
+          "title": "«Es momento de organizar la información.»",
+          "situation": "El responsable necesita preparar los archivos para su revisión y posterior presentación.",
+          "action": "Genera formatos DIAN 1099/1100 y archivos UIAF trimestrales cuando la empresa tenga habilitada su configuración.",
+          "result": "Archivos para revisión del responsable. La generación no implica envío ni aceptación por la autoridad."
+        }
+      ]
+    },
     assistant: {
     "eyebrow": "VISIÓN DEL PRODUCTO · PLANIFICADA",
     "title": "Tu operación bajo control.",
@@ -151,114 +224,122 @@ export const es: SiteContent = {
     "annualRequestLabel": "Solicitud de membresía anual / prueba de un mes"
 },
   "eyebrow": "01 / Nuestro producto insignia",
-  "title": "Toda tu operación.",
-  "description": "Clientes, divisas, caja y reportes DIAN y UIAF conectados en una misma plataforma. Más visibilidad para operar y herramientas para apoyar tus procesos de cumplimiento.",
+  "title": "Tu casa de cambio.",
+  "description": "Conecta compra y venta de divisas, clientes y caja por sucursal. Revisa diferencias de cierre, consulta quién cambió las tasas y prepara reportes desde la información de tu operación.",
   "problem": "Cuando la información está repartida, cada cierre exige reconstruir lo que pasó.",
   "benefit": "Currency Exchange reúne las piezas de tu operación para que puedas revisar movimientos, controlar accesos y tomar decisiones con contexto.",
-  "summaryLabel": "Más claridad en cada paso de tu operación",
+  "summaryLabel": "Respuestas concretas para dirigir tu operación",
   "capabilities": [
     {
-      "title": "Cada sede, bajo control",
-      "description": "Asigna accesos por rol y sucursal. Tu equipo trabaja con los permisos que necesita y tú mantienes visibilidad."
+      "title": "Entiende las diferencias de caja",
+      "description": "Compara el saldo esperado con el conteo físico e identifica faltantes o sobrantes por divisa al cerrar la sesión."
     },
     {
-      "title": "Menos información dispersa",
-      "description": "Conecta clientes, operaciones, divisas y recibos para revisar la actividad desde un mismo entorno."
+      "title": "Revisa quién cambió qué",
+      "description": "Consulta cambios de tasas e ingresos o retiros de caja con el responsable y el motivo registrados."
     },
     {
-      "title": "Reportes que respaldan tu gestión",
-      "description": "Consulta caja por divisa y prepara archivos DIAN y UIAF según configuración. Mantén información organizada para revisión y seguimiento."
+      "title": "Comparte información con control",
+      "description": "Asigna accesos por rol y sucursal. El perfil de consulta permite revisar historial, recibos y reportes sin habilitar cambios operativos."
     }
   ],
-  "updatesLabel": "Control para operar. Herramientas para crecer.",
-  "updatesDescription": "Estas capacidades conectan el trabajo de tu equipo con la información que necesitas como dueño o administrador.",
+  "updatesLabel": "De la atención al cliente al soporte de cada operación.",
+  "updatesDescription": "Tu equipo registra y consulta la actividad; tú cuentas con información para revisar lo ocurrido en cada sede.",
   "updates": [
     {
-      "title": "Caja y divisas con trazabilidad",
-      "description": "Tasas aprobadas, inventario y conciliación por sede, con historial de movimientos para revisar lo ocurrido."
+      "title": "Un soporte para cada operación",
+      "description": "Consulta la transacción registrada y genera su recibo con cliente, operador, divisa, tasa e importe. El recibo es distinto de una factura electrónica."
     },
     {
-      "title": "Clientes más fáciles de gestionar",
-      "description": "Búsqueda, actualización de contacto y recuperación de registros ocultos, conservando su historial."
+      "title": "Clientes con continuidad",
+      "description": "Busca registros existentes, actualiza datos de contacto y recupera clientes ocultos conservando su historial."
     },
     {
-      "title": "Reportes a tu medida",
-      "description": "Filtra una o varias divisas y exporta reportes de caja en PDF para revisar el periodo que te interesa."
+      "title": "Coincidencias para revisar",
+      "description": "El registro de clientes incluye revisión de candidatos cuando se detectan coincidencias en listas. Tu equipo evalúa el resultado; una coincidencia de nombre no confirma una identidad."
     },
     {
-      "title": "Un plan para tu operación",
-      "description": "Core para una sede o Growth para hasta cinco, con cuatro usuarios por sede y gestión de membresía."
+      "title": "Tasas e inventario conectados",
+      "description": "Registra compras y ventas con las tasas aprobadas de la sede y validación de existencias disponibles al vender."
+    },
+    {
+      "title": "Reportes para revisar tu gestión",
+      "description": "Filtra una o varias divisas, consulta cambios de tasas y ajustes de caja, y exporta reportes operativos en PDF. Prepara archivos DIAN y UIAF según configuración."
+    },
+    {
+      "title": "Capacidad clara para tus sedes",
+      "description": "Core para una sede o Growth para hasta cinco, con cuatro usuarios por sede. Revisamos contigo el plan que encaja con tu operación."
     }
   ],
-  "boundary": "Capacidades sujetas al plan y la configuración. Los archivos regulatorios requieren revisión antes de su presentación.",
+  "boundary": "Core incluye una sede y Growth hasta cinco, con cuatro usuarios por sede. Capacidades sujetas al plan y la configuración. Los archivos regulatorios requieren revisión antes de su presentación.",
   "cta": "Solicitar una demo",
   "moreLabel": "¿Tu reto está en otra industria?",
   "moreCta": "Explora nuestros servicios",
-  "headlineAccent": "Un solo Currency Exchange.",
-  "productLabel": "PRODUCTO INSIGNIA DE JOKERLABS",
-  "ctaNote": "Cuéntanos cómo opera tu casa de cambio. Revisamos contigo el encaje y los siguientes pasos.",
+  "headlineAccent": "Bajo control.",
+  "productLabel": "SOFTWARE PARA CASAS DE CAMBIO COLOMBIANAS",
+  "ctaNote": "¿Qué necesitas revisar mejor: caja, cambios de tasas o reportes? Cuéntanos y coordinamos una demostración de ese flujo.",
   "tourCta": "Ver capacidades",
   "preview": {
     "label": "Vista ilustrativa · Datos de ejemplo",
     "title": "Tu operación, en una sola vista",
     "branch": "Sucursal Centro",
     "tabs": [
-      "Caja y divisas",
-      "Clientes",
-      "Reportes"
+      "Cierre de caja",
+      "Cambios de tasas",
+      "Operación y recibo"
     ],
     "views": [
       {
-        "title": "Visibilidad de tu caja",
-        "description": "Consulta el inventario por divisa y revisa los movimientos de la sede.",
+        "title": "Identifica una diferencia al cerrar",
+        "description": "Compara el saldo esperado con el conteo físico de una divisa. Ejemplo en USD.",
         "rows": [
           {
-            "label": "USD · Disponible",
+            "label": "Saldo esperado · USD",
             "value": "1.250,00"
           },
           {
-            "label": "EUR · Disponible",
-            "value": "840,00"
+            "label": "Conteo físico · USD",
+            "value": "1.240,00"
           },
           {
-            "label": "COP · Saldo de caja",
-            "value": "4.800.000,00"
+            "label": "Diferencia · USD",
+            "value": "−10,00 · Faltante"
           }
         ]
       },
       {
-        "title": "Información del cliente conectada",
-        "description": "Consulta sus datos y el estado de revisión antes de continuar la atención.",
+        "title": "Un cambio con contexto",
+        "description": "Revisa la tasa anterior, la nueva y quién registró el cambio con su motivo. Ejemplo de compra de USD en COP.",
         "rows": [
           {
-            "label": "Registro",
-            "value": "Datos de contacto"
+            "label": "Tasa anterior → nueva",
+            "value": "4.000 → 4.020"
           },
           {
-            "label": "Verificación",
-            "value": "Resultado de listas"
+            "label": "Responsable",
+            "value": "Administrador de ejemplo"
           },
           {
-            "label": "Trazabilidad",
-            "value": "Historial de cambios"
+            "label": "Motivo",
+            "value": "Ajuste de tasa de compra"
           }
         ]
       },
       {
-        "title": "De la operación al reporte",
-        "description": "Consulta los reportes operativos y conoce la generación de archivos regulatorios.",
+        "title": "De la operación a su soporte",
+        "description": "Consulta el registro y genera un recibo de la transacción. El recibo no es una factura electrónica.",
         "rows": [
           {
-            "label": "Caja por divisa",
-            "value": "PDF"
+            "label": "Operación",
+            "value": "Venta · 100 USD"
           },
           {
-            "label": "DIAN · Compras / Ventas",
-            "value": "1099 / 1100"
+            "label": "Tasa · COP por USD",
+            "value": "4.100"
           },
           {
-            "label": "UIAF · Según configuración",
-            "value": "Trimestral"
+            "label": "Importe · COP",
+            "value": "410.000"
           }
         ]
       }
@@ -302,9 +383,9 @@ export const es: SiteContent = {
     "note": "Flujo previsto · No emite facturas"
   },
   "heroBadges": [
-    "Control por sede",
-    "Reportes DIAN y UIAF",
-    "Trazabilidad operativa"
+    "Conciliación por divisa",
+    "Cambios con responsable",
+    "Acceso de consulta"
   ],
   "compliance": {
     "eyebrow": "REPORTES Y CUMPLIMIENTO",
@@ -342,7 +423,7 @@ export const es: SiteContent = {
 },
 
   why: {
-  "eyebrow": "03 / Por qué trabajar con nosotros",
+  "eyebrow": "01 / Por qué trabajar con nosotros",
   "line1": "Construimos nuestro producto.",
   "line2": "Nos involucramos en el tuyo.",
   "sub": "Currency Exchange hace visible nuestra forma de trabajar: convertir necesidades operativas en capacidades que se pueden usar y revisar.",
@@ -408,7 +489,7 @@ export const es: SiteContent = {
   },
 
   process: {
-  "eyebrow": "04 / Cómo empezamos",
+  "eyebrow": "02 / Cómo empezamos",
   "line1": "Del reto de negocio",
   "line2": "a una solución validada.",
   "steps": [
@@ -508,7 +589,6 @@ export const es: SiteContent = {
 
   footer: {
   "tagline": "JokerLabs es un laboratorio de inteligencia artificial. Creamos productos propios y soluciones para empresas. Currency Exchange es nuestro producto insignia.",
-  "navigateLabel": "Explorar",
   "contactLabel": "Contacto",
   "cta": "Hablemos de tu proyecto",
   "taglineBottom": "Inteligencia artificial. Productos. Progreso."

@@ -4,7 +4,27 @@ export const en: SiteContent = {
   locale: "en",
 
   nav: {
-    items: ["Home", "Product", "Services", "Process", "Team", "Contact"],
+    label: "Main navigation",
+    toggle: "Toggle navigation",
+    home: "Home",
+    portfolio: "Portfolio",
+    company: "Company",
+    contact: "Contact",
+    productsLabel: "Products",
+    servicesLabel: "Services",
+    companyLabel: "JokerLabs",
+    products: [
+      { title: "Currency Exchange", description: "Cash, currencies, customers and reports for exchange houses" },
+    ],
+    companyItems: [
+      { title: "Why JokerLabs", description: "We build our own product and get involved in yours" },
+      { title: "How we work", description: "From business challenge to a validated solution" },
+      { title: "Team", description: "The people behind the laboratory" },
+      { title: "FAQ", description: "Timing, pricing and what happens after you reach out" },
+    ],
+    allServices: "See all services",
+    productCta: "Discover Currency Exchange",
+    demo: "Request a demo",
     cta: "Let's Talk",
   },
 
@@ -39,7 +59,7 @@ export const en: SiteContent = {
   },
 
   services: {
-  "eyebrow": "02 / Laboratory services",
+  "eyebrow": "01 / Laboratory services",
   "line1": "The capability behind our products.",
   "line2": "Applied to your business.",
   "sub": "If you need your own solution, we work with you to understand the problem, validate an approach and bring it into production. AI is at the center; software, automation and infrastructure make it usable.",
@@ -95,6 +115,59 @@ export const en: SiteContent = {
   },
 
   currencyExchange: {
+    dailyCases: {
+      "eyebrow": "EVERYDAY LIFE AT YOUR EXCHANGE HOUSE",
+      "title": "Situations your team knows well.",
+      "description": "From customer service to cash closing: here is how Currency Exchange can help you review what happens in your operation.",
+      "actionLabel": "What you can do",
+      "resultLabel": "What you can review",
+      "note": "Illustrative cases of current capabilities, subject to permissions, plan and configuration. Your team reviews the information and makes the decisions.",
+      "cta": "Request a demo of my workflow",
+      "items": [
+        {
+          "moment": "At cash closing",
+          "title": "“We are short 10 dollars. What happened?”",
+          "situation": "The physical count is 1,240 USD, but the expected balance is 1,250 USD.",
+          "action": "Compare both balances by currency and review recorded movements and adjustments.",
+          "result": "A 10 USD shortage identified for investigation. The system shows the difference; your team determines the cause."
+        },
+        {
+          "moment": "During the day",
+          "title": "“Who changed the purchase rate?”",
+          "situation": "The dollar purchase rate changed from 4,000 to 4,020 COP during the day.",
+          "action": "Review the branch’s rate change history.",
+          "result": "The previous rate, the new rate, the person responsible and the recorded reason, giving the change context."
+        },
+        {
+          "moment": "When a customer returns",
+          "title": "“I need my transaction receipt.”",
+          "situation": "A customer requests a receipt for a currency sale that was already recorded.",
+          "action": "Find the transaction in the history and generate its receipt.",
+          "result": "A receipt with customer, operator, currency, rate and amount. This receipt is separate from an electronic invoice."
+        },
+        {
+          "moment": "When registering a customer",
+          "title": "“This name looks like one on a list.”",
+          "situation": "Candidates with similar names appear during registration.",
+          "action": "Review the candidates and available information before recording your decision.",
+          "result": "Matches that need assessment. A similar name alone does not confirm that it is the same person."
+        },
+        {
+          "moment": "When working with your advisor",
+          "title": "“I need to review the branch reports.”",
+          "situation": "Your advisor needs to consult information without changing daily operations.",
+          "action": "Assign the read-only role and the appropriate branches.",
+          "result": "History, receipts and reports within the authorized scope, without permission to modify transactions."
+        },
+        {
+          "moment": "When preparing reports",
+          "title": "“It is time to organize the records.”",
+          "situation": "The person responsible needs to prepare files for review and later submission.",
+          "action": "Generate DIAN 1099/1100 formats and quarterly UIAF files when the company configuration enables them.",
+          "result": "Files for the responsible person to review. Generation does not imply submission or acceptance by an authority."
+        }
+      ]
+    },
     assistant: {
     "eyebrow": "PRODUCT VISION · PLANNED",
     "title": "Your operation under control.",
@@ -151,114 +224,122 @@ export const en: SiteContent = {
     "annualRequestLabel": "Annual membership / one-month trial requested"
 },
   "eyebrow": "01 / Our flagship product",
-  "title": "Your entire operation.",
-  "description": "Customers, currencies, cash and DIAN/UIAF reports connected in one platform. More visibility for operations and tools to support your compliance processes.",
+  "title": "Your exchange house.",
+  "description": "Connect currency purchases and sales, customers and cash by branch. Review closing differences, see who changed rates and prepare reports from your operational records.",
   "problem": "When information is scattered, every close means reconstructing what happened.",
   "benefit": "Currency Exchange brings the pieces together so you can review movements, control access and make decisions with context.",
-  "summaryLabel": "More clarity at every operational step",
+  "summaryLabel": "Clear answers to manage your operation",
   "capabilities": [
     {
-      "title": "Every branch, under control",
-      "description": "Assign role and branch access. Your team has the permissions it needs and you retain visibility."
+      "title": "Understand cash differences",
+      "description": "Compare expected balances with physical counts and identify shortages or surpluses by currency when closing the session."
     },
     {
-      "title": "Less scattered information",
-      "description": "Connect customers, transactions, currencies and receipts to review activity in one environment."
+      "title": "See who changed what",
+      "description": "Review rate changes and cash deposits or withdrawals with the recorded person responsible and reason."
     },
     {
-      "title": "Reports that support your business",
-      "description": "Review cash by currency and prepare DIAN/UIAF files according to configuration. Keep information organized for review and follow-up."
+      "title": "Share information with control",
+      "description": "Assign access by role and branch. The read-only role can review history, receipts and reports without permission to change operational records."
     }
   ],
-  "updatesLabel": "Control to operate. Tools to grow.",
-  "updatesDescription": "These capabilities connect your team’s work with the information you need as an owner or administrator.",
+  "updatesLabel": "From customer service to transaction records.",
+  "updatesDescription": "Your team records and reviews activity; you have information to understand what happened at each branch.",
   "updates": [
     {
-      "title": "Traceable cash and currencies",
-      "description": "Approved rates, inventory and branch reconciliation, with movement history to review what happened."
+      "title": "A record for each transaction",
+      "description": "Review a recorded transaction and generate its receipt with customer, operator, currency, rate and amount. A receipt is separate from an electronic invoice."
     },
     {
-      "title": "Easier customer management",
-      "description": "Search, update contact details and recover hidden records while preserving their history."
+      "title": "Keep customer history connected",
+      "description": "Find existing records, update contact details and recover hidden customers while preserving their history."
     },
     {
-      "title": "Reports for your needs",
-      "description": "Filter one or several currencies and export cash reports as PDFs for the period you want to review."
+      "title": "Matches for human review",
+      "description": "Customer registration includes candidate review when list matches are found. Your team assesses the result; a name match does not confirm identity."
     },
     {
-      "title": "A plan for your operation",
-      "description": "Core for one branch or Growth for up to five, with four users per branch and membership management."
+      "title": "Connected rates and inventory",
+      "description": "Record purchases and sales using approved branch rates, with available stock validation when selling."
+    },
+    {
+      "title": "Reports to review your operation",
+      "description": "Filter one or several currencies, review rate changes and cash adjustments, and export operational PDF reports. Prepare DIAN/UIAF files according to configuration."
+    },
+    {
+      "title": "Clear capacity for your branches",
+      "description": "Core for one branch or Growth for up to five, with four users per branch. We review which plan fits your operation together."
     }
   ],
-  "boundary": "Capabilities depend on the plan and configuration. Regulatory files require review before submission.",
+  "boundary": "Core includes one branch and Growth up to five, with four users per branch. Capabilities depend on the plan and configuration. Regulatory files require review before submission.",
   "cta": "Request a demo",
   "moreLabel": "Working in a different industry?",
   "moreCta": "Explore our services",
-  "headlineAccent": "One Currency Exchange.",
-  "productLabel": "JOKERLABS FLAGSHIP PRODUCT",
-  "ctaNote": "Tell us how your exchange house operates. We will review the fit and next steps together.",
+  "headlineAccent": "Under control.",
+  "productLabel": "SOFTWARE FOR COLOMBIAN EXCHANGE HOUSES",
+  "ctaNote": "What do you need to review more clearly: cash, rate changes or reports? Tell us and we will coordinate a demonstration of that workflow.",
   "tourCta": "Explore capabilities",
   "preview": {
     "label": "Illustrative view · Sample data",
     "title": "Your operations, in one view",
     "branch": "Central branch",
     "tabs": [
-      "Cash & currencies",
-      "Customers",
-      "Reports"
+      "Cash closing",
+      "Rate changes",
+      "Transaction & receipt"
     ],
     "views": [
       {
-        "title": "Visibility into your cash",
-        "description": "See inventory by currency and review branch movements.",
+        "title": "Identify a difference at closing",
+        "description": "Compare the expected balance with the physical count for a currency. Example in USD.",
         "rows": [
           {
-            "label": "USD · Available",
+            "label": "Expected balance · USD",
             "value": "1,250.00"
           },
           {
-            "label": "EUR · Available",
-            "value": "840.00"
+            "label": "Physical count · USD",
+            "value": "1,240.00"
           },
           {
-            "label": "COP · Cash balance",
-            "value": "4,800,000.00"
+            "label": "Difference · USD",
+            "value": "−10.00 · Shortage"
           }
         ]
       },
       {
-        "title": "Connected customer information",
-        "description": "Review customer details and screening status before continuing service.",
+        "title": "A change with context",
+        "description": "Review the previous rate, the new rate and who recorded the change with a reason. USD purchase rate example in COP.",
         "rows": [
           {
-            "label": "Record",
-            "value": "Contact details"
+            "label": "Previous rate → new rate",
+            "value": "4,000 → 4,020"
           },
           {
-            "label": "Screening",
-            "value": "List results"
+            "label": "Recorded by",
+            "value": "Example administrator"
           },
           {
-            "label": "Traceability",
-            "value": "Change history"
+            "label": "Reason",
+            "value": "Purchase rate adjustment"
           }
         ]
       },
       {
-        "title": "From transactions to reporting",
-        "description": "Review operational reports and explore regulatory file generation.",
+        "title": "From transaction to receipt",
+        "description": "Review the record and generate a transaction receipt. The receipt is not an electronic invoice.",
         "rows": [
           {
-            "label": "Cash by currency",
-            "value": "PDF"
+            "label": "Transaction",
+            "value": "Sale · 100 USD"
           },
           {
-            "label": "DIAN · Purchases / Sales",
-            "value": "1099 / 1100"
+            "label": "Rate · COP per USD",
+            "value": "4,100"
           },
           {
-            "label": "UIAF · Per configuration",
-            "value": "Quarterly"
+            "label": "Amount · COP",
+            "value": "410,000"
           }
         ]
       }
@@ -302,9 +383,9 @@ export const en: SiteContent = {
     "note": "Planned workflow · Does not issue invoices"
   },
   "heroBadges": [
-    "Branch controls",
-    "DIAN & UIAF reports",
-    "Operational traceability"
+    "Reconciliation by currency",
+    "Changes with a named actor",
+    "Read-only access"
   ],
   "compliance": {
     "eyebrow": "REPORTING & COMPLIANCE",
@@ -342,7 +423,7 @@ export const en: SiteContent = {
 },
 
   why: {
-  "eyebrow": "03 / Why work with us",
+  "eyebrow": "01 / Why work with us",
   "line1": "We build our own product.",
   "line2": "We commit to yours.",
   "sub": "Currency Exchange makes our approach visible: turning operational needs into capabilities that can be used and reviewed.",
@@ -408,7 +489,7 @@ export const en: SiteContent = {
   },
 
   process: {
-  "eyebrow": "04 / Getting started",
+  "eyebrow": "02 / Getting started",
   "line1": "From a business challenge",
   "line2": "to a validated solution.",
   "steps": [
@@ -508,7 +589,6 @@ export const en: SiteContent = {
 
   footer: {
   "tagline": "JokerLabs is an artificial intelligence laboratory. We build our own products and solutions for businesses. Currency Exchange is our flagship product.",
-  "navigateLabel": "Explore",
   "contactLabel": "Contact",
   "cta": "Let’s discuss your project",
   "taglineBottom": "Artificial intelligence. Products. Progress."

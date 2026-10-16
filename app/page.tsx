@@ -2,8 +2,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ScrollProgress } from "@/components/shared/ScrollProgress";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ServicesSection } from "@/components/sections/ServicesSection";
-import { CurrencyExchangeSection } from "@/components/sections/CurrencyExchangeSection";
 import { WhySection } from "@/components/sections/WhySection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { FaqSection } from "@/components/sections/FaqSection";
@@ -17,8 +15,6 @@ export default function HomePage() {
       <Navbar />
       <main>
         <HeroSection />
-        <CurrencyExchangeSection />
-        <ServicesSection />
         <WhySection />
         <ProcessSection />
         <TeamSection />
